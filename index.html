@@ -452,12 +452,17 @@
   .sugg-item{margin-bottom:14px;}
   .sgh{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:5px;}
   .copybtn.sugg{color:#6C5CE7;border-color:#d9d3ea;}
+  /* google-docs style autosave status */
+  .savestate{font-size:11.5px;font-weight:700;color:var(--teal-d);background:var(--tint-teal);border:1px solid #bdebd4;border-radius:999px;padding:4px 10px;white-space:nowrap;transition:opacity .2s var(--ease),background .2s var(--ease),color .2s var(--ease);}
+  .savestate.saving{color:var(--muted);background:var(--line2);border-color:var(--line);}
+  [data-theme="dark"] .savestate{border-color:#1f5246;}
+  @media(max-width:760px){.savestate{display:none;}}
 </style>
 </head>
 <body>
 
 <div class="top">
-  <div class="brand"><div class="logo">🦷</div><div>Toronto Kids Dental<small>Daily Drop</small></div></div>
+  <div class="brand"><div class="logo">🦷</div><div>Toronto Kids Dental<small>Daily Drop</small></div><span class="savestate" id="saveState">✓ Saved</span></div>
   <div class="topbtns">
     <button class="tbtn" id="meBtn" title="People &amp; roles" onclick="peopleOpen()">👤 Sign in</button>
     <button class="tbtn ic" id="muteBtn" title="Sound on/off (M)" onclick="toggleMute()">🔊</button>
@@ -746,7 +751,8 @@ const SOUNDS=[
 
 let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[]};
 const KEY='TKD_state_v2';
-function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){} flagSaved();}
+function flagSaved(){const el=document.getElementById('saveState');if(!el)return;el.textContent='Saving…';el.classList.add('saving');clearTimeout(el._t);el._t=setTimeout(()=>{el.textContent='✓ Saved';el.classList.remove('saving');},450);}
 function load(){try{const s=localStorage.getItem(KEY);if(s)state=Object.assign(state,JSON.parse(s));}catch(e){}}
 
 /* ============ sound fx (Web Audio — no files needed) ============ */
