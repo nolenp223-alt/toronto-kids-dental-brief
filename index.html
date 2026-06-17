@@ -4,6 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Toronto Kids Dental — Daily Drop — Tue, June 16, 2026</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A6%B7%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" id="mThemeColor" content="#FBFAF8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="TKD Daily">
+<link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -82,7 +88,7 @@
   .scene{position:absolute;inset:0;display:grid;place-items:center;font-size:46px;opacity:0;animation:cyc 6s infinite;}
   .scene .cap{position:absolute;bottom:14px;left:12px;right:12px;font-size:11.5px;font-weight:600;color:#fff;
     text-shadow:0 1px 8px rgba(0,0,0,.55);letter-spacing:-.01em;}
-  @keyframes cyc{0%,100%{opacity:0;transform:scale(.97)}8%,28%{opacity:1;transform:scale(1)}36%{opacity:0}}
+  @keyframes cyc{0%,100%{opacity:1;transform:scale(1)}30%{opacity:1}36%,94%{opacity:0}}
   .s1{animation-delay:0s}.s2{animation-delay:2s}.s3{animation-delay:4s}
   .phonebox small{display:block;text-align:center;margin-top:8px;font-size:10.5px;color:var(--faint);font-weight:600;letter-spacing:.03em;}
   .g-a{background:linear-gradient(155deg,#ff8a5e,#ff5e8a);}
@@ -457,6 +463,43 @@
   .savestate.saving{color:var(--muted);background:var(--line2);border-color:var(--line);}
   [data-theme="dark"] .savestate{border-color:#1f5246;}
   @media(max-width:760px){.savestate{display:none;}}
+
+  /* scroll progress + back-to-top */
+  #scrollbar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--teal),var(--coral));z-index:60;transition:width .1s linear;}
+  #toTop{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:19px;box-shadow:var(--sh);cursor:pointer;z-index:45;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s var(--ease),transform .25s var(--spring),background .15s;}
+  #toTop.show{opacity:1;pointer-events:auto;transform:none;}
+  #toTop:hover{background:var(--tint-teal);}
+  /* search */
+  .searchbox{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-family:inherit;font-size:14.5px;color:var(--ink);background:var(--card);box-shadow:var(--sh-sm);}
+  .searchbox:focus{outline:none;border-color:var(--teal);}
+  /* settings */
+  .seth{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:18px 0 9px;}
+  .seth:first-child{margin-top:0;}
+  .seg{display:flex;gap:4px;background:var(--line2);padding:4px;border-radius:13px;}
+  .segb{flex:1;border:none;background:transparent;border-radius:10px;padding:10px;font-weight:700;font-size:13px;cursor:pointer;color:var(--ink2);transition:all .15s var(--ease);}
+  .segb.on{background:var(--card);color:var(--ink);box-shadow:var(--sh-sm);}
+  .setrow{display:flex;align-items:center;justify-content:space-between;padding:8px 0;font-size:14px;font-weight:600;}
+  .toggle{width:48px;height:28px;border-radius:999px;border:none;background:var(--line);position:relative;cursor:pointer;transition:background .2s;}
+  .toggle.on{background:var(--good);}
+  .toggle .kn{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:var(--sh-sm);transition:left .2s var(--spring);}
+  .toggle.on .kn{left:23px;}
+  .setbtns{display:flex;gap:8px;flex-wrap:wrap;}
+  .setbtns button{flex:1;min-width:130px;border:1px solid var(--line);background:var(--card);color:var(--ink2);font-weight:700;font-size:13px;border-radius:11px;padding:11px;cursor:pointer;box-shadow:var(--sh-sm);transition:all .15s var(--ease);}
+  .setbtns button:hover{transform:translateY(-1px);box-shadow:var(--sh);}
+  .setbtns .danger{color:#c2255c;}
+  .sortrow{font-size:12px;color:var(--muted);font-weight:600;margin:12px 0 2px;}
+  .sortrow select{font-family:inherit;font-size:12.5px;border:1px solid var(--line);border-radius:9px;padding:6px 8px;background:var(--card);color:var(--ink);margin-left:6px;}
+  #bugText{width:100%;min-height:92px;border:1px solid var(--line);border-radius:12px;padding:12px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);resize:vertical;}
+  #bugText:focus{outline:none;border-color:var(--teal);}
+  /* PHONE FIX: show first concept statically when motion is reduced, so previews never go blank */
+  @media(prefers-reduced-motion:reduce){.scene.s1{opacity:1!important;}.scene.s2,.scene.s3{opacity:0!important;}}
+  /* print / save-as-PDF */
+  @media print{
+    .top,#scrollbar,#toTop,.ov,.modal,.actions,.btns,.exform,.addtop,.savestate,.topbtns,.searchbox{display:none!important;}
+    body{background:#fff;}
+    .card{break-inside:avoid;box-shadow:none;border:1px solid #ccc;}
+    .phone{box-shadow:none;}
+  }
 </style>
 </head>
 <body>
@@ -465,6 +508,7 @@
   <div class="brand"><div class="logo">🦷</div><div>Toronto Kids Dental<small>Daily Drop</small></div><span class="savestate" id="saveState">✓ Saved</span></div>
   <div class="topbtns">
     <button class="tbtn" id="meBtn" title="People &amp; roles" onclick="peopleOpen()">👤 Sign in</button>
+    <button class="tbtn ic" title="Settings" onclick="setOpen()">⚙️</button>
     <button class="tbtn ic" id="muteBtn" title="Sound on/off (M)" onclick="toggleMute()">🔊</button>
     <button class="tbtn ic" id="darkBtn" title="Dark mode" onclick="toggleDark()">🌙</button>
     <button class="tbtn ic" title="Surprise me" onclick="surpriseIdea()">🎲</button>
@@ -490,6 +534,7 @@
   <!-- SKITS & TEMPLATES -->
   <div class="sec"><h2>🎬 Skits &amp; viral templates</h2><span class="count" id="ideaCount">5 ideas</span></div>
   <p class="sec-sub">Add your own example to any of these — paste a reel you love and it saves.</p>
+  <input id="ideaSearch" class="searchbox" type="search" placeholder="🔎 Search today's ideas…" oninput="searchIdeas(this.value)">
 
   <!-- IDEA 1 -->
   <div class="card" data-id="i1" data-title="&quot;Spin the Bottle&quot; picks the toothbrush" data-type="Skit" data-emoji="🍾" data-score="9">
@@ -723,6 +768,44 @@
   <div class="sh-body" id="peopleBody"></div>
 </div></div>
 
+<div id="scrollbar"></div>
+<button id="toTop" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- SETTINGS -->
+<div class="ov" id="setOv" onclick="if(event.target===this)setClose()"><div class="sheet">
+  <div class="sh-top"><h2>⚙️ Settings</h2><button class="x" onclick="setClose()">✕</button></div>
+  <div class="sh-body" id="setBody"></div>
+</div></div>
+
+<!-- HELP -->
+<div class="ov" id="helpOv" onclick="if(event.target===this)this.classList.remove('open')"><div class="sheet">
+  <div class="sh-top"><h2>⌨️ Shortcuts &amp; help</h2><button class="x" onclick="document.getElementById('helpOv').classList.remove('open')">✕</button></div>
+  <div class="sh-body">
+    <p class="muted" style="text-align:left">Keyboard: <b>L</b> open My List · <b>M</b> mute · <b>?</b> this help · <b>Esc</b> close.</p>
+    <ul style="font-size:13.5px;line-height:1.8;color:var(--ink2);margin:12px 0 0 18px;">
+      <li>Tap an idea's <b>➕ Add to list</b>, then drag its slider Filming → Editing → Posted.</li>
+      <li><b>📝 Script</b> → edit or suggest an edit. <b>✨ Fix spelling</b> tidies notes.</li>
+      <li><b>👤</b> manage people &amp; roles and copy the invite link.</li>
+      <li><b>▶</b> on a sound plays it on YouTube; ⭐ pins an item; ⧉ duplicates it.</li>
+      <li>Everything autosaves — watch the <b>✓ Saved</b> chip.</li>
+    </ul>
+  </div>
+</div></div>
+
+<!-- CONFIRM -->
+<div class="modal" id="confirmModal"><div class="mbox">
+  <h3 id="confirmTitle">Are you sure?</h3><p class="h" id="confirmMsg"></p>
+  <div class="mbtns"><button class="cancel" onclick="confirmNo()">Cancel</button><button class="save" onclick="confirmYes()">Yes, do it</button></div>
+</div></div>
+
+<!-- BUG REPORT -->
+<div class="modal" id="bugModal"><div class="mbox">
+  <h3>🐞 Report a bug</h3>
+  <p class="h">Tell me what's wrong — it saves here and gets fixed in tomorrow's 7am build.</p>
+  <textarea id="bugText" placeholder="e.g. the slider didn't save on my phone, or a link was broken"></textarea>
+  <div class="mbtns"><button class="cancel" onclick="document.getElementById('bugModal').classList.remove('open')">Cancel</button><button class="save" onclick="sendBug()">Send 🐞</button></div>
+</div></div>
+
 <input type="file" id="importFile" accept="application/json" style="display:none" onchange="importData(event)">
 <div class="toast" id="toast">Saved</div>
 
@@ -735,11 +818,11 @@ const STAGES=[
   {label:'Posted',color:'#16B07A'}
 ];
 const STARTER_EX={
-  i1:[{label:'#spinthebottle',url:'https://www.instagram.com/explore/tags/spinthebottle/'}],
-  i2:[{label:'#dentalhumor',url:'https://www.instagram.com/explore/tags/dentalhumor/'}],
-  i3:[{label:'@dr.m reel ✓',url:'https://www.tiktok.com/@dr.m_/video/7352705838294994222'},{label:'#dentaltiktok',url:'https://www.instagram.com/explore/tags/dentaltiktok/'}],
-  i4:[{label:'#worldcup2026',url:'https://www.instagram.com/explore/tags/worldcup2026/'}],
-  i5:[{label:'#colorwalk',url:'https://www.instagram.com/explore/tags/colorwalk/'}]
+  i1:[{label:'▶ Spin-the-Bottle reel',url:'https://www.tiktok.com/@risqii_af/video/7289799027049237766'}],
+  i2:[{label:'▶ Say-it-4-ways reel',url:'https://www.tiktok.com/@laurahfritz/video/7643549869440879902'}],
+  i3:[{label:'▶ Dentist-reacts reel',url:'https://www.tiktok.com/@dr.m_/video/7352705838294994222'}],
+  i4:[{label:'▶ World Cup jersey reel',url:'https://www.tiktok.com/@centraaal___/video/7647184857726143765'}],
+  i5:[{label:'▶ Color Walk reel',url:'https://www.tiktok.com/@allaroundaudrey/video/7472064274412653866'}]
 };
 const SOUNDS=[
   {n:'Game Time',a:'Future & Tyla',use:'Jersey-day / "brush like a champion"',url:'https://www.instagram.com/explore/tags/worldcup2026/',peak:'match nights · 6–10pm',ps:18,pe:22},
@@ -749,7 +832,8 @@ const SOUNDS=[
   {n:'Break My Stride',a:'feel-good progress',use:'Kid conquering their first cleaning',url:'https://www.instagram.com/explore/tags/kidsdentist/',peak:'afternoons · 3–6pm',ps:15,pe:18}
 ];
 
-let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[]};
+let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[],bugs:[],theme:'',sort:'manual'};
+const VERSION='1.0';
 const KEY='TKD_state_v2';
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){} flagSaved();}
 function flagSaved(){const el=document.getElementById('saveState');if(!el)return;el.textContent='Saving…';el.classList.add('saving');clearTimeout(el._t);el._t=setTimeout(()=>{el.textContent='✓ Saved';el.classList.remove('saving');},450);}
@@ -815,7 +899,7 @@ function renderExamples(){
   document.querySelectorAll('.ex[data-id]').forEach(wrap=>{
     const id=wrap.dataset.id;
     const list=(STARTER_EX[id]||[]).concat((state.examples[id]||[]).map((e,i)=>({...e,custom:true,idx:i})));
-    let html='<div class="exlbl">📸 Examples on Instagram</div><div class="exrow">';
+    let html='<div class="exlbl">▶ Real example reels — verified live</div><div class="exrow">';
     list.forEach(e=>{
       html+=`<a class="exchip" href="${e.url}" target="_blank"><span class="ig">▶</span>${escapeHtml(e.label)}`;
       html+=e.custom?`<span class="xr" onclick="event.preventDefault();rmExample('${id}',${e.idx})">✕</span>`:'';
@@ -865,13 +949,15 @@ function updateSummary(){
     (state.list.length?`<div class="nextslot">📅 Next open slot: <b>${prettyDate(nextSlot())}</b><span style="margin-left:auto;font-weight:500;color:var(--muted);font-size:11px;">auto-syncs to your IG once the 7am routine is on</span></div>`:``)+
     `<div class="lstats">`+STAGES.map((s,i)=>`<span class="pill"><i style="background:${s.color}"></i>${s.label}: ${c[i]}</span>`).join('')+(pw?`<span class="pill hot">🔥 ${pw} posted this week</span>`:``)+`</div>`+
     `<div class="tabs">`+TABS.map(t=>`<button class="tab${String(state.filter)===String(t[0])?' on':''}" onclick="setFilter('${t[0]}')">${t[1]}${t[0]!=='all'?` <em>${c[t[0]]}</em>`:``}</button>`).join('')+(state.filter!=='all'?`<button class="tab clearf" onclick="setFilter('all')">✕ Show all</button>`:``)+`</div>`+
+    `<div class="sortrow">Sort <select onchange="state.sort=this.value;save();renderList();">${['manual|Manual order','stage|By stage','az|A–Z','posted|Recently posted'].map(o=>{const p=o.split('|');return `<option value="${p[0]}"${(state.sort||'manual')===p[0]?' selected':''}>${p[1]}</option>`;}).join('')}</select></div>`+
     `<div class="ltools"><button onclick="exportList()">📋 Copy checklist</button><button onclick="backupData()">⬇️ Backup</button><button onclick="document.getElementById('importFile').click()">⬆️ Restore</button><button class="danger" onclick="clearPosted()">🧹 Clear posted</button></div>`;
 }
 function renderList(){
   updateSummary();
   const wrap=document.getElementById('listItems');
   if(!state.list.length){wrap.innerHTML='<div class="empty"><span class="big">🎬</span>Nothing here yet.<br>Tap <b>➕ Add to list</b> on an idea, or add your own.</div>';return;}
-  const items=state.filter==='all'?state.list:state.list.filter(i=>String(i.stage)===String(state.filter));
+  let items=state.filter==='all'?state.list.slice():state.list.filter(i=>String(i.stage)===String(state.filter));
+  items=sortItems(items);
   if(!items.length){wrap.innerHTML='<div class="empty"><span class="big">🗂️</span>Nothing in this stage yet.</div>';return;}
   wrap.innerHTML='';items.forEach(item=>wrap.appendChild(buildItem(item)));
 }
@@ -885,6 +971,8 @@ function buildItem(item){
       ${item.type?`<span class="ctag">${escapeHtml(item.type)}</span>`:``}
       ${item.author?`<span class="byline${item.author==='System'?' sys':''}">${item.author==='System'?'System':'by '+escapeHtml(item.author)}</span>`:``}
       <span class="ord"><button title="Move up" onclick="moveItem('${item.id}',-1)">▲</button><button title="Move down" onclick="moveItem('${item.id}',1)">▼</button></span>
+      <button class="rm0" title="${item.pinned?'Unpin':'Pin to top'}" onclick="pinItem('${item.id}')">${item.pinned?'⭐':'☆'}</button>
+      <button class="rm0" title="Duplicate" onclick="dupItem('${item.id}')">⧉</button>
       <button class="rm0" title="Remove" onclick="removeItem('${item.id}')">✕</button></div>
     ${item.notes?`<div class="lnotes">📝 ${escapeHtml(item.notes)}</div>`:``}
     <div class="lmeta">${item.addedAt?`<span>＋ added ${relTime(item.addedAt)}</span>`:``}${green&&item.postedAt?`<span class="posted">✅ posted ${relTime(item.postedAt)}</span>`:``}</div>
@@ -918,7 +1006,7 @@ function saveNote(id,key,val){const it=state.list.find(x=>x.id===id);if(!it)retu
 function setPlan(id,val){const it=state.list.find(x=>x.id===id);if(it){it.planDate=val;save();sfxClick();toast(val?'Post date set 📅':'Date cleared');}}
 function moveItem(id,dir){const i=state.list.findIndex(x=>x.id===id),j=i+dir;if(i<0||j<0||j>=state.list.length)return;const t=state.list[i];state.list[i]=state.list[j];state.list[j]=t;save();renderList();sfxClick();}
 function exportList(){if(!state.list.length){toast('List is empty');return;}const txt='🦷 Toronto Kids Dental — production list\n\n'+state.list.map(i=>`${['⬜','🎬','✂️','✅'][i.stage]} ${i.title} — ${STAGES[i.stage].label}`).join('\n');navigator.clipboard.writeText(txt).then(()=>{sfxCopy();toast('Checklist copied ✅');});}
-function clearPosted(){const n=state.list.filter(i=>i.stage===3).length;if(!n){toast('Nothing posted yet');return;}state.list=state.list.filter(i=>i.stage!==3);save();renderList();updateCount();refreshCards();sfxRemove();toast('Cleared '+n+' posted');}
+function clearPosted(){const n=state.list.filter(i=>i.stage===3).length;if(!n){toast('Nothing posted yet');return;}confirmAsk('Clear posted?','Remove '+n+' posted item(s) from the list? This can\'t be undone.',()=>{state.list=state.list.filter(i=>i.stage!==3);save();renderList();updateCount();refreshCards();sfxRemove();toast('Cleared '+n+' posted');});}
 function backupData(){try{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='toronto-kids-dental-backup.json';document.body.appendChild(a);a.click();a.remove();sfxClick();toast('Backup downloaded ⬇️');}catch(e){toast('Backup not supported here');}}
 function milestone(){const n=state.list.filter(i=>i.stage===3).length;if(n>0&&n%3===0)setTimeout(()=>{confetti();confetti();toast('🔥 '+n+' posted — on a roll!');},220);}
 function attachSlider(prog,item){
@@ -959,8 +1047,9 @@ function attachSlider(prog,item){
 function removeItem(id){state.list=state.list.filter(x=>x.id!==id);save();renderList();updateCount();refreshCards();sfxRemove();toast('Removed from list');}
 function surpriseIdea(){const cards=Array.from(document.querySelectorAll('.card[data-id]')).filter(c=>!state.notDoing.includes(c.dataset.id));if(!cards.length)return;const p=cards[Math.floor(Math.random()*cards.length)];p.scrollIntoView({behavior:'smooth',block:'center'});p.classList.remove('flash');void p.offsetWidth;p.classList.add('flash');sfxSoundAdd();toast('🎲 Try this one!');}
 function toggleMute(){state.muted=!state.muted;save();const b=document.getElementById('muteBtn');if(b)b.textContent=state.muted?'🔇':'🔊';if(!state.muted)sfxClick();toast(state.muted?'🔇 Sound off':'🔊 Sound on');}
-function toggleDark(){state.dark=!state.dark;save();applyTheme();sfxClick();}
-function applyTheme(){document.documentElement.setAttribute('data-theme',state.dark?'dark':'light');const b=document.getElementById('darkBtn');if(b)b.textContent=state.dark?'☀️':'🌙';}
+function toggleDark(){const isDark=document.documentElement.getAttribute('data-theme')==='dark';state.theme=isDark?'light':'dark';save();applyTheme();sfxClick();}
+function setTheme(t){state.theme=t;save();applyTheme();if(document.getElementById('setOv').classList.contains('open'))renderSettings();sfxClick();}
+function applyTheme(){let t=state.theme||(state.dark?'dark':'light');let d=t==='dark'||(t==='auto'&&window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches);state.dark=d;document.documentElement.setAttribute('data-theme',d?'dark':'light');const b=document.getElementById('darkBtn');if(b)b.textContent=d?'☀️':'🌙';const mt=document.getElementById('mThemeColor');if(mt)mt.setAttribute('content',d?'#15131c':'#FBFAF8');}
 
 /* ============ play sounds from YouTube ============ */
 function playSound(i){const s=SOUNDS[i];const q=encodeURIComponent(s.n.replace(/\//g,' ')+' '+(s.a||'').split('·')[0].trim());window.open('https://www.youtube.com/results?search_query='+q,'_blank','noopener');sfxClick();toast('▶ Opening on YouTube');}
@@ -995,9 +1084,10 @@ function editScript(id){
   const card=document.querySelector('.card[data-id="'+id+'"]');
   const view=card.querySelector('.scriptview'),bar=card.querySelector('.scriptbar');
   const cur=(state.scripts&&state.scripts[id])||ORIG[id].text;
-  view.innerHTML='<textarea class="scriptedit"></textarea>';view.querySelector('textarea').value=cur;
-  bar.innerHTML=`<button class="copybtn" onclick="saveScript('${id}')">💾 Save</button><button class="copybtn" onclick="renderScript('${id}')">Cancel</button>`;
-  sfxClick();view.querySelector('textarea').focus();
+  view.innerHTML='<textarea class="scriptedit"></textarea>';const ta=view.querySelector('textarea');ta.value=cur;
+  bar.innerHTML=`<button class="copybtn" onclick="saveScript('${id}')">💾 Save</button><button class="copybtn" onclick="renderScript('${id}')">Cancel</button><span class="edited" id="sc-${id}">${cur.length} chars</span>`;
+  ta.addEventListener('input',()=>{const c=document.getElementById('sc-'+id);if(c)c.textContent=ta.value.length+' chars';});
+  sfxClick();ta.focus();
 }
 function saveScript(id){const card=document.querySelector('.card[data-id="'+id+'"]');const ta=card.querySelector('.scriptedit');if(!ta)return;state.scripts=state.scripts||{};state.scripts[id]=ta.value;save();renderScript(id);sfxAdd();toast('Script saved ✏️');}
 function resetScript(id){if(state.scripts)delete state.scripts[id];save();renderScript(id);sfxRemove();toast('Back to original');}
@@ -1139,6 +1229,34 @@ function openSuggestions(id){
 function acceptSugg(id,sid){const s=(state.suggestions||[]).find(x=>x.sid===sid);if(s){state.scripts=state.scripts||{};state.scripts[id]=s.text;}state.suggestions=(state.suggestions||[]).filter(x=>x.sid!==sid);save();renderScript(id);sfxAdd();toast('Accepted ✓ script updated');}
 function rejectSugg(id,sid){state.suggestions=(state.suggestions||[]).filter(x=>x.sid!==sid);save();openSuggestions(id);sfxRemove();toast('Rejected');}
 
+/* ============ settings · search · sort · bug · PWA · extras ============ */
+function sortItems(arr){const s=state.sort||'manual';let a=arr.slice();if(s==='stage')a.sort((x,y)=>x.stage-y.stage);else if(s==='az')a.sort((x,y)=>(x.title||'').localeCompare(y.title||''));else if(s==='posted')a.sort((x,y)=>(y.postedAt||0)-(x.postedAt||0));a.sort((x,y)=>(y.pinned?1:0)-(x.pinned?1:0));return a;}
+function pinItem(id){const it=state.list.find(x=>x.id===id);if(it){it.pinned=!it.pinned;save();renderList();sfxClick();}}
+function dupItem(id){const it=state.list.find(x=>x.id===id);if(!it)return;const c=JSON.parse(JSON.stringify(it));c.id='d'+Date.now();c.title=(it.title||'Idea')+' (copy)';c.stage=0;c.pinned=false;c.timeConfirmed=false;c.addedAt=Date.now();c.postedAt=null;state.list.splice(state.list.indexOf(it)+1,0,c);save();renderList();updateCount();refreshCards();sfxAdd();toast('Duplicated');}
+function searchIdeas(q){q=(q||'').toLowerCase().trim();document.querySelectorAll('.card[data-id]').forEach(c=>{const w=c.querySelector('.what');const t=(c.dataset.title+' '+(w?w.innerText:'')+' '+(c.dataset.type||'')).toLowerCase();c.style.display=(!q||t.includes(q))?'':'none';});}
+function setOpen(){renderSettings();document.getElementById('setOv').classList.add('open');sfxClick();}
+function setClose(){document.getElementById('setOv').classList.remove('open');}
+function renderSettings(){const w=document.getElementById('setBody');const t=state.theme||(state.dark?'dark':'light');
+  w.innerHTML=`<div class="seth">Appearance</div>
+   <div class="seg">${['light|☀️ Light','dark|🌙 Dark','auto|🌗 Auto'].map(o=>{const p=o.split('|');return `<button class="segb${t===p[0]?' on':''}" onclick="setTheme('${p[0]}')">${p[1]}</button>`;}).join('')}</div>
+   <div class="setrow"><span>Sound effects</span><button class="toggle${state.muted?'':' on'}" onclick="toggleMute();renderSettings();"><span class="kn"></span></button></div>
+   <div class="seth">Your data</div>
+   <div class="setbtns"><button onclick="backupData()">⬇️ Backup</button><button onclick="document.getElementById('importFile').click()">⬆️ Restore</button><button class="danger" onclick="resetAll()">🧹 Reset all</button></div>
+   <div class="seth">App &amp; help</div>
+   <div class="setbtns"><button onclick="installApp()">📲 Install on phone</button><button onclick="reportBugOpen()">🐞 Report a bug</button><button onclick="document.getElementById('helpOv').classList.add('open')">⌨️ Shortcuts</button><button onclick="window.print()">🖨️ Print / PDF</button></div>
+   <p class="muted" style="margin-top:16px;text-align:left;line-height:1.6;">Toronto Kids Dental — Daily Drop · <b>v${VERSION}</b><br>Auto-refreshes every morning at 7am. Bugs you report get fixed in the next build.</p>`;
+}
+function resetAll(){confirmAsk('Reset everything?','This clears your list, notes, scripts, people, bugs and settings on THIS device. It cannot be undone.',()=>{try{localStorage.removeItem(KEY);}catch(e){}location.href=location.pathname;});}
+let deferredPrompt=null;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;});
+function installApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt=null;toast('Installing…');}else{toast('On iPhone: tap Share → Add to Home Screen 📲');}}
+function reportBugOpen(){setClose();const t=document.getElementById('bugText');t.value='';document.getElementById('bugModal').classList.add('open');t.focus();}
+function sendBug(){const v=(document.getElementById('bugText').value||'').trim();if(!v){toast('Describe the bug first');return;}state.bugs=state.bugs||[];state.bugs.push({t:v,at:Date.now(),by:state.me||''});save();const url='https://github.com/nolenp223-alt/toronto-kids-dental-brief/issues/new?title='+encodeURIComponent('Bug: '+v.slice(0,60))+'&body='+encodeURIComponent(v+'\n\n— reported in-app by '+(state.me||'someone')+' on '+new Date().toLocaleString());window.open(url,'_blank','noopener');document.getElementById('bugModal').classList.remove('open');sfxAdd();toast('Bug saved 🐞 — fixing in tomorrow\'s build');}
+let _cb=null;
+function confirmAsk(title,msg,cb){document.getElementById('confirmTitle').textContent=title;document.getElementById('confirmMsg').textContent=msg;_cb=cb;document.getElementById('confirmModal').classList.add('open');}
+function confirmYes(){document.getElementById('confirmModal').classList.remove('open');const f=_cb;_cb=null;if(f)f();}
+function confirmNo(){document.getElementById('confirmModal').classList.remove('open');_cb=null;}
+function onScroll(){const h=document.documentElement;const sc=h.scrollTop||document.body.scrollTop||0;const max=(h.scrollHeight-h.clientHeight)||1;const pb=document.getElementById('scrollbar');if(pb)pb.style.width=(sc/max*100)+'%';const tt=document.getElementById('toTop');if(tt)tt.classList.toggle('show',sc>500);}
+
 /* ============ phone sync (manual backup/restore) ============ */
 function renderAll(){refreshCards();renderExamples();renderSounds();renderResources();document.querySelectorAll('.card[data-id]').forEach(c=>{try{renderScript(c.dataset.id);}catch(e){}});renderList();updateCount();}
 function importData(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);state=Object.assign({list:[],notDoing:[],examples:{},scripts:{},dismissedRes:[]},state,d);save();applyTheme();const mb=document.getElementById('muteBtn');if(mb)mb.textContent=state.muted?'🔇':'🔊';renderAll();toast('Restored from backup ✅');}catch(err){toast('Could not read that file');}};r.readAsText(f);e.target.value='';}
@@ -1171,10 +1289,11 @@ function confetti(){const cols=['#0FA47F','#FF6B5E','#6C5CE7','#F5A623','#16B07A
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.12});
 document.querySelectorAll('.card').forEach(c=>io.observe(c));
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){closeList();hist(false);closeAdd();return;}
-  if(/^(input|textarea)$/i.test(e.target.tagName))return;
+  if(e.key==='Escape'){closeList();hist(false);closeAdd();setClose();peopleClose();['helpOv','confirmModal','bugModal','nameModal'].forEach(id=>document.getElementById(id)&&document.getElementById(id).classList.remove('open'));return;}
+  if(/^(input|textarea|select)$/i.test(e.target.tagName))return;
   if(e.key==='l'||e.key==='L')openList();
   if(e.key==='m'||e.key==='M')toggleMute();
+  if(e.key==='?')document.getElementById('helpOv').classList.add('open');
 });
 
 /* ============ init ============ */
@@ -1182,6 +1301,8 @@ load();loadFromHash();applyTheme();const _mb=document.getElementById('muteBtn');
 refreshCards();renderExamples();renderSounds();renderResources();enhanceScripts();renderList();updateCount();
 updateViral();setInterval(updateViral,60000);
 document.querySelector('#addChips .chip').classList.add('sel');
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+if('serviceWorker' in navigator){try{navigator.serviceWorker.register('sw.js').catch(function(){});}catch(e){}}
 needName();
 </script>
 </body>
