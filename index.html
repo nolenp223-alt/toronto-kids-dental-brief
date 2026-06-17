@@ -437,6 +437,8 @@
   /* people, roles, attribution */
   #meBtn{font-weight:700;}
   .byline{font-size:10.5px;font-weight:700;color:var(--muted);background:var(--line2);border-radius:999px;padding:3px 8px;white-space:nowrap;}
+  .cornerby{font-size:10.5px;font-weight:800;letter-spacing:.02em;padding:3px 9px;border-radius:999px;color:var(--muted);background:var(--line2);border:1px solid var(--line);white-space:nowrap;}
+  .cornerby.sys{color:var(--teal-d);background:var(--tint-teal);border-color:#bdebd4;}
   .byline.sys{color:var(--teal-d);background:var(--tint-teal);}
   .meline{font-size:14px;margin-bottom:14px;}
   .meline b{font-weight:800;}
@@ -891,6 +893,8 @@ function refreshCards(){
     if(b){b.classList.toggle('on',onList);b.textContent=onList?'✓ On list':'➕ Add to list';}
     const sc=c.querySelector('.score'),base=+c.dataset.score,sk=(state.skips&&state.skips[id])||0;
     if(sc){const n=Math.max(1,base-sk);sc.innerHTML='★ '+n+(sk>0?' <span style="opacity:.65">↓</span>':'');sc.title=sk>0?('Recommended lower — you skipped this '+sk+'×'):'';}
+    const meta=c.querySelector('.meta');
+    if(meta&&!meta.querySelector('.cornerby')){const cb=document.createElement('span');cb.className='cornerby sys';cb.textContent='🛠 System idea';meta.insertBefore(cb,meta.firstChild);}
   });
 }
 
@@ -969,7 +973,7 @@ function buildItem(item){
   el.innerHTML=`
     <div class="lh"><span class="em">${item.emoji||'💡'}</span><b>${escapeHtml(item.title)}</b>
       ${item.type?`<span class="ctag">${escapeHtml(item.type)}</span>`:``}
-      ${item.author?`<span class="byline${item.author==='System'?' sys':''}">${item.author==='System'?'System':'by '+escapeHtml(item.author)}</span>`:``}
+      ${(()=>{const a=item.author||(/^i\d/.test(item.id)?'System':'You');return `<span class="byline${a==='System'?' sys':''}">${a==='System'?'🛠 System':'by '+escapeHtml(a)}</span>`;})()}
       <span class="ord"><button title="Move up" onclick="moveItem('${item.id}',-1)">▲</button><button title="Move down" onclick="moveItem('${item.id}',1)">▼</button></span>
       <button class="rm0" title="${item.pinned?'Unpin':'Pin to top'}" onclick="pinItem('${item.id}')">${item.pinned?'⭐':'☆'}</button>
       <button class="rm0" title="Duplicate" onclick="dupItem('${item.id}')">⧉</button>
