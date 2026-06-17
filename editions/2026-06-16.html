@@ -713,7 +713,7 @@
   <h3>👋 Welcome to the board</h3>
   <p class="h">Pick your first name so your ideas get your name on them. First name only — no email, nothing else.</p>
   <label>Your first name</label>
-  <input id="nameInput" maxlength="20" placeholder="e.g. Nolan" onkeydown="if(event.key==='Enter')setMe()">
+  <input id="nameInput" maxlength="20" placeholder="e.g. John Doe" onkeydown="if(event.key==='Enter')setMe()">
   <div class="mbtns"><button class="save" onclick="setMe()">That's me ✨</button></div>
 </div></div>
 
@@ -1118,7 +1118,7 @@ function copyInvite(){
   navigator.clipboard.writeText(url).then(()=>{sfxAdd();toast('Invite link copied — send it to your team 🔗');});
   }catch(e){toast('Could not build link');}
 }
-function loadFromHash(){const m=location.hash.match(/[#&]b=([^&]+)/);if(!m)return;try{const board=JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(m[1])))));state=Object.assign(state,board);state.me='';save();history.replaceState(null,'',location.pathname);}catch(e){}}
+function loadFromHash(){const m=location.hash.match(/[#&]b=([^&]+)/);if(!m)return;try{const me=state.me;const board=JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(m[1])))));state=Object.assign(state,board);state.me=me||'';save();history.replaceState(null,'',location.pathname);}catch(e){}}
 
 /* ============ suggestions (ask someone else / accept) ============ */
 function suggCount(ideaId){return (state.suggestions||[]).filter(s=>s.ideaId===ideaId).length;}
