@@ -7,6 +7,21 @@ Purpose: track every idea featured so the daily brief never repeats itself.
 
 ---
 
+## 2026-06-18 (Edition 02 — manual run)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Rock Music freeze-frame reveal (Charli XCX stuck-frame) | Template | 9 | @charlixcx ✓ |
+| 2 | "Say it 4 ways" — Have you been flossing? *(carried)* | Skit | 8 | @laurahfritz ✓ |
+| 3 | Dentist reacts to a scary TikTok hack *(carried)* | React | 9 | @dr.m_ ✓ |
+| 4 | World Cup "brush like a champion" *(carried)* | Local | 8 | @centraaal___ ✓ |
+| 5 | AI Flash throwback: "first visit vs now" | Office | 8 | @teliajasminecontent ✓ |
+
+**Sounds:** Beat It (MJ "I Am Home" strut) · EVERYTHING HALLELUJAH · Bleeding Love · Freakin' Out ("remember who you are") · Game Time
+**Notes:** Manual run-now. New trends added: Rock Music freeze-frame + AI Flash throwback. Theme "Mint." All 5 example links are verified-live individual reels (oEmbed-checked). Don't reuse: Spin the Bottle, Color Walk (from 06-16) or these.
+
+---
+
 ## 2026-06-16 (Edition 01 — sample v2)
 
 | # | Idea | Type | Score | Status |
