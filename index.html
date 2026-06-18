@@ -835,7 +835,7 @@ const SOUNDS=[
   {n:'Game Time',a:'Future & Tyla · World Cup',use:'Jersey-day / "brush like a champion"',url:'https://www.instagram.com/explore/tags/worldcup2026/',peak:'match nights · 6–10pm',ps:18,pe:22}
 ];
 
-let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[],bugs:[],theme:'',sort:'manual'};
+let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[],bugs:[],theme:'',sort:'manual',excluded:[]};
 const VERSION='1.0';
 const KEY='TKD_state_v2';
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){} flagSaved();}
@@ -876,20 +876,24 @@ function addToList(id,btn,stage){
 }
 function markDone(id){
   const ex=state.list.find(x=>x.id===id);
-  if(ex&&ex.stage===3){removeItem(id);toast('Done undone');return;} // tap again to undo
+  if(ex&&ex.stage===3){removeItem(id);toast('Done undone');return;}
   const it=addToList(id,null,3);if(it&&!it.postedAt)it.postedAt=Date.now();
-  refreshCards();renderList();updateCount();sfxDone();confetti();milestone();toast('Nice — marked done 🎉');
+  state.excluded=state.excluded||[];const t=cardTitle(id);if(!state.excluded.includes(t))state.excluded.push(t); // already did it → don't show again
+  save();refreshCards();renderList();updateCount();sfxDone();confetti();milestone();toast('Already did it ✅ — won\'t show again');
 }
+function cardTitle(id){const c=document.querySelector('.card[data-id="'+id+'"]');return c?c.dataset.title:id;}
 function notDoing(id){
-  state.skips=state.skips||{};
-  if(state.notDoing.includes(id)){state.notDoing=state.notDoing.filter(x=>x!==id);state.skips[id]=Math.max(0,(state.skips[id]||0)-1);sfxClick();toast('Back on the menu');} // tap again to undo
-  else{state.notDoing.push(id);state.list=state.list.filter(x=>x.id!==id);state.skips[id]=(state.skips[id]||0)+1;sfxNo();toast('Skipped — ranks lower next time ↓');}
-  save();refreshCards();renderList();updateCount();
+  state.skips=state.skips||{};state.excluded=state.excluded||[];
+  const t=cardTitle(id);if(!state.excluded.includes(t))state.excluded.push(t);   // hidden for good, even in future editions
+  if(!state.notDoing.includes(id))state.notDoing.push(id);
+  state.skips[id]=(state.skips[id]||0)+1;
+  state.list=state.list.filter(x=>x.id!==id);
+  save();refreshCards();renderList();updateCount();sfxNo();toast('Not doing — hidden for good (undo in ⚙️ Settings)');
 }
 function refreshCards(){
   document.querySelectorAll('.card[data-id]').forEach(c=>{
-    const id=c.dataset.id,onList=state.list.some(x=>x.id===id),hidden=state.notDoing.includes(id);
-    c.classList.toggle('dim',hidden);
+    const id=c.dataset.id,onList=state.list.some(x=>x.id===id);
+    c.style.display=(state.excluded||[]).includes(c.dataset.title)?'none':'';
     const b=c.querySelector('.btn-add');
     if(b){b.classList.toggle('on',onList);b.textContent=onList?'✓ On list':'➕ Add to list';}
     const sc=c.querySelector('.score'),base=+c.dataset.score,sk=(state.skips&&state.skips[id])||0;
@@ -1238,7 +1242,7 @@ function rejectSugg(id,sid){state.suggestions=(state.suggestions||[]).filter(x=>
 function sortItems(arr){const s=state.sort||'manual';let a=arr.slice();if(s==='stage')a.sort((x,y)=>x.stage-y.stage);else if(s==='az')a.sort((x,y)=>(x.title||'').localeCompare(y.title||''));else if(s==='posted')a.sort((x,y)=>(y.postedAt||0)-(x.postedAt||0));a.sort((x,y)=>(y.pinned?1:0)-(x.pinned?1:0));return a;}
 function pinItem(id){const it=state.list.find(x=>x.id===id);if(it){it.pinned=!it.pinned;save();renderList();sfxClick();}}
 function dupItem(id){const it=state.list.find(x=>x.id===id);if(!it)return;const c=JSON.parse(JSON.stringify(it));c.id='d'+Date.now();c.title=(it.title||'Idea')+' (copy)';c.stage=0;c.pinned=false;c.timeConfirmed=false;c.addedAt=Date.now();c.postedAt=null;state.list.splice(state.list.indexOf(it)+1,0,c);save();renderList();updateCount();refreshCards();sfxAdd();toast('Duplicated');}
-function searchIdeas(q){q=(q||'').toLowerCase().trim();document.querySelectorAll('.card[data-id]').forEach(c=>{const w=c.querySelector('.what');const t=(c.dataset.title+' '+(w?w.innerText:'')+' '+(c.dataset.type||'')).toLowerCase();c.style.display=(!q||t.includes(q))?'':'none';});}
+function searchIdeas(q){q=(q||'').toLowerCase().trim();document.querySelectorAll('.card[data-id]').forEach(c=>{if((state.excluded||[]).includes(c.dataset.title)){c.style.display='none';return;}const w=c.querySelector('.what');const t=(c.dataset.title+' '+(w?w.innerText:'')+' '+(c.dataset.type||'')).toLowerCase();c.style.display=(!q||t.includes(q))?'':'none';});}
 function setOpen(){renderSettings();document.getElementById('setOv').classList.add('open');sfxClick();}
 function setClose(){document.getElementById('setOv').classList.remove('open');}
 function renderSettings(){const w=document.getElementById('setBody');const t=state.theme||(state.dark?'dark':'light');
@@ -1247,11 +1251,14 @@ function renderSettings(){const w=document.getElementById('setBody');const t=sta
    <div class="setrow"><span>Sound effects</span><button class="toggle${state.muted?'':' on'}" onclick="toggleMute();renderSettings();"><span class="kn"></span></button></div>
    <div class="seth">Your data</div>
    <div class="setbtns"><button onclick="backupData()">⬇️ Backup</button><button onclick="document.getElementById('importFile').click()">⬆️ Restore</button><button class="danger" onclick="resetAll()">🧹 Reset all</button></div>
+   <div class="seth">Hidden ideas</div>
+   <div class="setrow"><span>${(state.excluded||[]).length} hidden (not-doing / already did)</span><button class="bcheck" onclick="showAllExcluded()">Show all</button></div>
    <div class="seth">App &amp; help</div>
    <div class="setbtns"><button onclick="installApp()">📲 Install on phone</button><button onclick="reportBugOpen()">🐞 Report a bug</button><button onclick="document.getElementById('helpOv').classList.add('open')">⌨️ Shortcuts</button><button onclick="window.print()">🖨️ Print / PDF</button></div>
    <p class="muted" style="margin-top:16px;text-align:left;line-height:1.6;">Toronto Kids Dental — Daily Drop · <b>v${VERSION}</b><br>Auto-refreshes every morning at 7am. Bugs you report get fixed in the next build.</p>`;
 }
 function resetAll(){confirmAsk('Reset everything?','This clears your list, notes, scripts, people, bugs and settings on THIS device. It cannot be undone.',()=>{try{localStorage.removeItem(KEY);}catch(e){}location.href=location.pathname;});}
+function showAllExcluded(){state.excluded=[];state.notDoing=[];save();refreshCards();if(document.getElementById('setOv').classList.contains('open'))renderSettings();sfxClick();toast('All hidden ideas are back');}
 let deferredPrompt=null;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;});
 function installApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt=null;toast('Installing…');}else{toast('On iPhone: tap Share → Add to Home Screen 📲');}}
 function reportBugOpen(){setClose();const t=document.getElementById('bugText');t.value='';document.getElementById('bugModal').classList.add('open');t.focus();}
