@@ -399,6 +399,8 @@
   .tab.clearf{background:transparent;color:#c2255c;border:none;}
   /* live viral chip */
   .sound .sbody .viral{font-size:11.5px;font-weight:700;margin-top:3px;color:var(--muted);letter-spacing:0;}
+  .sound .sbody .tsline{font-size:11.5px;font-weight:600;color:var(--muted);margin-top:3px;}
+  .sound .sbody .tsline b{color:#6C5CE7;font-variant-numeric:tabular-nums;}
   .sound .sbody .viral.hot{color:#e8400c;}
   .sound .sbody .viral .live{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ff3b30;margin-right:5px;vertical-align:middle;animation:pdot 1.2s infinite;}
   /* best-time lock */
@@ -825,11 +827,11 @@ const STARTER_EX={
   i5:[{label:'▶ Flash filter reel',url:'https://www.tiktok.com/@teliajasminecontent/video/7365759560201637138'}]
 };
 const SOUNDS=[
-  {n:'Beat It',a:'Michael Jackson · "I Am Home" strut',use:'Confident walk-in: "strutting in for a checkup"',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 6–9pm',ps:18,pe:21},
-  {n:'EVERYTHING HALLELUJAH',a:'Justin Bieber · brand-friendly listing',use:'Rhythmic "top 3 brushing tips" list',url:'https://www.instagram.com/explore/tags/reels/',peak:'mornings · 7–9am',ps:7,pe:9},
-  {n:'Bleeding Love',a:'Leona Lewis · confessional lip-sync',use:'"me &amp; my electric toothbrush" bit',url:'https://www.instagram.com/explore/tags/reels/',peak:'late night · 9–11pm',ps:21,pe:23},
-  {n:'Freakin\' Out (remember who you are)',a:'Dexter and the Moonrocks',use:'Pep-talk to a nervous first-timer',url:'https://www.instagram.com/explore/tags/reels/',peak:'afternoons · 3–6pm',ps:15,pe:18},
-  {n:'Game Time',a:'Future & Tyla · World Cup',use:'Jersey-day / "brush like a champion"',url:'https://www.instagram.com/explore/tags/worldcup2026/',peak:'match nights · 6–10pm',ps:18,pe:22}
+  {n:'Beat It',a:'Michael Jackson · "I Am Home" strut',use:'Confident walk-in: "strutting in for a checkup"',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 6–9pm',ps:18,pe:21,ts:'0:29–0:39',reel:'https://www.tiktok.com/@charlixcx/video/7637619596123557142'},
+  {n:'EVERYTHING HALLELUJAH',a:'Justin Bieber · brand-friendly listing',use:'Rhythmic "top 3 brushing tips" list',url:'https://www.instagram.com/explore/tags/reels/',peak:'mornings · 7–9am',ps:7,pe:9,ts:'0:45–0:55',reel:'https://www.tiktok.com/@dr.m_/video/7352705838294994222'},
+  {n:'Bleeding Love',a:'Leona Lewis · confessional lip-sync',use:'"me &amp; my electric toothbrush" bit',url:'https://www.instagram.com/explore/tags/reels/',peak:'late night · 9–11pm',ps:21,pe:23,ts:'1:00–1:10',reel:'https://www.tiktok.com/@laurahfritz/video/7643549869440879902'},
+  {n:'Freakin\' Out (remember who you are)',a:'Dexter and the Moonrocks',use:'Pep-talk to a nervous first-timer',url:'https://www.instagram.com/explore/tags/reels/',peak:'afternoons · 3–6pm',ps:15,pe:18,ts:'0:40–0:50',reel:'https://www.tiktok.com/@teliajasminecontent/video/7365759560201637138'},
+  {n:'Game Time',a:'Future & Tyla · World Cup',use:'Jersey-day / "brush like a champion"',url:'https://www.instagram.com/explore/tags/worldcup2026/',peak:'match nights · 6–10pm',ps:18,pe:22,ts:'0:20–0:30',reel:'https://www.tiktok.com/@centraaal___/video/7647184857726143765'}
 ];
 
 let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[],bugs:[],theme:'',sort:'manual',excluded:[]};
@@ -932,8 +934,9 @@ function renderSounds(){
     const el=document.createElement('div');el.className='sound';
     el.innerHTML=`<button class="play" title="Play on YouTube" onclick="playSound(${i})"><span class="ptri">▶</span><span class="eq"><i></i><i></i><i></i><i></i></span></button>
       <div class="sbody"><b>${escapeHtml(s.n)}</b><div class="art">${escapeHtml(s.a)}</div><div class="use">🦷 ${escapeHtml(s.use)}</div>
+        <div class="tsline">🎬 Clip <b>${escapeHtml(s.ts||'')}</b></div>
         <div class="viral" data-ps="${s.ps}" data-pe="${s.pe}" data-peak="${escapeHtml(s.peak)}"></div></div>
-      <div class="sact"><button class="find ytplay" onclick="playSound(${i})">▶ Play</button><a class="find" href="${s.url}" target="_blank">IG</a>
+      <div class="sact"><button class="find ytplay" onclick="playSound(${i})">▶ Play</button><a class="find" href="${s.reel}" target="_blank">▶ Reel</a>
       <button class="sadd" title="Add to list" onclick="addSound(${i})">➕</button></div>`;
     w.appendChild(el);
     setTimeout(()=>el.classList.add('in'),60+i*60);
