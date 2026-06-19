@@ -449,6 +449,9 @@
   .fixnotes:hover{background:#f3f0ff;transform:translateY(-1px);}
   [data-theme="dark"] .fixnotes{background:var(--card);color:#a99cff;border-color:#3a3550;}
   .score[title]{cursor:help;}
+  /* GSAP: let GSAP own the entrance (neutralize CSS hidden states), depth for the headline */
+  .gsap .card,.gsap .sound{opacity:1;transform:none;}
+  .gsap .hero h1{perspective:800px;}
 
   /* people, roles, attribution */
   #meBtn{font-weight:700;}
@@ -825,6 +828,9 @@
 <input type="file" id="importFile" accept="application/json" style="display:none" onchange="importData(event)">
 <div class="toast" id="toast">Saved</div>
 
+<script src="gsap/gsap.min.js"></script>
+<script src="gsap/ScrollTrigger.min.js"></script>
+<script src="gsap/SplitText.min.js"></script>
 <script>
 /* ============ data ============ */
 const STAGES=[
@@ -1312,8 +1318,31 @@ function toast(m){const t=document.getElementById('toast');t.textContent=m||'Sav
 function escapeHtml(s){return(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function confetti(){const cols=['#0FA47F','#FF6B5E','#6C5CE7','#F5A623','#16B07A'];for(let i=0;i<28;i++){const d=document.createElement('div');d.className='confm';d.style.left=Math.random()*100+'vw';d.style.background=cols[i%cols.length];d.style.animationDelay=(Math.random()*.25)+'s';document.body.appendChild(d);setTimeout(()=>d.remove(),1600);}}
 
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.12});
-document.querySelectorAll('.card').forEach(c=>io.observe(c));
+if(window.gsap){initGsapMotion();}else{
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.12});
+  document.querySelectorAll('.card').forEach(c=>io.observe(c));
+}
+function initGsapMotion(){
+  document.documentElement.classList.add('gsap');
+  gsap.registerPlugin(ScrollTrigger);
+  try{
+    if(window.SplitText){const h=document.querySelector('.hero h1');const sp=new SplitText(h,{type:'chars,words'});gsap.set(sp.chars,{display:'inline-block'});gsap.from(sp.chars,{yPercent:120,opacity:0,rotateX:-50,stagger:.018,duration:.8,ease:'back.out(1.7)',delay:.05});}
+    else{gsap.from('.hero h1',{y:34,opacity:0,duration:.9,ease:'power3.out'});}
+  }catch(e){}
+  gsap.from('.hero .eyebrow',{y:18,opacity:0,duration:.7,ease:'power2.out'});
+  gsap.from('.hero p, .hero .chips',{y:24,opacity:0,duration:.8,stagger:.1,ease:'power3.out',delay:.3});
+  gsap.utils.toArray('.sec').forEach(s=>gsap.from(s,{scrollTrigger:{trigger:s,start:'top 87%'},y:26,opacity:0,duration:.7,ease:'power3.out'}));
+  gsap.utils.toArray('.card').forEach(c=>gsap.from(c,{scrollTrigger:{trigger:c,start:'top 88%'},y:54,opacity:0,scale:.96,duration:.85,ease:'power3.out'}));
+  gsap.utils.toArray('.sound').forEach(s=>gsap.from(s,{scrollTrigger:{trigger:s,start:'top 94%'},x:-28,opacity:0,duration:.6,ease:'power2.out'}));
+  gsap.utils.toArray('.res, .qcard').forEach(r=>gsap.from(r,{scrollTrigger:{trigger:r,start:'top 94%'},y:22,opacity:0,duration:.55,ease:'power2.out'}));
+  gsap.utils.toArray('.phone').forEach(p=>{const c=p.closest('.card');if(c)gsap.to(p,{yPercent:-7,ease:'none',scrollTrigger:{trigger:c,start:'top bottom',end:'bottom top',scrub:true}});});
+  if(window.matchMedia&&matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.btn-add, .tbtn.primary').forEach(b=>{
+      b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.28,y:(e.clientY-r.top-r.height/2)*.4,duration:.35,ease:'power2.out'});});
+      b.addEventListener('mouseleave',()=>gsap.to(b,{x:0,y:0,duration:.5,ease:'elastic.out(1,.45)'}));
+    });
+  }
+}
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){closeList();hist(false);closeAdd();setClose();peopleClose();['helpOv','confirmModal','bugModal','nameModal'].forEach(id=>document.getElementById(id)&&document.getElementById(id).classList.remove('open'));return;}
   if(/^(input|textarea|select)$/i.test(e.target.tagName))return;
