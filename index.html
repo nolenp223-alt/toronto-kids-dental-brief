@@ -401,6 +401,20 @@
   .sound .sbody .viral{font-size:11.5px;font-weight:700;margin-top:3px;color:var(--muted);letter-spacing:0;}
   .sound .sbody .tsline{font-size:11.5px;font-weight:600;color:var(--muted);margin-top:3px;}
   .sound .sbody .tsline b{color:#6C5CE7;font-variant-numeric:tabular-nums;}
+  /* PHONE: kill the sideways swipe + make the top bar fit */
+  html,body{overflow-x:hidden;max-width:100%;}
+  @media(max-width:600px){
+    .brand>div:not(.logo){display:none;}
+    .tbtn[title="Surprise me"],.tbtn[title="History"]{display:none;}
+    .topbtns{gap:5px;}
+    .tbtn{padding:8px 9px;font-size:12.5px;}
+    .tbtn.primary{padding:8px 10px;}
+    .wrap{overflow-x:hidden;}
+    .sound{flex-wrap:wrap;}
+    .sound .sact{width:100%;justify-content:flex-start;margin-top:6px;}
+    .tabs{max-width:100%;overflow-x:auto;}
+    .res .ract{flex-wrap:wrap;}
+  }
   .sound .sbody .viral.hot{color:#e8400c;}
   .sound .sbody .viral .live{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ff3b30;margin-right:5px;vertical-align:middle;animation:pdot 1.2s infinite;}
   /* best-time lock */
@@ -1262,7 +1276,7 @@ function showAllExcluded(){state.excluded=[];state.notDoing=[];save();refreshCar
 let deferredPrompt=null;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;});
 function installApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt=null;toast('Installing…');}else{toast('On iPhone: tap Share → Add to Home Screen 📲');}}
 function reportBugOpen(){setClose();const t=document.getElementById('bugText');t.value='';document.getElementById('bugModal').classList.add('open');t.focus();}
-function sendBug(){const v=(document.getElementById('bugText').value||'').trim();if(!v){toast('Describe the bug first');return;}state.bugs=state.bugs||[];state.bugs.push({t:v,at:Date.now(),by:state.me||''});save();const url='https://github.com/nolenp223-alt/toronto-kids-dental-brief/issues/new?title='+encodeURIComponent('Bug: '+v.slice(0,60))+'&body='+encodeURIComponent(v+'\n\n— reported in-app by '+(state.me||'someone')+' on '+new Date().toLocaleString());window.open(url,'_blank','noopener');document.getElementById('bugModal').classList.remove('open');sfxAdd();toast('Bug saved 🐞 — fixing in tomorrow\'s build');}
+function sendBug(){const v=(document.getElementById('bugText').value||'').trim();if(!v){toast('Describe the bug first');return;}state.bugs=state.bugs||[];state.bugs.push({t:v,at:Date.now(),by:state.me||''});save();document.getElementById('bugModal').classList.remove('open');sfxAdd();toast('Bug saved 🐞 — no login needed, fixed in the next build');}
 let _cb=null;
 function confirmAsk(title,msg,cb){document.getElementById('confirmTitle').textContent=title;document.getElementById('confirmMsg').textContent=msg;_cb=cb;document.getElementById('confirmModal').classList.add('open');}
 function confirmYes(){document.getElementById('confirmModal').classList.remove('open');const f=_cb;_cb=null;if(f)f();}
