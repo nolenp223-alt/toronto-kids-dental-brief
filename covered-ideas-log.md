@@ -7,6 +7,21 @@ Purpose: track every idea featured so the daily brief never repeats itself.
 
 ---
 
+## 2026-06-19 (Edition 03 — automated 7am)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Summer GRWM dental reset | Office | 9 | @amyflamy1 ✓ |
+| 2 | Cinderella smile reveal | Template | 8 | @saoriiii922 ✓ |
+| 3 | "Like a Prayer" summer strut | Skit | 9 | @joshfawaz ✓ |
+| 4 | Meet the whole crew | Office | 8 | @wilton.dental ✓ |
+| 5 | End-of-school cavity-free certificate | Skit | 9 | @_chasinc ✓ |
+
+**Sounds:** Earrings (Malcolm Todd) · Like a Prayer remix (Josh Fawaz) · Cinderella (Mac Miller ft. Ty Dolla $ign) · PRESSURE! (Nyck Caution) · Young, Dumb & Broke (Khalid)
+**Theme:** Sun. All 5 example links oEmbed-verified. Don't reuse: Summer GRWM reset, Cinderella reveal, Like a Prayer strut, Meet the crew, cavity-free certificate, or these sounds.
+
+---
+
 ## 2026-06-18 (Edition 02 — manual run)
 
 | # | Idea | Type | Score | Verified reel |
