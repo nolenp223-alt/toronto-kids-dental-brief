@@ -207,10 +207,11 @@
   .empty .big{font-size:42px;display:block;margin-bottom:12px;}
 
   /* list item */
-  .litem{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px;
+  .litem{background:linear-gradient(0deg,var(--lt,transparent),var(--lt,transparent)),var(--card);border:1px solid var(--line);border-left:5px solid var(--lc,var(--line));border-radius:18px;padding:16px 16px 16px 14px;margin-bottom:14px;
     box-shadow:var(--sh);transition:box-shadow .3s ease,border-color .3s ease;}
-  .litem.green{border-color:#a6e7cd;box-shadow:0 0 0 3px rgba(22,176,122,.10),var(--sh);}
-  .litem .lh{display:flex;align-items:center;gap:10px;}
+  .litem.green{border-color:#a6e7cd;border-left-color:#16B07A;box-shadow:0 0 0 3px rgba(22,176,122,.10),var(--sh);}
+  .litem .lh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .litem .lh .lcopy:hover{background:var(--tint-teal);color:var(--teal-d);}
   .litem .lh .em{font-size:21px;}
   .litem .lh b{font-size:15px;font-weight:700;line-height:1.25;letter-spacing:-.02em;}
   .litem .lh .ctag{font-size:10.5px;font-weight:700;color:var(--muted);background:var(--line2);border-radius:999px;padding:3px 9px;letter-spacing:.02em;}
@@ -497,6 +498,17 @@
   .story .scap{font-family:'Courier New',ui-monospace,monospace;background:rgba(255,255,255,.62);border:1px solid rgba(0,0,0,.06);color:#1c1830;}
   [data-theme="dark"] .story .stype,[data-theme="dark"] .story .sshoot b,[data-theme="dark"] .story .scap{color:#f3f0f7;}
   [data-theme="dark"] .story .scap{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.08);}
+  /* Stories = a same-page transform, not a dimmed popup: no backdrop, no modal fade */
+  #storiesOv{background:transparent;backdrop-filter:none;}
+  #storiesOv.open{animation:none;}
+  .storypage.animating{overflow:hidden;}            /* we drive the scroll during the intro */
+  .story-stage{position:fixed;inset:0;z-index:60;pointer-events:none;overflow:hidden;}
+  .story-stage .fcard{position:absolute;left:7%;right:7%;height:74px;border-radius:18px;border:2px solid;
+    box-shadow:0 18px 40px -22px rgba(40,40,80,.5);opacity:.96;}
+  .story-ball{position:absolute;left:50%;margin-left:-27px;top:40px;width:54px;height:54px;border-radius:50%;
+    background:radial-gradient(circle at 34% 30%,#fff,#bca9ff 42%,#6C5CE7 100%);
+    box-shadow:0 14px 30px -8px rgba(108,92,231,.65),inset 0 0 14px rgba(255,255,255,.5);}
+  .burstp{position:absolute;left:50%;margin-left:-6px;top:62px;width:12px;height:12px;border-radius:50%;}
   .sp-actions{display:flex;gap:8px;align-items:center;}
   .savedbtn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 14px;font-weight:700;font-size:13.5px;cursor:pointer;box-shadow:var(--sh-sm);white-space:nowrap;}
   .savedbtn:hover{background:var(--tint-teal);}
@@ -955,7 +967,7 @@ const SOUNDS=[
   {n:'Lucky',a:'Britney Spears · 44K IG posts · team appreciation',use:'Team spotlights, patient shoutouts, "lucky to have you" summer montages',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 6–10pm',ps:18,pe:22,ts:'0:22–0:32',reel:'https://www.tiktok.com/@astanaxx/video/7484185627253034247'}
 ];
 
-let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[],bugs:[],theme:'',sort:'manual',excluded:[],storyState:{},savedStories:[]};
+let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[],bugs:[],theme:'',sort:'manual',excluded:[],storyState:{},savedStories:[],storyHidden:[]};
 const VERSION='1.0';
 const KEY='TKD_state_v2';
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){} flagSaved();}
@@ -1092,15 +1104,29 @@ function renderList(){
   wrap.innerHTML='';items.forEach(item=>wrap.appendChild(buildItem(item)));
 }
 function noteField(item,key,label,ph){const v=(item.stageNotes&&item.stageNotes[key])||'';return `<div class="nf"><label>${label}</label><textarea data-nid="${item.id}" data-nkey="${key}" spellcheck="true" placeholder="${ph}" oninput="saveNote('${item.id}','${key}',this.value)">${escapeHtml(v)}</textarea></div>`;}
+/* My-List palette — a calm, readable colour per idea (stable per id, not per position) */
+const LPAL=[['#3b82f6','rgba(59,130,246,.07)'],['#10b981','rgba(16,185,129,.07)'],['#f59e0b','rgba(245,158,11,.09)'],['#8b5cf6','rgba(139,92,246,.07)'],['#06b6d4','rgba(6,182,212,.08)'],['#f43f6e','rgba(244,63,110,.06)']];
+function lpalFor(id){let h=0;id=String(id);for(let i=0;i<id.length;i++)h=(h*31+id.charCodeAt(i))>>>0;return LPAL[h%LPAL.length];}
+function copyListItem(id){
+  const it=state.list.find(x=>x.id===id);if(!it)return;const sn=it.stageNotes||{};
+  let t='🦷 '+it.title+(it.type?' ('+it.type+')':'')+'\n';
+  if(it.notes)t+=it.notes+'\n';
+  t+='Stage: '+STAGES[it.stage].label;if(it.planDate)t+=' · 📅 '+prettyDate(it.planDate);t+='\n';
+  const lbl={filming:'🎬 Filming',editing:'✂️ Editing',sound:'🎵 Sound',posting:'🚀 Posting'};
+  ['filming','editing','sound','posting'].forEach(k=>{if(sn[k])t+=lbl[k]+': '+sn[k]+'\n';});
+  navigator.clipboard.writeText(t.trim()).then(()=>{sfxCopy();toast('Idea copied 📋');}).catch(()=>toast('Copy not supported here'));
+}
 function buildItem(item){
   const green=item.stage===3,st=STAGES[item.stage],pct=item.stage/3*100;
   const sn=item.stageNotes||{},hasNotes=['filming','editing','sound','posting'].some(k=>sn[k]);
   const el=document.createElement('div');el.className='litem'+(green?' green':'');
+  const lp=lpalFor(item.id);el.style.setProperty('--lc',lp[0]);el.style.setProperty('--lt',lp[1]);
   el.innerHTML=`
     <div class="lh"><span class="em">${item.emoji||'💡'}</span><b>${escapeHtml(item.title)}</b>
       ${item.type?`<span class="ctag">${escapeHtml(item.type)}</span>`:``}
       ${(()=>{const a=item.author||(/^i\d/.test(item.id)?'System':'You');return `<span class="byline${a==='System'?' sys':''}">${a==='System'?'🛠 System':'by '+escapeHtml(a)}</span>`;})()}
       <span class="ord"><button title="Move up" onclick="moveItem('${item.id}',-1)">▲</button><button title="Move down" onclick="moveItem('${item.id}',1)">▼</button></span>
+      <button class="rm0 lcopy" title="Copy this idea" onclick="copyListItem('${item.id}')">📋</button>
       <button class="rm0" title="${item.pinned?'Unpin':'Pin to top'}" onclick="pinItem('${item.id}')">${item.pinned?'⭐':'☆'}</button>
       <button class="rm0" title="Duplicate" onclick="dupItem('${item.id}')">⧉</button>
       <button class="rm0" title="Remove" onclick="removeItem('${item.id}')">✕</button></div>
@@ -1427,39 +1453,141 @@ function buildStoryCard(s){
       <div class="sacts"><button class="sx" title="Skip" onclick="storyDismiss(this)">✕</button><button class="sc" title="Save it" onclick="storySave(this)">✓</button></div></div>`;
   return el;
 }
+function visibleStories(){const h=state.storyHidden||[];return STORIES.filter(s=>!h.includes(s.cap));}
+function hideStory(cap){state.storyHidden=state.storyHidden||[];if(!state.storyHidden.includes(cap))state.storyHidden.push(cap);}
+function unhideStory(cap){state.storyHidden=(state.storyHidden||[]).filter(c=>c!==cap);}
 function renderStories(){
   const w=document.getElementById('stories');if(!w)return;w.innerHTML='';_scolor=0;
-  STORIES.forEach(s=>w.appendChild(buildStoryCard(s)));
+  const pool=visibleStories();
+  if(!pool.length){
+    w.innerHTML='<div class="empty"><span class="big">🎉</span>You\'ve been through them all!<br>Skipped &amp; posted ideas stay hidden.<br><button class="copybtn" style="margin-top:14px" onclick="resetSkipped()">↺ Bring back skipped ideas</button></div>';
+    updateSavedCount();return;
+  }
+  pool.forEach(s=>w.appendChild(buildStoryCard(s)));
   const page=document.querySelector('.storypage');
   if(page&&!page._inf){page._inf=true;page.addEventListener('scroll',function(){
-    if(page.scrollTop+page.clientHeight>page.scrollHeight-700 && w.children.length<150){STORIES.forEach(s=>w.appendChild(buildStoryCard(s)));}
+    if(page.scrollTop+page.clientHeight>page.scrollHeight-700 && w.children.length<150){visibleStories().forEach(s=>w.appendChild(buildStoryCard(s)));}
   });}
   updateSavedCount();
 }
+function resetSkipped(){
+  // bring back skipped ideas, but keep currently-saved ones hidden
+  state.storyHidden=(state.storyHidden||[]).filter(c=>(state.savedStories||[]).some(s=>s.cap===c));
+  save();renderStories();sfxAdd();toast('Skipped ideas are back ↺');
+}
 function copyStoryCap(btn){const s=btn.closest('.story')._story;navigator.clipboard.writeText(s.cap).then(()=>{sfxCopy();toast('Caption copied ✅');});}
-function storySave(btn){const card=btn.closest('.story'),s=card._story;state.savedStories=state.savedStories||[];if(!state.savedStories.some(x=>x.cap===s.cap))state.savedStories.push({ic:s.ic,type:s.type,cap:s.cap});save();updateSavedCount();sfxDone();toast('Saved to your list ⭐');flyAway(card,1);}
-function storyDismiss(btn){sfxNo();flyAway(btn.closest('.story'),-1);}
+function storySave(btn){const card=btn.closest('.story'),s=card._story;state.savedStories=state.savedStories||[];if(!state.savedStories.some(x=>x.cap===s.cap))state.savedStories.push({ic:s.ic,type:s.type,cap:s.cap});hideStory(s.cap);save();updateSavedCount();sfxDone();toast('Saved to your list ⭐');flyAway(card,1);}
+function storyDismiss(btn){const card=btn.closest('.story');hideStory(card._story.cap);save();sfxNo();flyAway(card,-1);}
 function flyAway(card,dir){
   if(window.gsap){gsap.to(card,{x:dir*440,y:-30,rotateZ:dir*16,opacity:0,duration:.45,ease:'power2.in',onComplete:function(){gsap.to(card,{height:0,marginBottom:0,paddingTop:0,paddingBottom:0,duration:.22,onComplete:()=>card.remove()});}});}
   else{card.style.transition='transform .4s,opacity .4s';card.style.transform='translateX('+(dir*440)+'px) rotate('+(dir*16)+'deg)';card.style.opacity='0';setTimeout(()=>card.remove(),420);}
 }
-function sfxWhoosh(){blip(680,0.42,'sine',0.13,170);blip(400,0.42,'triangle',0.06,150);}
+/* soft "box landed" thumps — replaces the old whoosh */
+function sfxThud(){const f=120+Math.random()*55;blip(f,0.13,'sine',0.12,f*0.6);blip(f*2.2,0.045,'triangle',0.035);}
+
+/* little colour burst when the ball pops into the title */
+function storyBurst(stage){
+  if(!stage||!window.gsap)return;
+  for(let i=0;i<16;i++){
+    const p=document.createElement('div');p.className='burstp';
+    p.style.background=PAL[i%PAL.length][1];stage.appendChild(p);
+    const ang=(Math.PI*2*i)/16,d=60+Math.random()*75;
+    gsap.fromTo(p,{x:0,y:0,opacity:1,scale:1},
+      {x:Math.cos(ang)*d,y:Math.sin(ang)*d,opacity:0,scale:.3,duration:.6,ease:'power3.out',onComplete:()=>p.remove()});
+  }
+}
+
+/* makes 100% sure nothing is ever left invisible / mid-animation */
+let _storyTL=null;
+function finalizeStories(){
+  try{if(_storyTL){_storyTL.kill();_storyTL=null;}}catch(e){}
+  if(window.gsap){
+    try{
+      gsap.set('#stories .story',{clearProps:'transform,opacity,filter'}); // keep --c/--cb colours
+      const h=document.querySelector('.sp-top h2'),intro=document.querySelector('.sp-intro');
+      if(h)gsap.set(h,{clearProps:'all'});
+      if(intro)gsap.set(intro,{clearProps:'all'});
+    }catch(e){}
+  }
+  document.querySelectorAll('.story-stage').forEach(n=>n.remove());
+  const body=document.getElementById('spBody');if(body){body.style.filter='';body.style.willChange='';}
+  const page=document.querySelector('.storypage');if(page)page.classList.remove('animating');
+}
+
+/* ======= the 6-step cinematic intro ======= */
 function animateStories(){
-  sfxWhoosh();
-  if(!window.gsap)return;
+  const page=document.querySelector('.storypage');
+  const body=document.getElementById('spBody');
+  const title=document.querySelector('.sp-top h2');
+  const intro=document.querySelector('.sp-intro');
+  if(!window.gsap){return;}                 // no GSAP → cards are already visible, do nothing
+  finalizeStories();                        // clear any previous run first
+  const cards=gsap.utils.toArray('#stories .story');
   try{
-    const cards=gsap.utils.toArray('#stories .story').slice(0,10);
-    // cards fall down gently into place (no harsh pop)
-    gsap.from(cards,{opacity:0,y:-46,scale:.96,duration:.78,ease:'power3.out',stagger:.08});
-    // title warps in
-    const h=document.querySelector('.sp-top h2');
-    if(h)gsap.fromTo(h,{scaleY:1.7,skewX:-10,opacity:0,transformOrigin:'left bottom'},{scaleY:1,skewX:0,opacity:1,duration:.65,ease:'power3.out'});
-    const intro=document.querySelector('.sp-intro');
-    if(intro)gsap.from(intro,{opacity:0,y:-14,duration:.55,ease:'power2.out',delay:.05});
-  }catch(e){}
+    if(page)page.scrollTop=0;
+    if(page)page.classList.add('animating');
+
+    // start hidden — the timeline brings them in (failsafe restores them no matter what)
+    gsap.set(cards,{opacity:0});
+    if(intro)gsap.set(intro,{opacity:0});
+
+    // a fixed stage that holds the falling "page" + the ball + burst, over everything
+    const stage=document.createElement('div');stage.className='story-stage';page.appendChild(stage);
+    const fcards=[];
+    for(let i=0;i<5;i++){const d=document.createElement('div');d.className='fcard';const c=PAL[i%PAL.length];
+      d.style.background=c[0];d.style.borderColor=c[1];d.style.top=(120+i*94)+'px';stage.appendChild(d);fcards.push(d);}
+    const ball=document.createElement('div');ball.className='story-ball';stage.appendChild(ball);
+    gsap.set(ball,{scale:0,opacity:0});
+
+    const tl=gsap.timeline({onComplete:finalizeStories});
+    _storyTL=tl;const myTL=tl;
+
+    /* STEP 1 — the page falls away (gravity) */
+    tl.to(fcards,{y:()=>window.innerHeight+280,rotation:()=>gsap.utils.random(-42,42),opacity:.85,
+      duration:.95,ease:'power2.in',stagger:.06},0);
+    tl.add(()=>{fcards.forEach((c,i)=>setTimeout(sfxThud,i*45));},0.5);
+
+    /* STEP 2 — the header text pulls into one ball */
+    if(title)tl.to(title,{scale:.04,y:130,opacity:0,filter:'blur(3px)',duration:.55,ease:'power2.in'},0.75);
+    tl.to(ball,{scale:1,opacity:1,duration:.42,ease:'back.out(2.2)'},0.95);
+    tl.to(ball,{y:'+=12',duration:.2,yoyo:true,repeat:1,ease:'sine.inOut'},1.4);
+
+    /* STEP 3 — the ball bursts → smoothly forms the title */
+    tl.to(ball,{scale:1.8,duration:.16,ease:'power2.in'},1.72);
+    tl.to(ball,{scale:0,opacity:0,duration:.22,ease:'power3.out'},1.88);
+    tl.add(()=>{storyBurst(stage);sfxDone();},1.9);
+    if(title)tl.fromTo(title,{scale:0,opacity:0,filter:'blur(10px)',y:0},
+      {scale:1,opacity:1,filter:'blur(0px)',duration:.62,ease:'back.out(1.7)'},1.92);
+
+    /* STEP 4 — colourful boxes rain in, bounce off, stack (view parked at the BOTTOM) */
+    tl.add(()=>{if(page)page.scrollTop=page.scrollHeight;},2.55);
+    tl.fromTo(cards,
+      {opacity:0,y:()=>-(430+Math.random()*340),x:()=>gsap.utils.random(-70,70),rotation:()=>gsap.utils.random(-18,18)},
+      {opacity:1,y:0,x:0,rotation:0,duration:1.0,ease:'bounce.out',stagger:{each:.07,from:'end'},
+        onStart:()=>{for(let i=0;i<7;i++)setTimeout(sfxThud,250+i*210);}},2.6);
+    tl.add(()=>{if(page)page.scrollTop=page.scrollHeight;},3.1); // stay parked while they land
+
+    /* STEP 5 — fast motion-blurred scroll from the bottom up to the top */
+    const sc={v:1};
+    tl.add(()=>{if(body)body.style.willChange='filter';},4.78);
+    tl.to(sc,{v:0,duration:.62,ease:'power3.inOut',
+      onUpdate:()=>{if(page)page.scrollTop=page.scrollHeight*sc.v;}},4.8);
+    tl.fromTo(body||{},{filter:'blur(0px)'},{filter:'blur(7px)',duration:.2,ease:'power1.in'},4.8);
+    tl.to(body||{},{filter:'blur(0px)',duration:.28,ease:'power1.out'},5.2);
+    tl.add(()=>sfxClick(),5.32);
+
+    /* STEP 6 — rest gently at the top, ready to use */
+    tl.add(()=>{if(page)page.scrollTop=0;},5.48);
+    if(intro)tl.fromTo(intro,{opacity:0,y:-10},{opacity:1,y:0,duration:.45,ease:'power2.out'},5.5);
+    if(title)tl.fromTo(title,{y:-7},{y:0,duration:.55,ease:'elastic.out(1,.6)'},5.5);
+    tl.add(()=>{stage.remove();},5.95);
+
+    // hard failsafe: if this exact run is ever interrupted/stuck, force everything visible
+    setTimeout(()=>{if(_storyTL===myTL)finalizeStories();},7800);
+  }catch(e){finalizeStories();}
 }
 function openStories(){sfxClick();renderStories();document.getElementById('storiesOv').classList.add('open');animateStories();}
-function closeStories(){document.getElementById('storiesOv').classList.remove('open');closeSaved();}
+function closeStories(){finalizeStories();document.getElementById('storiesOv').classList.remove('open');closeSaved();}
 function openSaved(){renderSaved();document.querySelector('.storypage').classList.add('saved-open');sfxClick();}
 function closeSaved(){const p=document.querySelector('.storypage');if(p)p.classList.remove('saved-open');}
 function renderSaved(){
@@ -1467,8 +1595,8 @@ function renderSaved(){
   if(!list.length){w.innerHTML='<div class="empty"><span class="big">⭐</span>Tap ✓ on a story to keep it here.</div>';return;}
   w.innerHTML=list.map((s,i)=>`<div class="saved-item${s.done?' sdone':''}"><span class="sic">${s.ic}</span><div class="si-body"><b>${escapeHtml(s.type)}</b><span>${escapeHtml(s.cap)}</span></div><button class="si-done" onclick="storyDone(${i})" title="Mark posted">${s.done?'✓ Posted':'Done'}</button><button class="rm0" onclick="unsaveStory(${i})">✕</button></div>`).join('');
 }
-function storyDone(i){const s=state.savedStories[i];if(!s)return;s.done=!s.done;save();renderSaved();if(s.done){sfxDone();confetti();toast('Posted! 🎉');}else{sfxClick();}}
-function unsaveStory(i){state.savedStories.splice(i,1);save();renderSaved();updateSavedCount();sfxRemove();}
+function storyDone(i){const s=state.savedStories[i];if(!s)return;s.done=!s.done;if(s.done)hideStory(s.cap);save();renderSaved();if(s.done){sfxDone();confetti();toast('Posted! 🎉 — gone for good');}else{sfxClick();}}
+function unsaveStory(i){const s=state.savedStories[i];if(s)unhideStory(s.cap);state.savedStories.splice(i,1);save();renderSaved();updateSavedCount();sfxRemove();}
 function updateSavedCount(){const e=document.getElementById('savedCount');if(e)e.textContent=(state.savedStories||[]).length;}
 /* swipe: ← My List · → Stories · swipe again to go back (mobile) */
 (function(){let sx=0,sy=0,st=0,blocked=false;
