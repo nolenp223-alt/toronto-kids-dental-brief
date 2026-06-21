@@ -467,7 +467,8 @@
   /* --good was undefined → broke every green gradient (✓ button, toggles, etc.) */
   :root{--good:#16B07A;}
   /* Stories: full page + light cards + round ✓/✗ */
-  .storypage{position:absolute;inset:0;overflow:auto;-webkit-overflow-scrolling:touch;background:linear-gradient(170deg,#f4f0ff 0%,#fff4ef 60%,#fef0f6 100%);animation:fade .25s ease;}
+  .storypage{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;overflow-x:clip;-webkit-overflow-scrolling:touch;background:linear-gradient(170deg,#f4f0ff 0%,#fff4ef 60%,#fef0f6 100%);animation:fade .25s ease;}
+  .sp-body{overflow-wrap:break-word;}
   [data-theme="dark"] .storypage{background:linear-gradient(170deg,#1c1733,#241a28);}
   .sp-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:max(16px,env(safe-area-inset-top)) 20px 16px;background:rgba(255,255,255,.55);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid rgba(0,0,0,.05);}
   [data-theme="dark"] .sp-top{background:rgba(28,23,51,.55);}
@@ -499,12 +500,12 @@
   [data-theme="dark"] .story .stype,[data-theme="dark"] .story .sshoot b,[data-theme="dark"] .story .scap{color:#f3f0f7;}
   [data-theme="dark"] .story .scap{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.08);}
   /* Stories = a same-page transform, not a dimmed popup: no backdrop, no modal fade */
-  #storiesOv{background:transparent;backdrop-filter:none;}
+  #storiesOv{background:transparent;backdrop-filter:none;overflow:hidden;overflow:clip;}
   #storiesOv.open{animation:none;}
   .storypage.animating{overflow:hidden;}            /* we drive the scroll during the intro */
   .story-stage{position:fixed;inset:0;z-index:60;pointer-events:none;overflow:hidden;}
-  .story-stage .fcard{position:absolute;left:7%;right:7%;height:74px;border-radius:18px;border:2px solid;
-    box-shadow:0 18px 40px -22px rgba(40,40,80,.5);opacity:.96;}
+  /* step 1 falls away the REAL reel-idea cards (cloned from the home feed) */
+  .story-stage .fclone{will-change:transform;box-shadow:0 26px 54px -24px rgba(40,40,80,.55);}
   .story-ball{position:absolute;left:50%;margin-left:-27px;top:40px;width:54px;height:54px;border-radius:50%;
     background:radial-gradient(circle at 34% 30%,#fff,#bca9ff 42%,#6C5CE7 100%);
     box-shadow:0 14px 30px -8px rgba(108,92,231,.65),inset 0 0 14px rgba(255,255,255,.5);}
@@ -513,8 +514,9 @@
   .savedbtn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 14px;font-weight:700;font-size:13.5px;cursor:pointer;box-shadow:var(--sh-sm);white-space:nowrap;}
   .savedbtn:hover{background:var(--tint-teal);}
   [data-theme="dark"] .savedbtn{background:var(--card);color:var(--ink);}
-  .saved-panel{position:absolute;top:0;right:0;bottom:0;width:min(340px,86%);background:var(--card);box-shadow:-24px 0 60px -34px rgba(0,0,0,.45);transform:translateX(102%);transition:transform .42s var(--ease);z-index:4;overflow:auto;padding-bottom:40px;}
-  .storypage.saved-open .saved-panel{transform:none;}
+  /* stays at right:0 (never off-screen → no sideways scroll); fades + slides a touch in place */
+  .saved-panel{position:absolute;top:0;right:0;bottom:0;width:min(340px,86%);background:var(--card);box-shadow:-24px 0 60px -34px rgba(0,0,0,.45);transform:scale(.985);transform-origin:right center;opacity:0;visibility:hidden;transition:transform .42s var(--ease),opacity .3s ease,visibility .42s;z-index:4;overflow-y:auto;overflow-x:hidden;padding-bottom:40px;}
+  .storypage.saved-open .saved-panel{transform:none;opacity:1;visibility:visible;}
   #spBody{transition:transform .42s var(--ease),filter .42s ease;}
   .storypage.saved-open #spBody{transform:translateX(-40px);filter:brightness(.96);}
   .saved-top{position:sticky;top:0;background:var(--card);display:flex;align-items:center;justify-content:space-between;padding:18px;border-bottom:1px solid var(--line2);font-size:16px;font-weight:800;z-index:1;}
@@ -1497,10 +1499,30 @@ function storyBurst(stage){
   }
 }
 
+/* clones the real reel-idea cards that are on screen, so STEP 1 falls away the page you were just on */
+function buildFallStage(stage){
+  const out=[],src=[...document.querySelectorAll('.wrap .card[data-id]')],vh=window.innerHeight;
+  src.forEach(c=>{
+    if(out.length>=5)return;
+    const r=c.getBoundingClientRect();
+    if(r.bottom<40||r.top>vh-40||r.width<10)return;        // only the cards actually on screen
+    const cl=c.cloneNode(true);cl.classList.add('fclone');
+    cl.style.cssText='position:fixed;left:'+r.left+'px;top:'+r.top+'px;width:'+r.width+'px;margin:0;z-index:1;';
+    stage.appendChild(cl);out.push(cl);
+  });
+  if(!out.length){                                          // home scrolled away from the cards → take the first few
+    src.slice(0,4).forEach((c,i)=>{const cl=c.cloneNode(true);cl.classList.add('fclone');
+      cl.style.cssText='position:fixed;left:6%;right:6%;top:'+(96+i*150)+'px;margin:0;z-index:1;';
+      stage.appendChild(cl);out.push(cl);});
+  }
+  return out;
+}
+
 /* makes 100% sure nothing is ever left invisible / mid-animation */
-let _storyTL=null;
+let _storyTL=null,_storySplit=null;
 function finalizeStories(){
   try{if(_storyTL){_storyTL.kill();_storyTL=null;}}catch(e){}
+  try{if(_storySplit){_storySplit.revert();_storySplit=null;}}catch(e){}
   if(window.gsap){
     try{
       gsap.set('#stories .story',{clearProps:'transform,opacity,filter'}); // keep --c/--cb colours
@@ -1531,33 +1553,40 @@ function animateStories(){
     gsap.set(cards,{opacity:0});
     if(intro)gsap.set(intro,{opacity:0});
 
-    // a fixed stage that holds the falling "page" + the ball + burst, over everything
+    // a fixed stage that holds the falling page + the ball + burst, over everything
     const stage=document.createElement('div');stage.className='story-stage';page.appendChild(stage);
-    const fcards=[];
-    for(let i=0;i<5;i++){const d=document.createElement('div');d.className='fcard';const c=PAL[i%PAL.length];
-      d.style.background=c[0];d.style.borderColor=c[1];d.style.top=(120+i*94)+'px';stage.appendChild(d);fcards.push(d);}
+    const fcards=buildFallStage(stage);                       // the REAL reel-idea cards
     const ball=document.createElement('div');ball.className='story-ball';stage.appendChild(ball);
     gsap.set(ball,{scale:0,opacity:0});
+
+    // split the title into letters so they can visibly gather INTO the ball
+    let chars=[];
+    if(title&&window.SplitText){try{_storySplit=new SplitText(title,{type:'chars'});chars=_storySplit.chars;gsap.set(chars,{display:'inline-block'});}catch(e){chars=[];}}
+    const ballX=window.innerWidth/2, ballY=67;                // the ball's centre (CSS: left50% top40 h54)
 
     const tl=gsap.timeline({onComplete:finalizeStories});
     _storyTL=tl;const myTL=tl;
 
-    /* STEP 1 — the page falls away (gravity) */
-    tl.to(fcards,{y:()=>window.innerHeight+280,rotation:()=>gsap.utils.random(-42,42),opacity:.85,
-      duration:.95,ease:'power2.in',stagger:.06},0);
-    tl.add(()=>{fcards.forEach((c,i)=>setTimeout(sfxThud,i*45));},0.5);
+    /* STEP 1 — the page (your real reel cards) falls away with gravity */
+    tl.to(fcards,{y:()=>window.innerHeight+360,rotation:()=>gsap.utils.random(-24,24),opacity:.9,
+      duration:1.0,ease:'power2.in',stagger:.07},0);
+    tl.add(()=>{fcards.forEach((c,i)=>setTimeout(sfxThud,i*55));},0.55);
 
-    /* STEP 2 — the header text pulls into one ball */
-    if(title)tl.to(title,{scale:.04,y:130,opacity:0,filter:'blur(3px)',duration:.55,ease:'power2.in'},0.75);
-    tl.to(ball,{scale:1,opacity:1,duration:.42,ease:'back.out(2.2)'},0.95);
-    tl.to(ball,{y:'+=12',duration:.2,yoyo:true,repeat:1,ease:'sine.inOut'},1.4);
+    /* STEP 2 — the header letters pull together INTO one ball */
+    if(chars.length){
+      chars.forEach(ch=>{const cr=ch.getBoundingClientRect();
+        tl.to(ch,{x:ballX-(cr.left+cr.width/2),y:ballY-(cr.top+cr.height/2),scale:.12,opacity:0,
+          duration:.5,ease:'power2.in'},0.8+Math.random()*0.14);});
+    }else if(title){tl.to(title,{scale:.04,y:130,opacity:0,filter:'blur(3px)',duration:.55,ease:'power2.in'},0.8);}
+    tl.fromTo(ball,{scale:0,opacity:0},{scale:1,opacity:1,duration:.5,ease:'back.out(2)'},1.05);  // grows as letters arrive
+    tl.to(ball,{y:'+=12',duration:.2,yoyo:true,repeat:1,ease:'sine.inOut'},1.55);
 
     /* STEP 3 — the ball bursts → smoothly forms the title */
-    tl.to(ball,{scale:1.8,duration:.16,ease:'power2.in'},1.72);
-    tl.to(ball,{scale:0,opacity:0,duration:.22,ease:'power3.out'},1.88);
-    tl.add(()=>{storyBurst(stage);sfxDone();},1.9);
+    tl.to(ball,{scale:1.85,duration:.16,ease:'power2.in'},1.78);
+    tl.to(ball,{scale:0,opacity:0,duration:.22,ease:'power3.out'},1.94);
+    tl.add(()=>{storyBurst(stage);sfxDone();if(_storySplit){try{_storySplit.revert();}catch(e){}_storySplit=null;}if(title)gsap.set(title,{opacity:0});},1.96);
     if(title)tl.fromTo(title,{scale:0,opacity:0,filter:'blur(10px)',y:0},
-      {scale:1,opacity:1,filter:'blur(0px)',duration:.62,ease:'back.out(1.7)'},1.92);
+      {scale:1,opacity:1,filter:'blur(0px)',duration:.62,ease:'back.out(1.7)'},2.0);
 
     /* STEP 4 — colourful boxes rain in, bounce off, stack (view parked at the BOTTOM) */
     tl.add(()=>{if(page)page.scrollTop=page.scrollHeight;},2.55);
