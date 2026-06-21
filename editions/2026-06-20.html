@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Toronto Kids Dental — Daily Drop — Sat, June 20, 2026</title>
+<title>Toronto Kids Dental — Daily Drop — Sun, June 21, 2026</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A6%B7%3C/text%3E%3C/svg%3E">
 <meta name="theme-color" id="mThemeColor" content="#FBFAF8">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -451,6 +451,18 @@
   .score[title]{cursor:help;}
   /* GSAP: depth for the headline (content reveal is handled by the observer, not GSAP) */
   .gsap .hero h1{perspective:800px;}
+  /* Stories page (left sheet) */
+  .sheet.left{left:0;right:auto;box-shadow:30px 0 80px -40px rgba(0,0,0,.5);animation:slideinL .42s var(--ease);}
+  @keyframes slideinL{from{transform:translateX(-60px);opacity:.3}to{transform:none;opacity:1}}
+  .story{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:13px;box-shadow:var(--sh);}
+  .story .stype{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;letter-spacing:-.02em;}
+  .story .sic{font-size:20px;}
+  .story .sshoot{font-size:13.5px;color:var(--ink2);line-height:1.5;margin-top:8px;}
+  .story .sshoot b{color:var(--ink);}
+  .story .scaplbl{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:12px 0 5px;}
+  .story .scap{font-size:14px;color:var(--ink);line-height:1.5;min-height:1.4em;font-family:'Courier New',ui-monospace,monospace;background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:10px 12px;}
+  .story .scap.typing::after{content:'▍';color:var(--teal);animation:blink .9s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0}}
 
   /* people, roles, attribution */
   #meBtn{font-weight:700;}
@@ -533,6 +545,7 @@
     <button class="tbtn ic" id="darkBtn" title="Dark mode" onclick="toggleDark()">🌙</button>
     <button class="tbtn ic" title="Surprise me" onclick="surpriseIdea()">🎲</button>
     <button class="tbtn ic" title="History" onclick="hist(true)">🕘</button>
+    <button class="tbtn" onclick="openStories()">📸 Stories</button>
     <button class="tbtn primary" onclick="openList()">📋 My List <span class="badge" id="listCount">0</span></button>
   </div>
 </div>
@@ -541,7 +554,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <span class="eyebrow">Saturday · June 20, 2026 · Today's look: Solstice</span>
+    <span class="eyebrow">Sunday · June 21, 2026 · Today's look: Bloom</span>
     <h1>Skits, templates<br>&amp; <em>sounds</em> to film today.</h1>
     <p>No theory, no homework. Just what's popping on Instagram right now — re-cut for a kids' dental office. Tap <b>📝 Script</b> for a shot list, <b>➕ Add to list</b> to track it.</p>
     <div class="chips">
@@ -557,16 +570,16 @@
   <input id="ideaSearch" class="searchbox" type="search" placeholder="🔎 Search today's ideas…" oninput="searchIdeas(this.value)">
 
   <!-- IDEA 1 -->
-  <div class="card" data-id="i1" data-title="First Visit vs. Now" data-type="Template" data-emoji="🎠" data-score="9">
+  <div class="card" data-id="i1" data-title="Summer Bucket List" data-type="Template" data-emoji="☑️" data-score="9">
     <div class="phonebox"><div class="phone g-a"><span class="plabel-tag">CONCEPT</span>
-      <div class="scene s1">📸<div class="cap">First dental visit — tiny kid, big chair</div></div>
-      <div class="scene s2">⏩<div class="cap">A few appointments later...</div></div>
-      <div class="scene s3">🦷<div class="cap">Same kid — brave, beaming, high-five!</div></div>
+      <div class="scene s1">📋<div class="cap">✅ School's out ✅ First ice cream</div></div>
+      <div class="scene s2">☀️<div class="cap">✅ Pool day ✅ Campfire night</div></div>
+      <div class="scene s3">🦷<div class="cap">✅ Kids dental checkup — done!</div></div>
     </div><small>ANIMATED CONCEPT</small></div>
     <div class="body">
-      <div class="meta"><span class="tag skit">🎬 Template</span><span class="tag local">⚡ Toy Story 5 trend</span><span class="score">★ 9</span></div>
-      <h3>First Visit vs. Now 🎠</h3>
-      <p class="what">Taylor Swift's "I Knew It, I Knew You" from Toy Story 5 — in theaters THIS weekend — is all over TikTok. The format: show a "then" moment vs. a "now." Perfect for showing how far your little patients have come.</p>
+      <div class="meta"><span class="tag skit">🎬 Template</span><span class="tag local">⚡ Summer bucket list trend</span><span class="score">★ 9</span></div>
+      <h3>Summer Bucket List ☑️</h3>
+      <p class="what">The summer bucket list format is everywhere this week — creators tick off everything from beach days to frozen yogurt runs. Slipping the dental checkup onto the list makes it feel like part of the adventure, not a chore. Parents love sharing this with their own kids.</p>
       <div class="ex" data-id="i1"></div>
       <div class="actions">
         <button class="btn btn-add" onclick="addToList('i1',this)">➕ Add to list</button>
@@ -576,27 +589,27 @@
       </div>
       <div class="script">
         <h4>What the trend is</h4>
-        <div class="line">A two-part video riding the Toy Story 5 nostalgia wave. Show a photo or clip of a patient's very first nervous visit, then cut to how confident and happy they are now. The song does all the emotional heavy lifting.</div>
-        <div class="line"><b>Your version:</b> Dig up a first-visit photo, pair it with a recent smiling one. Set to "I Knew It, I Knew You" by Taylor Swift. Text overlay: "We knew you'd love the dentist 🦷" — parents share these every time.</div>
-        <div class="line"><b>Caption:</b> First visit → now. We knew you'd love it here 🦷🎠 #torontokidsdental</div>
-        <div class="line"><b>Hashtags:</b> #toystory5 #taylorswift #kidsdentist #torontokidsdental</div>
-        <div class="line"><b>Sound:</b> "I Knew It, I Knew You" — Taylor Swift (Toy Story 5). Use the 0:25–0:35 warm chorus as the "now" photo lands.</div>
+        <div class="line">Show a summer bucket list — on paper, whiteboard, or text cards — and tick off activities one by one on camera. Dead simple, massively shareable, because every parent relates to planning summer with their kids.</div>
+        <div class="line"><b>Your version:</b> Dr. Aaron or a team member reads off a short list: "First ice cream... ✅ Pool day... ✅ Kids dental checkup... [big smile] ✅!" End with: "799 York Mills — summer's sorted 🦷☀️"</div>
+        <div class="line"><b>Caption:</b> summer 2026 bucket list: ✅ ice cream ✅ pool ✅ dental checkup — DONE 🦷 #torontokidsdental</div>
+        <div class="line"><b>Hashtags:</b> #summerbucketlist #kidssummer #firstdayofsummer #torontokidsdental</div>
+        <div class="line"><b>Sound:</b> "Lucky" — Britney Spears. Use the carefree 0:22–0:32 chorus as the list ticks off — pure summer pop energy.</div>
         <button class="copybtn" onclick="copyScript(this)">📋 Copy caption + hashtags</button>
       </div>
     </div>
   </div>
 
   <!-- IDEA 2 -->
-  <div class="card" data-id="i2" data-title="Toothbrush Jutsu" data-type="Template" data-emoji="🥷" data-score="8">
+  <div class="card" data-id="i2" data-title="Dracula Smile Transform" data-type="Template" data-emoji="🧛" data-score="9">
     <div class="phonebox"><div class="phone g-b"><span class="plabel-tag">CONCEPT</span>
-      <div class="scene s1">🤲<div class="cap">Make the anime ninja hand signs</div></div>
-      <div class="scene s2">✨<div class="cap">CapCut Food Jutsu transition flash!</div></div>
-      <div class="scene s3">🪥<div class="cap">A dental care bag appears in your hands</div></div>
+      <div class="scene s1">🌑<div class="cap">Dark, dramatic — you step into frame</div></div>
+      <div class="scene s2">⚡<div class="cap">The JENNIE beat drops — flash-cut!</div></div>
+      <div class="scene s3">😁<div class="cap">Bright lights — perfect smile reveal!</div></div>
     </div><small>ANIMATED CONCEPT</small></div>
     <div class="body">
-      <div class="meta"><span class="tag skit">🎬 Template</span><span class="tag local">⚡ Food Jutsu trend</span><span class="score">★ 8</span></div>
-      <h3>Toothbrush Jutsu 🥷</h3>
-      <p class="what">The CapCut "Food Jutsu" template is going viral — you do anime-style hand signs and food magically appears in your palm. The dental spin: instead of food, a new toothbrush and care bag materializes. Kids absolutely love this format.</p>
+      <div class="meta"><span class="tag skit">🎬 Template</span><span class="tag local">⚡ Dracula JENNIE trend</span><span class="score">★ 9</span></div>
+      <h3>Dracula Smile Transform 🧛</h3>
+      <p class="what">Tame Impala × JENNIE's "Dracula" remix has 545,000+ TikTok videos right now — it's THE transformation format of summer 2026. You enter dramatically in dark mode, the beat drops, and something transforms. For a dental office: dark plaque → bright clean smile. The irony of a vampire at the dentist is pure comedy gold.</p>
       <div class="ex" data-id="i2"></div>
       <div class="actions">
         <button class="btn btn-add" onclick="addToList('i2',this)">➕ Add to list</button>
@@ -606,27 +619,27 @@
       </div>
       <div class="script">
         <h4>What the trend is</h4>
-        <div class="line">Open CapCut and search "Food Jutsu" — use that template. You do the hand signs, the magical transition happens, and something appears in your hands. That's the whole format. The dental version is just swapping food for dental supplies.</div>
-        <div class="line"><b>Your version:</b> In scrubs, do the hand signs on camera, hit the CapCut transition, then hold up a dental care bag (new brush, floss, toothpaste). Text overlay: "Toothbrush Jutsu! 🥷🦷" — kids will want to show every parent.</div>
-        <div class="line"><b>Caption:</b> Toothbrush Jutsu activated 🥷🦷 your summer smile kit is ready #torontokidsdental</div>
-        <div class="line"><b>Hashtags:</b> #foodjutsu #toothbrushjutsu #kidsdentist #torontokidsdental</div>
-        <div class="line"><b>Sound:</b> "Hate That I Made U Love Me" — Ariana Grande (adamusic_ remix). Use the 0:05–0:15 driving beat drop for the transition punch.</div>
+        <div class="line">Two phases: walk in under dim moody lighting (dark scrubs, low light, dramatic face). The JENNIE beat hits, flash-cut. Then bright warm light reveals something transformed. That's it — the whole format is the contrast.</div>
+        <div class="line"><b>Your version:</b> Dr. Noah or Dr. Aaron walks in under moody light. Flash-cut on the beat drop. Then bright lights → kid in the chair beaming with thumbs up. Text overlay: "From dark (plaque 🦇) to bright ✨ — that's what we do." The vampire-at-the-dentist angle is comedy gold.</div>
+        <div class="line"><b>Caption:</b> Dracula teeth? Not on our watch 🧛→✨ #torontokidsdental</div>
+        <div class="line"><b>Hashtags:</b> #draculatrend #dracula #jennie #kidsdentist #torontokidsdental</div>
+        <div class="line"><b>Sound:</b> "Dracula (JENNIE Remix)" — Tame Impala × JENNIE. Use the 0:28–0:38 dramatic drop for the flash-cut reveal moment.</div>
         <button class="copybtn" onclick="copyScript(this)">📋 Copy caption + hashtags</button>
       </div>
     </div>
   </div>
 
   <!-- IDEA 3 -->
-  <div class="card" data-id="i3" data-title="Scared Kid → Brave Kid" data-type="Office" data-emoji="💪" data-score="9">
+  <div class="card" data-id="i3" data-title="POV: Zero Cavities" data-type="Office" data-emoji="🎉" data-score="9">
     <div class="phonebox"><div class="phone g-c"><span class="plabel-tag">CONCEPT</span>
-      <div class="scene s1">😰<div class="cap">Kid arrives nervous, gripping parent's hand</div></div>
-      <div class="scene s2">🦷<div class="cap">Dr. Aaron crouches down, talks gently</div></div>
-      <div class="scene s3">💪<div class="cap">Same kid walks out — sticker, huge smile, waves bye</div></div>
+      <div class="scene s1">🔍<div class="cap">Dr. checks — counting carefully...</div></div>
+      <div class="scene s2">✅<div class="cap">Zero cavities detected!</div></div>
+      <div class="scene s3">🎉<div class="cap">Whole team celebrates with the kid!</div></div>
     </div><small>ANIMATED CONCEPT</small></div>
     <div class="body">
-      <div class="meta"><span class="tag office">🏢 Office</span><span class="tag local">❤️ Real moments</span><span class="score">★ 9</span></div>
-      <h3>Scared Kid → Brave Kid 💪</h3>
-      <p class="what">The most shareable content for a pediatric office: the real arc of a nervous child who walks out proud. No special editing required. Parents recognize their own kids in this and share it immediately.</p>
+      <div class="meta"><span class="tag office">🏢 Office</span><span class="tag local">❤️ POV format</span><span class="score">★ 9</span></div>
+      <h3>POV: Zero Cavities 🎉</h3>
+      <p class="what">The POV format never goes away because it's pure storytelling. "POV: the moment we tell a kid they have zero cavities" — the dentist's face lights up, the team cheers, maybe a sticker gets chosen. Parents of kids about to start the dentist journey share this every single time.</p>
       <div class="ex" data-id="i3"></div>
       <div class="actions">
         <button class="btn btn-add" onclick="addToList('i3',this)">➕ Add to list</button>
@@ -636,27 +649,27 @@
       </div>
       <div class="script">
         <h4>What the trend is</h4>
-        <div class="line">A simple 3-clip real-moments video. No editing tricks. Just authentic footage of the emotional journey: nervous arrival → gentle dentist moment → proud exit. These go viral because they're true.</div>
-        <div class="line"><b>Your version:</b> Film kid arriving nervous → Dr. Aaron or Dr. Gideon being warm and gentle → kid leaving with a sticker waving goodbye. Text overlay: "Every scared kid becomes a brave kid here." Keep it real and honest — that's what parents share.</div>
-        <div class="line"><b>Caption:</b> Scared at the door → waving bye with a sticker 💪🦷 #torontokidsdental</div>
-        <div class="line"><b>Hashtags:</b> #bravekid #kidsdentist #pediatricdentist #torontokidsdental</div>
-        <div class="line"><b>Sound:</b> "Drop Dead" — Olivia Rodrigo. Use the 0:08–0:18 section for a proud, upbeat feel under the exit moment.</div>
+        <div class="line">Add "POV:" as a text overlay and show a first-person moment from the dentist's perspective. The camera becomes the dentist — or the proud parent watching. The more genuine the reaction, the more shares.</div>
+        <div class="line"><b>Your version:</b> Dr. Gideon or Dr. Noah says "ZERO cavities this summer!" on camera, then cut to the kid's face — pure joy. Quick cut to the sticker wall as they pick their prize. Keep it warm and real — no performance needed.</div>
+        <div class="line"><b>Caption:</b> POV: zero cavities 🎉🦷 this is our FAVOURITE moment #torontokidsdental</div>
+        <div class="line"><b>Hashtags:</b> #zerocavities #nocavities #kidsdentist #pov #torontokidsdental</div>
+        <div class="line"><b>Sound:</b> "Life Feels So Good" — napsea. Use the warm 0:06–0:16 opening — it's the perfect feel-good backdrop for the big reveal.</div>
         <button class="copybtn" onclick="copyScript(this)">📋 Copy caption + hashtags</button>
       </div>
     </div>
   </div>
 
   <!-- IDEA 4 -->
-  <div class="card" data-id="i4" data-title="Office Summer Morning" data-type="Office" data-emoji="☀️" data-score="8">
+  <div class="card" data-id="i4" data-title="Your Dentist Knows" data-type="Skit" data-emoji="🕵️" data-score="8">
     <div class="phonebox"><div class="phone g-d"><span class="plabel-tag">CONCEPT</span>
-      <div class="scene s1">☀️<div class="cap">Morning light hits the reception desk</div></div>
-      <div class="scene s2">🧤<div class="cap">Gloves snap on, tools laid out perfectly</div></div>
-      <div class="scene s3">😊<div class="cap">First kid of the day arrives — huge smile!</div></div>
+      <div class="scene s1">🕵️<div class="cap">Dentist points slowly at the camera…</div></div>
+      <div class="scene s2">😬<div class="cap">"We know you had gummies last night."</div></div>
+      <div class="scene s3">😂<div class="cap">Kid covers mouth — caught! "But we love you anyway 🦷"</div></div>
     </div><small>ANIMATED CONCEPT</small></div>
     <div class="body">
-      <div class="meta"><span class="tag office">🏢 Office</span><span class="tag local">⚡ Puerto Rico Song trend</span><span class="score">★ 8</span></div>
-      <h3>Office Summer Morning ☀️</h3>
-      <p class="what">"The Puerto Rico Song" by Saxboy Billy is THE earworm of summer 2026 — celebrities and offices everywhere are doing bright day-in-the-life montages to it. Your morning routine is the perfect match.</p>
+      <div class="meta"><span class="tag skit">😂 Skit</span><span class="tag local">⚡ Trending comedy format</span><span class="score">★ 8</span></div>
+      <h3>Your Dentist Knows 🕵️</h3>
+      <p class="what">The "Your dentist knows EXACTLY what you're doing" skit format is blowing up — dentists pointing at the camera and revealing the funny truth they can tell from one look inside a mouth. For a kids' office it becomes adorably relatable: "we know you skipped brushing last night." Parents and kids are both howling.</p>
       <div class="ex" data-id="i4"></div>
       <div class="actions">
         <button class="btn btn-add" onclick="addToList('i4',this)">➕ Add to list</button>
@@ -666,27 +679,27 @@
       </div>
       <div class="script">
         <h4>What the trend is</h4>
-        <div class="line">A bright, upbeat montage of your office waking up for the day. Quick cuts, happy energy, no talking needed. The Puerto Rico Song's catchy opening hook carries the whole thing — it feels instantly warm and fun.</div>
-        <div class="line"><b>Your version:</b> Quick montage: reception desk in morning light → gloves snapping on → tools neatly set out → first little patient walking in. Set to the opening 12 seconds of "The Puerto Rico Song." No words — just good summer vibes at 799 York Mills.</div>
-        <div class="line"><b>Caption:</b> Summer mornings at Toronto Kids Dental ☀️🦷 come see us! #torontokidsdental</div>
-        <div class="line"><b>Hashtags:</b> #puertoricosong #summervibes #kidsdentist #torontokidsdental</div>
-        <div class="line"><b>Sound:</b> "The Puerto Rico Song" — Saxboy Billy. Use the iconic 0:00–0:12 opening hook ("First time in San Juan, mi hijo").</div>
+        <div class="line">Point slowly at the camera. Text cards reveal hilarious-but-true things the dentist can tell just from looking. Always ends warmly — the comedy comes from recognition, never judgment.</div>
+        <div class="line"><b>Your version:</b> Dr. Aaron or Dr. Noah points at camera: "Your dentist knows… 🕵️" → text cards: "…you had gummies last night." / "…this is a brand-new toothbrush (the old one was never used)." / "…you brushed for about 10 seconds." Final card: "We love you anyway. We're here to help 🦷❤️"</div>
+        <div class="line"><b>Caption:</b> your dentist knows 😏🕵️ we see everything — and we still love you #torontokidsdental</div>
+        <div class="line"><b>Hashtags:</b> #yourdentistknows #dentisthumor #kidsdentist #torontokidsdental</div>
+        <div class="line"><b>Sound:</b> "What's Up?" — 4 Non Blondes. Use the 1:09–1:19 iconic "hey hey hey hey!" singalong — perfect dramatic energy for the pointing reveal.</div>
         <button class="copybtn" onclick="copyScript(this)">📋 Copy caption + hashtags</button>
       </div>
     </div>
   </div>
 
   <!-- IDEA 5 -->
-  <div class="card" data-id="i5" data-title="Top 5 Dentist &quot;Horror Movies&quot;" data-type="Skit" data-emoji="😱" data-score="8">
+  <div class="card" data-id="i5" data-title="Sunday Checkup Vlog" data-type="Office" data-emoji="📱" data-score="8">
     <div class="phonebox"><div class="phone g-e"><span class="plabel-tag">CONCEPT</span>
-      <div class="scene s1">😱<div class="cap">"My top 5 horror movies as a dentist…"</div></div>
-      <div class="scene s2">🎬<div class="cap">Text cards: The Suction Wand, Did You Floss?…</div></div>
-      <div class="scene s3">😂<div class="cap">Kid gives a thumbs up — always a happy ending!</div></div>
+      <div class="scene s1">📱<div class="cap">Selfie mode: "Sunday morning at TKD!"</div></div>
+      <div class="scene s2">🦷<div class="cap">Quick handheld tour — chairs, team, smiles</div></div>
+      <div class="scene s3">🎉<div class="cap">Last patient waves bye — "Best. Day. Ever."</div></div>
     </div><small>ANIMATED CONCEPT</small></div>
     <div class="body">
-      <div class="meta"><span class="tag skit">😂 Skit</span><span class="tag local">⚡ Trending format</span><span class="score">★ 8</span></div>
-      <h3>Top 5 Dentist "Horror Movies" 😱</h3>
-      <p class="what">The "My Top 5 Horror Movies" format is huge right now — creators list their profession's version of "scary" things using dramatic movie-title text overlays. For a kids' dentist the comedy comes from how harmless the "scary" things actually are.</p>
+      <div class="meta"><span class="tag office">🏢 Office</span><span class="tag local">⚡ Vlog authenticity trend</span><span class="score">★ 8</span></div>
+      <h3>Sunday Checkup Vlog 📱</h3>
+      <p class="what">Authentic, handheld vlog content is thriving right now — people trust creators who film it like a text to a friend, not a polished ad. A quick Sunday office vlog from one of your dentists feels warm, real, and human. Parents book appointments after seeing the actual team, not a stock photo.</p>
       <div class="ex" data-id="i5"></div>
       <div class="actions">
         <button class="btn btn-add" onclick="addToList('i5',this)">➕ Add to list</button>
@@ -696,11 +709,11 @@
       </div>
       <div class="script">
         <h4>What the trend is</h4>
-        <div class="line">Point at camera and say "My top 5 horror movies as a dentist:" then cut to dramatic title-card text overlays, one by one. The joke is that the "horror movies" are everyday dental things that only feel scary — but aren't. Always end happy.</div>
-        <div class="line"><b>Your version:</b> Dr. Noah or Dr. Aaron points at camera. Text cards: 1. "The Suction Wand" 2. "Did You Floss? (Part 2)" 3. "Open Wide" 4. "The Dreaded X-Ray" 5. "It'll Just Be a Pinch." Final shot: kid in the chair giving a big thumbs up — "But they always end happily ever after 🦷"</div>
-        <div class="line"><b>Caption:</b> My top 5 horror movies as a dentist 😱🦷 (spoiler: always a happy ending) #torontokidsdental</div>
-        <div class="line"><b>Hashtags:</b> #dentisthumor #top5 #kidsdentist #torontokidsdental</div>
-        <div class="line"><b>Sound:</b> "Smells Like Teen Spirit" — Nirvana. Use the 2:42–2:52 "oh well, whatever, nevermind" bridge for a perfectly carefree punchline energy.</div>
+        <div class="line">Hold the phone like you're texting a friend — casual, handheld, no tripod. Narrate your real Sunday morning: "it's [name] at Toronto Kids Dental, here's what we're up to." Show the real people, the real space, the real energy. No script, no perfection.</div>
+        <div class="line"><b>Your version:</b> Dr. Aaron or Dr. Noah does a 30-second selfie vlog: quick wave, pan the office (chairs look spotless, tools ready), wave at a team member, then: "Summer checkup slots going fast — come see us at 799 York Mills 🦷" Close camera.</div>
+        <div class="line"><b>Caption:</b> sunday vlog @ toronto kids dental 📱🦷 summer slots filling fast — link in bio! #torontokidsdental</div>
+        <div class="line"><b>Hashtags:</b> #sundayvlog #kidsdentist #behindthescenes #torontokidsdental</div>
+        <div class="line"><b>Sound:</b> "Wings (Sped Up Nightcore)" — Birdy. Use the 0:40–0:50 cinematic swell for the closing shot — adds a beautiful lift that turns a simple vlog into a moment.</div>
         <button class="copybtn" onclick="copyScript(this)">📋 Copy caption + hashtags</button>
       </div>
     </div>
@@ -723,6 +736,14 @@
 </div>
 
 <!-- MY LIST -->
+<div class="ov" id="storiesOv" onclick="if(event.target===this)closeStories()"><div class="sheet left">
+  <div class="sh-top"><h2>📸 Story ideas</h2><button class="x" onclick="closeStories()">✕</button></div>
+  <div class="sh-body">
+    <p class="muted" style="text-align:left;margin-bottom:6px;">Quick Instagram <b>Story</b> posts — staff &amp; office only, <b>no patients</b> (so no consent hassle). Each tells you what to shoot + a caption to copy.</p>
+    <div id="stories"></div>
+  </div>
+</div></div>
+
 <div class="ov" id="listOv" onclick="if(event.target===this)closeList()">
   <div class="sheet">
     <div class="sh-top"><h2>📋 My Production List</h2><button class="x" onclick="closeList()">✕</button></div>
@@ -739,7 +760,8 @@
   <div class="sheet">
     <div class="sh-top"><h2>🕘 Past drops</h2><button class="x" onclick="hist(false)">✕</button></div>
     <div class="sh-body">
-      <div class="hist-item today"><span>📌 June 20, 2026 — Today</span><span class="tagm">you're here</span></div>
+      <div class="hist-item today"><span>📌 June 21, 2026 — Today</span><span class="tagm">you're here</span></div>
+      <div class="hist-item"><span>June 20, 2026</span><span class="tagm">Edition 04</span></div>
       <div class="hist-item"><span>June 19, 2026</span><span class="tagm">Edition 03</span></div>
       <div class="hist-item"><span>June 18, 2026</span><span class="tagm">Edition 02</span></div>
       <div class="hist-item"><span>June 16, 2026</span><span class="tagm">first edition</span></div>
@@ -836,18 +858,23 @@ const STAGES=[
   {label:'Posted',color:'#16B07A'}
 ];
 const STARTER_EX={
-  i1:[{label:'▶ Pixar Toy Story 5 "I Knew It" reel',url:'https://www.tiktok.com/@pixar/video/7646491074118110478'}],
-  i2:[{label:'▶ Food Jutsu template reel',url:'https://www.tiktok.com/@asigtsijov/video/7647149411532901662'}],
-  i3:[{label:'▶ Pediatric dentist real moments reel',url:'https://www.tiktok.com/@happytoothslc/video/7251615557148020011'}],
-  i4:[{label:'▶ Puerto Rico Song trend reel (GMA)',url:'https://www.tiktok.com/@gma/video/7642710734777896205'}],
-  i5:[{label:'▶ Comedy dentist skit reel',url:'https://www.tiktok.com/@tim.collins/video/7429274901799800071'}]
+  i1:[{label:'▶ Summer dental team reel',url:'https://www.tiktok.com/@wilton.dental/video/7631805374856842516'}],
+  i2:[{label:'▶ JENNIE Dracula transform reel',url:'https://www.tiktok.com/@jennierubyjane/video/7623429118373235981'}],
+  i3:[{label:'▶ Dental office POV reel',url:'https://www.tiktok.com/@lumedental/video/7649682241991216406'}],
+  i4:[{label:'▶ Dentist knows skit (The Bentist)',url:'https://www.tiktok.com/@thebentist/video/7378961040597372202'}],
+  i5:[{label:'▶ Happy Tooth dental vlog reel',url:'https://www.tiktok.com/@happytoothslc/video/7454770222927498527'}]
 };
+const STORIES=[
+  {ic:'📸',type:'Staff selfie',shoot:'Quick selfie of whoever\'s at the front desk this morning — natural, no posing.',cap:'morning from the front desk ☀️ who\'s coming to see us today?'},
+  {ic:'🐠',type:'Office detail',shoot:'Close-up of one cozy corner — the fish tank, the prize wall, or the toy bin.',cap:'our favourite little corner 🐠 spot it on your next visit'},
+  {ic:'💬',type:'Text story',shoot:'No photo needed — plain text on a bright background.',cap:'pov: it\'s monday and the sticker drawer is already empty 😅'}
+];
 const SOUNDS=[
-  {n:'I Knew It, I Knew You',a:'Taylor Swift · Toy Story 5 soundtrack',use:'Nostalgic "first visit vs. now" photo/video pairs',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 7–10pm',ps:19,pe:22,ts:'0:25–0:35',reel:'https://www.tiktok.com/@disneyplus/video/7648730572403002637'},
-  {n:'The Puerto Rico Song',a:'Saxboy Billy · summer 2026 earworm · 26K+ posts',use:'Bright day-in-life montages, office reveals, happy team moments',url:'https://www.instagram.com/explore/tags/reels/',peak:'afternoons · 6–9pm',ps:18,pe:21,ts:'0:00–0:12',reel:'https://www.tiktok.com/@gma/video/7642710734777896205'},
-  {n:'Smells Like Teen Spirit',a:'Nirvana · "oh well, whatever, nevermind" bridge',use:'Chill carefree summer vibes — team being themselves',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 5–9pm',ps:17,pe:21,ts:'2:42–2:52',reel:'https://www.tiktok.com/@youngr/video/7344073713391848737'},
-  {n:'Hate That I Made U Love Me',a:'Ariana Grande · adamusic_ remix · album Petal',use:'Dance transitions, scrub/outfit reveals, upbeat team moments',url:'https://www.instagram.com/explore/tags/reels/',peak:'nights · 7–11pm',ps:19,pe:23,ts:'0:05–0:15',reel:'https://www.tiktok.com/@thefreshtimes/video/7645345163589602593'},
-  {n:'Drop Dead',a:'Olivia Rodrigo · from "You Seem Pretty Sad…" · 121K+ posts',use:'Story-reveal overlays, patient transformation moments',url:'https://www.instagram.com/explore/tags/reels/',peak:'nights · 8–11pm',ps:20,pe:23,ts:'0:08–0:18',reel:'https://www.tiktok.com/@livbedumb/video/7629579050872294669'}
+  {n:'Life Feels So Good',a:'napsea · warm feel-good indie · trending June 2026',use:'Sunny office montages, happy patient moments, summer checkup clips',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 7–10pm',ps:19,pe:22,ts:'0:06–0:16',reel:'https://www.tiktok.com/@selvinapp/video/7577001265272589575'},
+  {n:'Dracula (JENNIE Remix)',a:'Tame Impala × JENNIE · 545K+ TikTok videos',use:'Flash-cut smile reveals, before/after dental transformations',url:'https://www.instagram.com/explore/tags/reels/',peak:'nights · 8–11pm',ps:20,pe:23,ts:'0:28–0:38',reel:'https://www.tiktok.com/@jennierubyjane/video/7603935719748390157'},
+  {n:'Wings (Sped Up Nightcore)',a:'Birdy · graduation anthem · trending June 2026',use:'Emotional milestones — first visit, brave kid moments, cavity-free reveals',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 5–9pm',ps:17,pe:21,ts:'0:40–0:50',reel:'https://www.tiktok.com/@sadesharras/video/7645664779327081742'},
+  {n:"What's Up?",a:'4 Non Blondes · nostalgia wave 2026 · 116K+ plays',use:"Comedy reveals, 'what’s up with your smile?' skit openers",url:'https://www.instagram.com/explore/tags/reels/',peak:'afternoons · noon–3pm',ps:12,pe:15,ts:'1:09–1:19',reel:'https://www.tiktok.com/@jlo/video/7565955475892636959'},
+  {n:'Lucky',a:'Britney Spears · 44K IG posts · team appreciation',use:'Team spotlights, patient shoutouts, "lucky to have you" summer montages',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 6–10pm',ps:18,pe:22,ts:'0:22–0:32',reel:'https://www.tiktok.com/@astanaxx/video/7484185627253034247'}
 ];
 
 let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[],bugs:[],theme:'',sort:'manual',excluded:[]};
@@ -1309,6 +1336,37 @@ function toggleScript(b){sfxClick();const s=b.closest('.body').querySelector('.s
 function copyScript(b){sfxCopy();const s=b.closest('.script');const t=Array.from(s.querySelectorAll('.line')).map(l=>l.innerText).join('\n');navigator.clipboard.writeText(t).then(()=>toast('Copied caption ✅'));}
 function openList(){sfxClick();renderList();document.getElementById('listOv').classList.add('open');}
 function closeList(){document.getElementById('listOv').classList.remove('open');}
+/* ============ Stories page ============ */
+function renderStories(){
+  const w=document.getElementById('stories');if(!w)return;w.innerHTML='';
+  STORIES.forEach((s,i)=>{
+    const el=document.createElement('div');el.className='story';
+    el.innerHTML=`<div class="stype"><span class="sic">${s.ic}</span>${escapeHtml(s.type)}</div>
+      <div class="sshoot"><b>📸 Shoot this:</b> ${escapeHtml(s.shoot)}</div>
+      <div class="scaplbl">Caption</div>
+      <div class="scap" data-cap="${escapeHtml(s.cap)}">${escapeHtml(s.cap)}</div>
+      <button class="copybtn" onclick="copyCap(${i})">📋 Copy caption</button>`;
+    w.appendChild(el);
+  });
+}
+function copyCap(i){navigator.clipboard.writeText(STORIES[i].cap).then(()=>{sfxCopy();toast('Caption copied ✅');});}
+function openStories(){sfxClick();renderStories();document.getElementById('storiesOv').classList.add('open');typeCaptions();}
+function closeStories(){document.getElementById('storiesOv').classList.remove('open');}
+function typeCaptions(){
+  document.querySelectorAll('#stories .scap').forEach((el,idx)=>{
+    const txt=el.dataset.cap||'';el.textContent='';el.classList.add('typing');clearInterval(el._t);
+    let j=0;setTimeout(()=>{el._t=setInterval(()=>{el.textContent=txt.slice(0,++j);if(j>=txt.length){clearInterval(el._t);el.classList.remove('typing');}},30);},idx*450);
+  });
+}
+/* swipe: ← My List · → Stories · swipe again to go back (mobile) */
+(function(){let sx=0,sy=0,st=0,blocked=false;
+  document.addEventListener('touchstart',e=>{const t=e.target;blocked=!!(t.closest&&t.closest('.ptrack,input,textarea,select,.sound,.tabs,.notesPanel,.exrow,.searchbox,.seg,.scap,.phone'));sx=e.changedTouches[0].clientX;sy=e.changedTouches[0].clientY;st=Date.now();},{passive:true});
+  document.addEventListener('touchend',e=>{if(blocked)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy,dt=Date.now()-st;
+    if(dt>700||Math.abs(dx)<70||Math.abs(dx)<Math.abs(dy)*2)return;
+    const lo=document.getElementById('listOv').classList.contains('open'),so=document.getElementById('storiesOv').classList.contains('open');
+    if(lo||so){closeList();closeStories();return;}
+    if(dx<0)openList();else openStories();},{passive:true});
+})();
 function hist(o){if(o)sfxClick();document.getElementById('histOv').classList.toggle('open',o);}
 function toast(m){const t=document.getElementById('toast');t.textContent=m||'Saved';t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1500);}
 function escapeHtml(s){return(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
@@ -1336,7 +1394,7 @@ function initGsapFlair(){
   }catch(e){}
 }
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){closeList();hist(false);closeAdd();setClose();peopleClose();['helpOv','confirmModal','bugModal','nameModal'].forEach(id=>document.getElementById(id)&&document.getElementById(id).classList.remove('open'));return;}
+  if(e.key==='Escape'){closeList();closeStories();hist(false);closeAdd();setClose();peopleClose();['helpOv','confirmModal','bugModal','nameModal'].forEach(id=>document.getElementById(id)&&document.getElementById(id).classList.remove('open'));return;}
   if(/^(input|textarea|select)$/i.test(e.target.tagName))return;
   if(e.key==='l'||e.key==='L')openList();
   if(e.key==='m'||e.key==='M')toggleMute();
@@ -1345,7 +1403,7 @@ document.addEventListener('keydown',e=>{
 
 /* ============ init ============ */
 load();loadFromHash();applyTheme();const _mb=document.getElementById('muteBtn');if(_mb)_mb.textContent=state.muted?'🔇':'🔊';updateMeChip();
-refreshCards();renderExamples();renderSounds();renderResources();enhanceScripts();renderList();updateCount();
+refreshCards();renderExamples();renderSounds();renderResources();enhanceScripts();renderList();updateCount();renderStories();
 updateViral();setInterval(updateViral,60000);
 document.querySelector('#addChips .chip').classList.add('sel');
 window.addEventListener('scroll',onScroll,{passive:true});onScroll();

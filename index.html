@@ -451,6 +451,18 @@
   .score[title]{cursor:help;}
   /* GSAP: depth for the headline (content reveal is handled by the observer, not GSAP) */
   .gsap .hero h1{perspective:800px;}
+  /* Stories page (left sheet) */
+  .sheet.left{left:0;right:auto;box-shadow:30px 0 80px -40px rgba(0,0,0,.5);animation:slideinL .42s var(--ease);}
+  @keyframes slideinL{from{transform:translateX(-60px);opacity:.3}to{transform:none;opacity:1}}
+  .story{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:13px;box-shadow:var(--sh);}
+  .story .stype{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;letter-spacing:-.02em;}
+  .story .sic{font-size:20px;}
+  .story .sshoot{font-size:13.5px;color:var(--ink2);line-height:1.5;margin-top:8px;}
+  .story .sshoot b{color:var(--ink);}
+  .story .scaplbl{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:12px 0 5px;}
+  .story .scap{font-size:14px;color:var(--ink);line-height:1.5;min-height:1.4em;font-family:'Courier New',ui-monospace,monospace;background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:10px 12px;}
+  .story .scap.typing::after{content:'▍';color:var(--teal);animation:blink .9s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0}}
 
   /* people, roles, attribution */
   #meBtn{font-weight:700;}
@@ -533,6 +545,7 @@
     <button class="tbtn ic" id="darkBtn" title="Dark mode" onclick="toggleDark()">🌙</button>
     <button class="tbtn ic" title="Surprise me" onclick="surpriseIdea()">🎲</button>
     <button class="tbtn ic" title="History" onclick="hist(true)">🕘</button>
+    <button class="tbtn" onclick="openStories()">📸 Stories</button>
     <button class="tbtn primary" onclick="openList()">📋 My List <span class="badge" id="listCount">0</span></button>
   </div>
 </div>
@@ -723,6 +736,14 @@
 </div>
 
 <!-- MY LIST -->
+<div class="ov" id="storiesOv" onclick="if(event.target===this)closeStories()"><div class="sheet left">
+  <div class="sh-top"><h2>📸 Story ideas</h2><button class="x" onclick="closeStories()">✕</button></div>
+  <div class="sh-body">
+    <p class="muted" style="text-align:left;margin-bottom:6px;">Quick Instagram <b>Story</b> posts — staff &amp; office only, <b>no patients</b> (so no consent hassle). Each tells you what to shoot + a caption to copy.</p>
+    <div id="stories"></div>
+  </div>
+</div></div>
+
 <div class="ov" id="listOv" onclick="if(event.target===this)closeList()">
   <div class="sheet">
     <div class="sh-top"><h2>📋 My Production List</h2><button class="x" onclick="closeList()">✕</button></div>
@@ -843,6 +864,11 @@ const STARTER_EX={
   i4:[{label:'▶ Dentist knows skit (The Bentist)',url:'https://www.tiktok.com/@thebentist/video/7378961040597372202'}],
   i5:[{label:'▶ Happy Tooth dental vlog reel',url:'https://www.tiktok.com/@happytoothslc/video/7454770222927498527'}]
 };
+const STORIES=[
+  {ic:'📸',type:'Staff selfie',shoot:'Quick selfie of whoever\'s at the front desk this morning — natural, no posing.',cap:'morning from the front desk ☀️ who\'s coming to see us today?'},
+  {ic:'🐠',type:'Office detail',shoot:'Close-up of one cozy corner — the fish tank, the prize wall, or the toy bin.',cap:'our favourite little corner 🐠 spot it on your next visit'},
+  {ic:'💬',type:'Text story',shoot:'No photo needed — plain text on a bright background.',cap:'pov: it\'s monday and the sticker drawer is already empty 😅'}
+];
 const SOUNDS=[
   {n:'Life Feels So Good',a:'napsea · warm feel-good indie · trending June 2026',use:'Sunny office montages, happy patient moments, summer checkup clips',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 7–10pm',ps:19,pe:22,ts:'0:06–0:16',reel:'https://www.tiktok.com/@selvinapp/video/7577001265272589575'},
   {n:'Dracula (JENNIE Remix)',a:'Tame Impala × JENNIE · 545K+ TikTok videos',use:'Flash-cut smile reveals, before/after dental transformations',url:'https://www.instagram.com/explore/tags/reels/',peak:'nights · 8–11pm',ps:20,pe:23,ts:'0:28–0:38',reel:'https://www.tiktok.com/@jennierubyjane/video/7603935719748390157'},
@@ -1310,6 +1336,37 @@ function toggleScript(b){sfxClick();const s=b.closest('.body').querySelector('.s
 function copyScript(b){sfxCopy();const s=b.closest('.script');const t=Array.from(s.querySelectorAll('.line')).map(l=>l.innerText).join('\n');navigator.clipboard.writeText(t).then(()=>toast('Copied caption ✅'));}
 function openList(){sfxClick();renderList();document.getElementById('listOv').classList.add('open');}
 function closeList(){document.getElementById('listOv').classList.remove('open');}
+/* ============ Stories page ============ */
+function renderStories(){
+  const w=document.getElementById('stories');if(!w)return;w.innerHTML='';
+  STORIES.forEach((s,i)=>{
+    const el=document.createElement('div');el.className='story';
+    el.innerHTML=`<div class="stype"><span class="sic">${s.ic}</span>${escapeHtml(s.type)}</div>
+      <div class="sshoot"><b>📸 Shoot this:</b> ${escapeHtml(s.shoot)}</div>
+      <div class="scaplbl">Caption</div>
+      <div class="scap" data-cap="${escapeHtml(s.cap)}">${escapeHtml(s.cap)}</div>
+      <button class="copybtn" onclick="copyCap(${i})">📋 Copy caption</button>`;
+    w.appendChild(el);
+  });
+}
+function copyCap(i){navigator.clipboard.writeText(STORIES[i].cap).then(()=>{sfxCopy();toast('Caption copied ✅');});}
+function openStories(){sfxClick();renderStories();document.getElementById('storiesOv').classList.add('open');typeCaptions();}
+function closeStories(){document.getElementById('storiesOv').classList.remove('open');}
+function typeCaptions(){
+  document.querySelectorAll('#stories .scap').forEach((el,idx)=>{
+    const txt=el.dataset.cap||'';el.textContent='';el.classList.add('typing');clearInterval(el._t);
+    let j=0;setTimeout(()=>{el._t=setInterval(()=>{el.textContent=txt.slice(0,++j);if(j>=txt.length){clearInterval(el._t);el.classList.remove('typing');}},30);},idx*450);
+  });
+}
+/* swipe: ← My List · → Stories · swipe again to go back (mobile) */
+(function(){let sx=0,sy=0,st=0,blocked=false;
+  document.addEventListener('touchstart',e=>{const t=e.target;blocked=!!(t.closest&&t.closest('.ptrack,input,textarea,select,.sound,.tabs,.notesPanel,.exrow,.searchbox,.seg,.scap,.phone'));sx=e.changedTouches[0].clientX;sy=e.changedTouches[0].clientY;st=Date.now();},{passive:true});
+  document.addEventListener('touchend',e=>{if(blocked)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy,dt=Date.now()-st;
+    if(dt>700||Math.abs(dx)<70||Math.abs(dx)<Math.abs(dy)*2)return;
+    const lo=document.getElementById('listOv').classList.contains('open'),so=document.getElementById('storiesOv').classList.contains('open');
+    if(lo||so){closeList();closeStories();return;}
+    if(dx<0)openList();else openStories();},{passive:true});
+})();
 function hist(o){if(o)sfxClick();document.getElementById('histOv').classList.toggle('open',o);}
 function toast(m){const t=document.getElementById('toast');t.textContent=m||'Saved';t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1500);}
 function escapeHtml(s){return(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
@@ -1337,7 +1394,7 @@ function initGsapFlair(){
   }catch(e){}
 }
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){closeList();hist(false);closeAdd();setClose();peopleClose();['helpOv','confirmModal','bugModal','nameModal'].forEach(id=>document.getElementById(id)&&document.getElementById(id).classList.remove('open'));return;}
+  if(e.key==='Escape'){closeList();closeStories();hist(false);closeAdd();setClose();peopleClose();['helpOv','confirmModal','bugModal','nameModal'].forEach(id=>document.getElementById(id)&&document.getElementById(id).classList.remove('open'));return;}
   if(/^(input|textarea|select)$/i.test(e.target.tagName))return;
   if(e.key==='l'||e.key==='L')openList();
   if(e.key==='m'||e.key==='M')toggleMute();
@@ -1346,7 +1403,7 @@ document.addEventListener('keydown',e=>{
 
 /* ============ init ============ */
 load();loadFromHash();applyTheme();const _mb=document.getElementById('muteBtn');if(_mb)_mb.textContent=state.muted?'🔇':'🔊';updateMeChip();
-refreshCards();renderExamples();renderSounds();renderResources();enhanceScripts();renderList();updateCount();
+refreshCards();renderExamples();renderSounds();renderResources();enhanceScripts();renderList();updateCount();renderStories();
 updateViral();setInterval(updateViral,60000);
 document.querySelector('#addChips .chip').classList.add('sel');
 window.addEventListener('scroll',onScroll,{passive:true});onScroll();

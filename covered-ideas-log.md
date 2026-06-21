@@ -7,6 +7,21 @@ Purpose: track every idea featured so the daily brief never repeats itself.
 
 ---
 
+## 2026-06-21 (Edition 05 — Bloom)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Summer Bucket List ☑️ | Template | 9 | @wilton.dental/video/7631805374856842516 ✓ |
+| 2 | Dracula Smile Transform 🧛 | Template | 9 | @jennierubyjane/video/7623429118373235981 ✓ |
+| 3 | POV: Zero Cavities 🎉 | Office | 9 | @lumedental/video/7649682241991216406 ✓ |
+| 4 | Your Dentist Knows 🕵️ | Skit | 8 | @thebentist/video/7378961040597372202 ✓ |
+| 5 | Sunday Checkup Vlog 📱 | Office | 8 | @happytoothslc/video/7454770222927498527 ✓ |
+
+**Sounds:** Life Feels So Good (napsea) · Dracula Remix (Tame Impala × JENNIE) · Wings Sped Up (Birdy) · What's Up? (4 Non Blondes) · Lucky (Britney Spears)
+**Theme:** Bloom. All 5 example links oEmbed-verified. Don't reuse: Summer Bucket List, Dracula Smile Transform, POV Zero Cavities, Your Dentist Knows, Sunday Checkup Vlog, or these sounds.
+
+---
+
 ## 2026-06-19 (Edition 03 — automated 7am)
 
 | # | Idea | Type | Score | Verified reel |
