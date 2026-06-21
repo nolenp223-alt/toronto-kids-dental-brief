@@ -514,6 +514,12 @@
   .saved-item .si-body span{font-size:12.5px;color:var(--muted);line-height:1.4;}
   .saved-item .rm0{border:none;background:transparent;color:var(--faint);cursor:pointer;font-weight:800;font-size:15px;}
   .saved-item .rm0:hover{color:var(--coral);}
+  .saved-item .si-done{flex:none;border:none;background:linear-gradient(140deg,var(--good),#4cd6a0);color:#fff;font-weight:800;font-size:12px;border-radius:10px;padding:8px 12px;cursor:pointer;box-shadow:0 8px 18px -8px rgba(22,176,122,.55);transition:transform .15s var(--spring);white-space:nowrap;}
+  .saved-item .si-done:hover{transform:translateY(-1px);}
+  .saved-item .si-done:active{transform:scale(.88);}
+  .saved-item.sdone{opacity:.62;}
+  .saved-item.sdone .si-body b{text-decoration:line-through;}
+  .saved-item.sdone .si-done{background:var(--tint-teal);color:var(--teal-d);box-shadow:none;}
 
   /* people, roles, attribution */
   #meBtn{font-weight:700;}
@@ -1437,9 +1443,20 @@ function flyAway(card,dir){
   if(window.gsap){gsap.to(card,{x:dir*440,y:-30,rotateZ:dir*16,opacity:0,duration:.45,ease:'power2.in',onComplete:function(){gsap.to(card,{height:0,marginBottom:0,paddingTop:0,paddingBottom:0,duration:.22,onComplete:()=>card.remove()});}});}
   else{card.style.transition='transform .4s,opacity .4s';card.style.transform='translateX('+(dir*440)+'px) rotate('+(dir*16)+'deg)';card.style.opacity='0';setTimeout(()=>card.remove(),420);}
 }
+function sfxWhoosh(){blip(680,0.42,'sine',0.13,170);blip(400,0.42,'triangle',0.06,150);}
 function animateStories(){
+  sfxWhoosh();
   if(!window.gsap)return;
-  try{const cards=gsap.utils.toArray('#stories .story').slice(0,9);gsap.from(cards,{opacity:0,scale:.55,y:46,rotateZ:()=>gsap.utils.random(-7,7),duration:.6,ease:'back.out(1.7)',stagger:.06});}catch(e){}
+  try{
+    const cards=gsap.utils.toArray('#stories .story').slice(0,10);
+    // cards fall down gently into place (no harsh pop)
+    gsap.from(cards,{opacity:0,y:-46,scale:.96,duration:.78,ease:'power3.out',stagger:.08});
+    // title warps in
+    const h=document.querySelector('.sp-top h2');
+    if(h)gsap.fromTo(h,{scaleY:1.7,skewX:-10,opacity:0,transformOrigin:'left bottom'},{scaleY:1,skewX:0,opacity:1,duration:.65,ease:'power3.out'});
+    const intro=document.querySelector('.sp-intro');
+    if(intro)gsap.from(intro,{opacity:0,y:-14,duration:.55,ease:'power2.out',delay:.05});
+  }catch(e){}
 }
 function openStories(){sfxClick();renderStories();document.getElementById('storiesOv').classList.add('open');animateStories();}
 function closeStories(){document.getElementById('storiesOv').classList.remove('open');closeSaved();}
@@ -1448,8 +1465,9 @@ function closeSaved(){const p=document.querySelector('.storypage');if(p)p.classL
 function renderSaved(){
   const w=document.getElementById('savedList');if(!w)return;const list=state.savedStories||[];
   if(!list.length){w.innerHTML='<div class="empty"><span class="big">⭐</span>Tap ✓ on a story to keep it here.</div>';return;}
-  w.innerHTML=list.map((s,i)=>`<div class="saved-item"><span class="sic">${s.ic}</span><div class="si-body"><b>${escapeHtml(s.type)}</b><span>${escapeHtml(s.cap)}</span></div><button class="rm0" onclick="unsaveStory(${i})">✕</button></div>`).join('');
+  w.innerHTML=list.map((s,i)=>`<div class="saved-item${s.done?' sdone':''}"><span class="sic">${s.ic}</span><div class="si-body"><b>${escapeHtml(s.type)}</b><span>${escapeHtml(s.cap)}</span></div><button class="si-done" onclick="storyDone(${i})" title="Mark posted">${s.done?'✓ Posted':'Done'}</button><button class="rm0" onclick="unsaveStory(${i})">✕</button></div>`).join('');
 }
+function storyDone(i){const s=state.savedStories[i];if(!s)return;s.done=!s.done;save();renderSaved();if(s.done){sfxDone();confetti();toast('Posted! 🎉');}else{sfxClick();}}
 function unsaveStory(i){state.savedStories.splice(i,1);save();renderSaved();updateSavedCount();sfxRemove();}
 function updateSavedCount(){const e=document.getElementById('savedCount');if(e)e.textContent=(state.savedStories||[]).length;}
 /* swipe: ← My List · → Stories · swipe again to go back (mobile) */
