@@ -463,6 +463,57 @@
   .story .scap{font-size:14px;color:var(--ink);line-height:1.5;min-height:1.4em;font-family:'Courier New',ui-monospace,monospace;background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:10px 12px;}
   .story .scap.typing::after{content:'▍';color:var(--teal);animation:blink .9s steps(1) infinite;}
   @keyframes blink{50%{opacity:0}}
+  /* --good was undefined → broke every green gradient (✓ button, toggles, etc.) */
+  :root{--good:#16B07A;}
+  /* Stories: full page + light cards + round ✓/✗ */
+  .storypage{position:absolute;inset:0;overflow:auto;-webkit-overflow-scrolling:touch;background:linear-gradient(170deg,#f4f0ff 0%,#fff4ef 60%,#fef0f6 100%);animation:fade .25s ease;}
+  [data-theme="dark"] .storypage{background:linear-gradient(170deg,#1c1733,#241a28);}
+  .sp-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:max(16px,env(safe-area-inset-top)) 20px 16px;background:rgba(255,255,255,.55);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid rgba(0,0,0,.05);}
+  [data-theme="dark"] .sp-top{background:rgba(28,23,51,.55);}
+  .sp-top h2{font-size:24px;font-weight:800;letter-spacing:-.03em;}
+  .sp-top .x{border:none;background:rgba(0,0,0,.06);border-radius:12px;width:40px;height:40px;cursor:pointer;font-weight:800;font-size:16px;color:var(--ink);}
+  .sp-top .x:hover{background:rgba(0,0,0,.1);}
+  .sp-body{max-width:600px;margin:0 auto;padding:20px 18px calc(80px + env(safe-area-inset-bottom));}
+  .sp-intro{font-size:14px;color:var(--ink2);line-height:1.6;margin-bottom:20px;font-weight:500;}
+  .story{background:linear-gradient(160deg,#fffaf2,#fdeef6)!important;border:1px solid #f2e0ee!important;border-radius:22px;box-shadow:0 22px 44px -24px rgba(108,92,231,.45)!important;transform-origin:center;will-change:transform,opacity;}
+  [data-theme="dark"] .story{background:linear-gradient(160deg,#251e35,#2b1d2c)!important;border-color:#3a2e46!important;}
+  .story .srow{display:flex;align-items:center;gap:10px;margin-top:15px;}
+  .story .srow .copybtn{margin-top:0;}
+  .story .sacts{margin-left:auto;display:flex;gap:9px;}
+  .story .sx,.story .sc{width:46px;height:46px;border-radius:50%;border:none;font-size:19px;font-weight:800;cursor:pointer;transition:transform .15s var(--spring);}
+  .story .sx{background:#fff;color:#c2255c;box-shadow:0 6px 16px -8px rgba(194,37,92,.4),inset 0 0 0 1.5px #f3d0d0;}
+  .story .sc{background:linear-gradient(140deg,var(--good),#4cd6a0);color:#fff;box-shadow:0 10px 22px -10px rgba(22,176,122,.55);}
+  .story .sx:hover,.story .sc:hover{transform:translateY(-2px);}
+  .story .sx:active,.story .sc:active{transform:scale(.86);}
+  .story.done{opacity:.6;}
+  .story.done .sc{box-shadow:0 0 0 4px rgba(22,176,122,.35);}
+  .story.skip{opacity:.4;filter:grayscale(.4);}
+  /* Stories v2: white page, colorful cards, saved story-list panel */
+  .storypage{background:#fbfcff!important;}
+  [data-theme="dark"] .storypage{background:#14121c!important;}
+  .story{background:var(--c,#eaf2ff)!important;border:1.5px solid var(--cb,#bcd)!important;box-shadow:0 16px 32px -20px rgba(40,40,80,.4)!important;}
+  .story .stype,.story .sshoot b{color:#1c1830;}
+  .story .sshoot{color:#3a3550;}
+  .story .scap{font-family:'Courier New',ui-monospace,monospace;background:rgba(255,255,255,.62);border:1px solid rgba(0,0,0,.06);color:#1c1830;}
+  [data-theme="dark"] .story .stype,[data-theme="dark"] .story .sshoot b,[data-theme="dark"] .story .scap{color:#f3f0f7;}
+  [data-theme="dark"] .story .scap{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.08);}
+  .sp-actions{display:flex;gap:8px;align-items:center;}
+  .savedbtn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 14px;font-weight:700;font-size:13.5px;cursor:pointer;box-shadow:var(--sh-sm);white-space:nowrap;}
+  .savedbtn:hover{background:var(--tint-teal);}
+  [data-theme="dark"] .savedbtn{background:var(--card);color:var(--ink);}
+  .saved-panel{position:absolute;top:0;right:0;bottom:0;width:min(340px,86%);background:var(--card);box-shadow:-24px 0 60px -34px rgba(0,0,0,.45);transform:translateX(102%);transition:transform .42s var(--ease);z-index:4;overflow:auto;padding-bottom:40px;}
+  .storypage.saved-open .saved-panel{transform:none;}
+  #spBody{transition:transform .42s var(--ease),filter .42s ease;}
+  .storypage.saved-open #spBody{transform:translateX(-40px);filter:brightness(.96);}
+  .saved-top{position:sticky;top:0;background:var(--card);display:flex;align-items:center;justify-content:space-between;padding:18px;border-bottom:1px solid var(--line2);font-size:16px;font-weight:800;z-index:1;}
+  .saved-top .x{border:none;background:var(--line2);border-radius:10px;width:34px;height:34px;cursor:pointer;font-weight:800;color:var(--ink);}
+  .saved-item{display:flex;gap:10px;align-items:flex-start;padding:13px 16px;border-bottom:1px solid var(--line2);}
+  .saved-item .sic{font-size:20px;}
+  .saved-item .si-body{flex:1;min-width:0;}
+  .saved-item .si-body b{font-size:13.5px;display:block;}
+  .saved-item .si-body span{font-size:12.5px;color:var(--muted);line-height:1.4;}
+  .saved-item .rm0{border:none;background:transparent;color:var(--faint);cursor:pointer;font-weight:800;font-size:15px;}
+  .saved-item .rm0:hover{color:var(--coral);}
 
   /* people, roles, attribution */
   #meBtn{font-weight:700;}
@@ -639,7 +690,7 @@
     <div class="body">
       <div class="meta"><span class="tag office">🏢 Office</span><span class="tag local">❤️ POV format</span><span class="score">★ 9</span></div>
       <h3>POV: Zero Cavities 🎉</h3>
-      <p class="what">The POV format never goes away because it's pure storytelling. "POV: the moment we tell a kid they have zero cavities" — the dentist's face lights up, the team cheers, maybe a sticker gets chosen. Parents of kids about to start the dentist journey share this every single time.</p>
+      <p class="what">The POV format never goes away because it's pure storytelling. "POV: the moment we tell a kid they have zero cavities" — the dentist's face lights up, the team cheers, maybe they earn a coin for the prize shelf. Parents of kids about to start the dentist journey share this every single time.</p>
       <div class="ex" data-id="i3"></div>
       <div class="actions">
         <button class="btn btn-add" onclick="addToList('i3',this)">➕ Add to list</button>
@@ -650,7 +701,7 @@
       <div class="script">
         <h4>What the trend is</h4>
         <div class="line">Add "POV:" as a text overlay and show a first-person moment from the dentist's perspective. The camera becomes the dentist — or the proud parent watching. The more genuine the reaction, the more shares.</div>
-        <div class="line"><b>Your version:</b> Dr. Gideon or Dr. Noah says "ZERO cavities this summer!" on camera, then cut to the kid's face — pure joy. Quick cut to the sticker wall as they pick their prize. Keep it warm and real — no performance needed.</div>
+        <div class="line"><b>Your version:</b> Dr. Gideon or Dr. Noah says "ZERO cavities this summer!" on camera, then cut to the kid's face — pure joy. Quick cut to them cashing in their coins for a prize. Keep it warm and real — no performance needed.</div>
         <div class="line"><b>Caption:</b> POV: zero cavities 🎉🦷 this is our FAVOURITE moment #torontokidsdental</div>
         <div class="line"><b>Hashtags:</b> #zerocavities #nocavities #kidsdentist #pov #torontokidsdental</div>
         <div class="line"><b>Sound:</b> "Life Feels So Good" — napsea. Use the warm 0:06–0:16 opening — it's the perfect feel-good backdrop for the big reveal.</div>
@@ -736,11 +787,17 @@
 </div>
 
 <!-- MY LIST -->
-<div class="ov" id="storiesOv" onclick="if(event.target===this)closeStories()"><div class="sheet left">
-  <div class="sh-top"><h2>📸 Story ideas</h2><button class="x" onclick="closeStories()">✕</button></div>
-  <div class="sh-body">
-    <p class="muted" style="text-align:left;margin-bottom:6px;">Quick Instagram <b>Story</b> posts — staff &amp; office only, <b>no patients</b> (so no consent hassle). Each tells you what to shoot + a caption to copy.</p>
+<div class="ov" id="storiesOv" onclick="if(event.target===this)closeStories()"><div class="storypage">
+  <div class="sp-top"><h2>📸 Story ideas</h2>
+    <div class="sp-actions"><button class="savedbtn" onclick="openSaved()">⭐ Saved <span id="savedCount">0</span></button><button class="x" onclick="closeStories()">✕</button></div>
+  </div>
+  <div class="sp-body" id="spBody">
+    <p class="sp-intro">Endless quick <b>Story</b> ideas — staff &amp; office, <b>no patients</b>. Tap <b>✓</b> to keep one in your list, <b>✕</b> to flick it away. Keep scrolling for more 👇</p>
     <div id="stories"></div>
+  </div>
+  <div class="saved-panel" id="savedPanel">
+    <div class="saved-top"><span>⭐ Your story list</span><button class="x" onclick="closeSaved()">✕</button></div>
+    <div id="savedList"></div>
   </div>
 </div></div>
 
@@ -865,9 +922,24 @@ const STARTER_EX={
   i5:[{label:'▶ Happy Tooth dental vlog reel',url:'https://www.tiktok.com/@happytoothslc/video/7454770222927498527'}]
 };
 const STORIES=[
-  {ic:'📸',type:'Staff selfie',shoot:'Quick selfie of whoever\'s at the front desk this morning — natural, no posing.',cap:'morning from the front desk ☀️ who\'s coming to see us today?'},
-  {ic:'🐠',type:'Office detail',shoot:'Close-up of one cozy corner — the fish tank, the prize wall, or the toy bin.',cap:'our favourite little corner 🐠 spot it on your next visit'},
-  {ic:'💬',type:'Text story',shoot:'No photo needed — plain text on a bright background.',cap:'pov: it\'s monday and the sticker drawer is already empty 😅'}
+  {ic:'🪙',type:'How it works',shoot:'Film the coin jar, then pan to the prize shelf. Just a hand holding a coin.',cap:'how our coins work 🪙 every visit earns coins → trade them for prizes'},
+  {ic:'🎁',type:'Prize restock',shoot:'Close-up of the prize shelf, freshly stocked. Show off the best ones.',cap:'prize shelf restock 🎁 worth saving your coins for'},
+  {ic:'📸',type:'Staff selfie',shoot:'Quick natural selfie of whoever\'s at the front desk this morning.',cap:'morning from the front desk ☀️ who\'s coming in today?'},
+  {ic:'☕',type:'Morning huddle',shoot:'The team grabbing coffee before the day starts.',cap:'fuelling up before a day of tiny smiles ☕'},
+  {ic:'🦷',type:'Tool of the day',shoot:'A clean shot of one fun, non-scary tool — explain what it does.',cap:'meet the little mirror that finds the sugar bugs 🦷'},
+  {ic:'🎵',type:'Office playlist',shoot:'Film the speaker / what\'s playing in the office today.',cap:'today\'s waiting-room vibe 🎵 (yes, we take requests)'},
+  {ic:'🗳️',type:'This or that',shoot:'Two prize options side by side. Add a poll sticker.',cap:'this or that? 🪙 pick your next prize'},
+  {ic:'🪥',type:'Brushing tip',shoot:'Plain text on a bright background — one quick tip.',cap:'2 minutes, twice a day. that\'s the whole secret 🪥'},
+  {ic:'🏆',type:'Coin champ',shoot:'Photo of a full coin jar or the prize wall.',cap:'who\'s saving up their coins? 🏆 the big prizes are calling'},
+  {ic:'🌟',type:'Meet the team',shoot:'One team member + a fun fact on screen. No patients.',cap:'meet the friendly face you\'ll see at your visit 🌟'},
+  {ic:'📅',type:'Open this week',shoot:'A bright text story with your hours.',cap:'we\'ve got spots this week 📅 dm us to book'},
+  {ic:'🎉',type:'Friday feeling',shoot:'The office on a Friday — quick fun clip of the team.',cap:'made it to friday 🎉 see you next week, toronto'},
+  {ic:'💬',type:'Quick FAQ',shoot:'Text story answering one common parent question.',cap:'first visit? by age 1 — sooner than most parents think 💬'},
+  {ic:'🧸',type:'Play area',shoot:'Show the waiting/play area (empty — no kids).',cap:'somewhere your kid actually wants to wait 🧸'},
+  {ic:'🪙',type:'Coin drop',shoot:'Satisfying close-up of a coin dropping into the jar.',cap:'that little *clink* = a happy checkup 🪙'},
+  {ic:'🎈',type:'New prize alert',shoot:'Highlight a brand-new prize on the shelf.',cap:'new prize just dropped 🎈 start saving those coins'},
+  {ic:'😄',type:'Caption this',shoot:'A funny candid office moment — ask followers to caption it.',cap:'caption this 😄 best one gets a shoutout'},
+  {ic:'❤️',type:'Why we do it',shoot:'A warm shot of the team. Keep it simple and real.',cap:'helping toronto kids love the dentist ❤️ one visit at a time'}
 ];
 const SOUNDS=[
   {n:'Life Feels So Good',a:'napsea · warm feel-good indie · trending June 2026',use:'Sunny office montages, happy patient moments, summer checkup clips',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 7–10pm',ps:19,pe:22,ts:'0:06–0:16',reel:'https://www.tiktok.com/@selvinapp/video/7577001265272589575'},
@@ -877,7 +949,7 @@ const SOUNDS=[
   {n:'Lucky',a:'Britney Spears · 44K IG posts · team appreciation',use:'Team spotlights, patient shoutouts, "lucky to have you" summer montages',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 6–10pm',ps:18,pe:22,ts:'0:22–0:32',reel:'https://www.tiktok.com/@astanaxx/video/7484185627253034247'}
 ];
 
-let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[],bugs:[],theme:'',sort:'manual',excluded:[]};
+let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[],bugs:[],theme:'',sort:'manual',excluded:[],storyState:{},savedStories:[]};
 const VERSION='1.0';
 const KEY='TKD_state_v2';
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){} flagSaved();}
@@ -1337,27 +1409,49 @@ function copyScript(b){sfxCopy();const s=b.closest('.script');const t=Array.from
 function openList(){sfxClick();renderList();document.getElementById('listOv').classList.add('open');}
 function closeList(){document.getElementById('listOv').classList.remove('open');}
 /* ============ Stories page ============ */
+const PAL=[['#dbe9ff','#a9caff'],['#d6f5e1','#9fe3b8'],['#fff1c2','#ffdf85'],['#ffdbd4','#ffb3a8'],['#eae1ff','#c7b6ff'],['#d0f3ee','#97e0d4'],['#ffdcef','#ff9fcf'],['#ffe6c7','#ffc681'],['#d9f0ff','#a5dbff'],['#e7ffd6','#c2f29b']];
+let _scolor=0;
+function buildStoryCard(s){
+  const p=PAL[_scolor++ % PAL.length];
+  const el=document.createElement('div');el.className='story';el.style.setProperty('--c',p[0]);el.style.setProperty('--cb',p[1]);el._story=s;
+  el.innerHTML=`<div class="stype"><span class="sic">${s.ic}</span>${escapeHtml(s.type)}</div>
+    <div class="sshoot"><b>📸 Shoot:</b> ${escapeHtml(s.shoot)}</div>
+    <div class="scap">${escapeHtml(s.cap)}</div>
+    <div class="srow"><button class="copybtn" onclick="copyStoryCap(this)">📋 Copy</button>
+      <div class="sacts"><button class="sx" title="Skip" onclick="storyDismiss(this)">✕</button><button class="sc" title="Save it" onclick="storySave(this)">✓</button></div></div>`;
+  return el;
+}
 function renderStories(){
-  const w=document.getElementById('stories');if(!w)return;w.innerHTML='';
-  STORIES.forEach((s,i)=>{
-    const el=document.createElement('div');el.className='story';
-    el.innerHTML=`<div class="stype"><span class="sic">${s.ic}</span>${escapeHtml(s.type)}</div>
-      <div class="sshoot"><b>📸 Shoot this:</b> ${escapeHtml(s.shoot)}</div>
-      <div class="scaplbl">Caption</div>
-      <div class="scap" data-cap="${escapeHtml(s.cap)}">${escapeHtml(s.cap)}</div>
-      <button class="copybtn" onclick="copyCap(${i})">📋 Copy caption</button>`;
-    w.appendChild(el);
-  });
+  const w=document.getElementById('stories');if(!w)return;w.innerHTML='';_scolor=0;
+  STORIES.forEach(s=>w.appendChild(buildStoryCard(s)));
+  const page=document.querySelector('.storypage');
+  if(page&&!page._inf){page._inf=true;page.addEventListener('scroll',function(){
+    if(page.scrollTop+page.clientHeight>page.scrollHeight-700 && w.children.length<150){STORIES.forEach(s=>w.appendChild(buildStoryCard(s)));}
+  });}
+  updateSavedCount();
 }
-function copyCap(i){navigator.clipboard.writeText(STORIES[i].cap).then(()=>{sfxCopy();toast('Caption copied ✅');});}
-function openStories(){sfxClick();renderStories();document.getElementById('storiesOv').classList.add('open');typeCaptions();}
-function closeStories(){document.getElementById('storiesOv').classList.remove('open');}
-function typeCaptions(){
-  document.querySelectorAll('#stories .scap').forEach((el,idx)=>{
-    const txt=el.dataset.cap||'';el.textContent='';el.classList.add('typing');clearInterval(el._t);
-    let j=0;setTimeout(()=>{el._t=setInterval(()=>{el.textContent=txt.slice(0,++j);if(j>=txt.length){clearInterval(el._t);el.classList.remove('typing');}},30);},idx*450);
-  });
+function copyStoryCap(btn){const s=btn.closest('.story')._story;navigator.clipboard.writeText(s.cap).then(()=>{sfxCopy();toast('Caption copied ✅');});}
+function storySave(btn){const card=btn.closest('.story'),s=card._story;state.savedStories=state.savedStories||[];if(!state.savedStories.some(x=>x.cap===s.cap))state.savedStories.push({ic:s.ic,type:s.type,cap:s.cap});save();updateSavedCount();sfxDone();toast('Saved to your list ⭐');flyAway(card,1);}
+function storyDismiss(btn){sfxNo();flyAway(btn.closest('.story'),-1);}
+function flyAway(card,dir){
+  if(window.gsap){gsap.to(card,{x:dir*440,y:-30,rotateZ:dir*16,opacity:0,duration:.45,ease:'power2.in',onComplete:function(){gsap.to(card,{height:0,marginBottom:0,paddingTop:0,paddingBottom:0,duration:.22,onComplete:()=>card.remove()});}});}
+  else{card.style.transition='transform .4s,opacity .4s';card.style.transform='translateX('+(dir*440)+'px) rotate('+(dir*16)+'deg)';card.style.opacity='0';setTimeout(()=>card.remove(),420);}
 }
+function animateStories(){
+  if(!window.gsap)return;
+  try{const cards=gsap.utils.toArray('#stories .story').slice(0,9);gsap.from(cards,{opacity:0,scale:.55,y:46,rotateZ:()=>gsap.utils.random(-7,7),duration:.6,ease:'back.out(1.7)',stagger:.06});}catch(e){}
+}
+function openStories(){sfxClick();renderStories();document.getElementById('storiesOv').classList.add('open');animateStories();}
+function closeStories(){document.getElementById('storiesOv').classList.remove('open');closeSaved();}
+function openSaved(){renderSaved();document.querySelector('.storypage').classList.add('saved-open');sfxClick();}
+function closeSaved(){const p=document.querySelector('.storypage');if(p)p.classList.remove('saved-open');}
+function renderSaved(){
+  const w=document.getElementById('savedList');if(!w)return;const list=state.savedStories||[];
+  if(!list.length){w.innerHTML='<div class="empty"><span class="big">⭐</span>Tap ✓ on a story to keep it here.</div>';return;}
+  w.innerHTML=list.map((s,i)=>`<div class="saved-item"><span class="sic">${s.ic}</span><div class="si-body"><b>${escapeHtml(s.type)}</b><span>${escapeHtml(s.cap)}</span></div><button class="rm0" onclick="unsaveStory(${i})">✕</button></div>`).join('');
+}
+function unsaveStory(i){state.savedStories.splice(i,1);save();renderSaved();updateSavedCount();sfxRemove();}
+function updateSavedCount(){const e=document.getElementById('savedCount');if(e)e.textContent=(state.savedStories||[]).length;}
 /* swipe: ← My List · → Stories · swipe again to go back (mobile) */
 (function(){let sx=0,sy=0,st=0,blocked=false;
   document.addEventListener('touchstart',e=>{const t=e.target;blocked=!!(t.closest&&t.closest('.ptrack,input,textarea,select,.sound,.tabs,.notesPanel,.exrow,.searchbox,.seg,.scap,.phone'));sx=e.changedTouches[0].clientX;sy=e.changedTouches[0].clientY;st=Date.now();},{passive:true});
