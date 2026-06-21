@@ -477,6 +477,11 @@
   .sp-top .x:hover{background:rgba(0,0,0,.1);}
   .sp-body{max-width:600px;margin:0 auto;padding:20px 18px calc(80px + env(safe-area-inset-bottom));}
   .sp-intro{font-size:14px;color:var(--ink2);line-height:1.6;margin-bottom:20px;font-weight:500;}
+  .daybanner{display:flex;align-items:center;gap:9px;background:linear-gradient(135deg,#fff3d4,#ffe1ec);border:1px solid #ffd6a3;border-radius:16px;padding:13px 16px;margin-bottom:16px;font-weight:700;font-size:13.5px;color:#7a4400;line-height:1.4;box-shadow:0 10px 24px -18px rgba(255,150,80,.7);}
+  .daybanner .db-cal{font-size:18px;flex:none;}
+  [data-theme="dark"] .daybanner{background:linear-gradient(135deg,#3a2f1a,#3a2030);border-color:#5a4326;color:#ffd9a8;}
+  .story.dayspec{position:relative;box-shadow:0 0 0 2px #ffc452,0 16px 32px -20px rgba(120,80,0,.45)!important;margin-top:18px;}
+  .story.dayspec::before{content:'⭐ TODAY';position:absolute;top:-10px;left:14px;background:linear-gradient(135deg,#ffb020,#ff8a3d);color:#fff;font-size:10px;font-weight:800;letter-spacing:.06em;padding:3px 10px;border-radius:999px;box-shadow:0 6px 14px -6px rgba(255,140,40,.7);}
   .story{background:linear-gradient(160deg,#fffaf2,#fdeef6)!important;border:1px solid #f2e0ee!important;border-radius:22px;box-shadow:0 22px 44px -24px rgba(108,92,231,.45)!important;transform-origin:center;will-change:transform,opacity;}
   [data-theme="dark"] .story{background:linear-gradient(160deg,#251e35,#2b1d2c)!important;border-color:#3a2e46!important;}
   .story .srow{display:flex;align-items:center;gap:10px;margin-top:15px;}
@@ -812,6 +817,7 @@
     <div class="sp-actions"><button class="savedbtn" onclick="openSaved()">⭐ Saved <span id="savedCount">0</span></button><button class="x" onclick="closeStories()">✕</button></div>
   </div>
   <div class="sp-body" id="spBody">
+    <div id="dayBanner" class="daybanner" style="display:none"></div>
     <p class="sp-intro">Endless quick <b>Story</b> ideas — staff &amp; office, <b>no patients</b>. Tap <b>✓</b> to keep one in your list, <b>✕</b> to flick it away. Keep scrolling for more 👇</p>
     <div id="stories"></div>
   </div>
@@ -961,6 +967,19 @@ const STORIES=[
   {ic:'😄',type:'Caption this',shoot:'A funny candid office moment — ask followers to caption it.',cap:'caption this 😄 best one gets a shoutout'},
   {ic:'❤️',type:'Why we do it',shoot:'A warm shot of the team. Keep it simple and real.',cap:'helping toronto kids love the dentist ❤️ one visit at a time'}
 ];
+/* ===== TODAY'S day-specific stories + holiday banner =====
+   The 7am routine rewrites this block each morning (date + holiday + 1–4 timely stories
+   for the actual day: holidays, the season, local Toronto events, even the weather).
+   If the date doesn't match today, the app quietly falls back to the general ideas. */
+const DAYINFO={
+  date:'2026-06-21',
+  holiday:"Father's Day 👔 & first day of summer ☀️ — the longest day of the year!",
+  stories:[
+    {ic:'👔',type:"Father's Day shoutout",shoot:'Film the team holding a "Happy Father\'s Day" sign, or a dad on staff giving a wave.',cap:"to all the dads (and the dad jokes 😄) — happy father's day from our whole team 👔❤️"},
+    {ic:'☀️',type:'First day of summer',shoot:'A bright, sunny shot of the office or the front window with the light pouring in.',cap:'happy first day of summer ☀️ longest day of the year = more daylight for tiny smiles'},
+    {ic:'😂',type:'Best dad joke wins',shoot:'Text story on a fun background — invite followers to reply.',cap:"drop your best dad joke 👇 we'll judge them between cleanings 🦷 winner gets a shoutout"}
+  ]
+};
 const SOUNDS=[
   {n:'Life Feels So Good',a:'napsea · warm feel-good indie · trending June 2026',use:'Sunny office montages, happy patient moments, summer checkup clips',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 7–10pm',ps:19,pe:22,ts:'0:06–0:16',reel:'https://www.tiktok.com/@selvinapp/video/7577001265272589575'},
   {n:'Dracula (JENNIE Remix)',a:'Tame Impala × JENNIE · 545K+ TikTok videos',use:'Flash-cut smile reveals, before/after dental transformations',url:'https://www.instagram.com/explore/tags/reels/',peak:'nights · 8–11pm',ps:20,pe:23,ts:'0:28–0:38',reel:'https://www.tiktok.com/@jennierubyjane/video/7603935719748390157'},
@@ -1455,17 +1474,28 @@ function buildStoryCard(s){
       <div class="sacts"><button class="sx" title="Skip" onclick="storyDismiss(this)">✕</button><button class="sc" title="Save it" onclick="storySave(this)">✓</button></div></div>`;
   return el;
 }
+function todayStr(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function isToday(){return DAYINFO&&DAYINFO.date===todayStr();}                       // only trust day-specific content if it's actually for today
+function dayStories(){return isToday()?(DAYINFO.stories||[]):[];}
+function visibleDayStories(){const h=state.storyHidden||[];return dayStories().filter(s=>!h.includes(s.cap));}
 function visibleStories(){const h=state.storyHidden||[];return STORIES.filter(s=>!h.includes(s.cap));}
 function hideStory(cap){state.storyHidden=state.storyHidden||[];if(!state.storyHidden.includes(cap))state.storyHidden.push(cap);}
 function unhideStory(cap){state.storyHidden=(state.storyHidden||[]).filter(c=>c!==cap);}
 function renderStories(){
   const w=document.getElementById('stories');if(!w)return;w.innerHTML='';_scolor=0;
-  const pool=visibleStories();
-  if(!pool.length){
+  // holiday / "what day is it" banner at the very top
+  const banner=document.getElementById('dayBanner');
+  if(banner){
+    if(isToday()&&DAYINFO.holiday){banner.innerHTML='<span class="db-cal">📅</span><span>Today: '+escapeHtml(DAYINFO.holiday)+'</span>';banner.style.display='';}
+    else banner.style.display='none';
+  }
+  const day=visibleDayStories(), general=visibleStories();
+  if(!day.length&&!general.length){
     w.innerHTML='<div class="empty"><span class="big">🎉</span>You\'ve been through them all!<br>Skipped &amp; posted ideas stay hidden.<br><button class="copybtn" style="margin-top:14px" onclick="resetSkipped()">↺ Bring back skipped ideas</button></div>';
     updateSavedCount();return;
   }
-  pool.forEach(s=>w.appendChild(buildStoryCard(s)));
+  day.forEach(s=>{const el=buildStoryCard(s);el.classList.add('dayspec');w.appendChild(el);});  // day-specific first
+  general.forEach(s=>w.appendChild(buildStoryCard(s)));                                          // then the general pool
   const page=document.querySelector('.storypage');
   if(page&&!page._inf){page._inf=true;page.addEventListener('scroll',function(){
     if(page.scrollTop+page.clientHeight>page.scrollHeight-700 && w.children.length<150){visibleStories().forEach(s=>w.appendChild(buildStoryCard(s)));}
