@@ -7,13 +7,18 @@ Purpose: track every idea featured so the daily brief never repeats itself.
 
 ---
 
-## 2026-06-22 (Edition 06 — Reset · manual run)
+## 2026-06-22 (Edition 06 — Launch)
 
-**Day-specific refresh only** (Nolan asked to "run the schedule" mid-build). Updated `DAYINFO`, the date, theme (Reset), and history line for Monday June 22.
-- **Today's day:** Happy Monday — mild & cloudy in Toronto, slight chance of afternoon showers (~18–22°C); also National Onion Ring Day 🧅.
-- **Day-specific Stories (banner + ⭐ TODAY cards):** Monday reset (team opening up) · Onion Ring Day → playful brush-after reminder · Cloudy-day comfort (cozy waiting area).
-- **Main trend cards + sounds:** kept Edition 05's oEmbed-verified-live reels (did NOT regenerate new trend reels in this quick manual run — avoiding any unverified/fake links). Full new-trend research with fresh verified reels is the job of the real 7am routine (or a dedicated request).
-- Skip dental-inappropriate observances (Kissing Day, etc.); food days only as a light brush-reminder, never promoting sugary/greasy food.
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | "Wow, OK" Acting Challenge 🎭 | Skit | 9 | @thebentist/video/7516642866706369822 ✓ |
+| 2 | "I Knew It, I Knew You" Moment 🧡 | Template | 9 | @taylornation/video/7647992962739113246 ✓ |
+| 3 | "Puerto Rico Song" Summer Checklist ☀️ | Template | 8 | @saxboybilly18/video/7624514375700745486 ✓ |
+| 4 | Prize Shelf Reveal (Sugar trend) 🏆 | Skit | 8 | @jerseyyjoe/video/7534099045363567885 ✓ |
+| 5 | Monday Reset Morning Reel ☕ | Office | 8 | @thebentist/video/7567134717766618398 ✓ |
+
+**Sounds:** The Puerto Rico Song (Saxboy Billy) · I Knew It, I Knew You (Taylor Swift) · Sugar On My Tongue (Tyler the Creator) · It Ain't Over 'Til It's Over (Lenny Kravitz) · Hey There Delilah (Plain White T's)
+**Theme:** Launch. All 5 idea reels + all 5 sound reels oEmbed-verified. Day banner: "First Monday of summer ☀️ — last week of school for Toronto kids!" Day-specific stories: last week of school 📅, cozy cloudy Monday ☁️, Monday coin reminder 🪙. Weather: cloudy, mild 16–21°C. Don't reuse any of the above ideas or sounds.
 
 ---
 
