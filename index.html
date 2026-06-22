@@ -522,6 +522,7 @@
   .shockflash{position:absolute;left:50%;top:64px;margin:-46px 0 0 -46px;width:92px;height:92px;border-radius:50%;background:radial-gradient(circle,rgba(214,204,255,.95),rgba(108,92,231,0) 70%);}
   .explotext{position:absolute;left:50%;top:64px;font-size:21px;font-weight:800;letter-spacing:-.02em;color:#6C5CE7;white-space:nowrap;pointer-events:none;text-shadow:0 4px 12px rgba(108,92,231,.4);}
   [data-theme="dark"] .explotext{color:#b9aaff;}
+  .sparkstar{position:absolute;font-size:15px;color:#ffd54a;pointer-events:none;text-shadow:0 0 8px rgba(255,213,74,.6);}
   /* the black blob all the text clumps into, before it warps into the ball */
   .story-blob{position:absolute;left:50%;margin-left:-30px;top:34px;width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 38% 32%,#42424e,#0a0a0f 72%);box-shadow:0 18px 38px -10px rgba(0,0,0,.6),inset 0 0 16px rgba(0,0,0,.5);}
   /* clones of the home furniture that get magnetised in */
@@ -1561,28 +1562,33 @@ function storyBurst(stage){
       {x:Math.cos(ang)*d,y:Math.sin(ang)*d,opacity:0,scale:.3,duration:.6,ease:'power3.out',onComplete:()=>p.remove()});
   }
 }
-/* the BIG dramatic ball explosion — shockwave + flash + confetti + reel words flung out */
+/* the BIG dramatic ball explosion — shockwave + flash + confetti (no random words) */
 function sfxBoom(){blip(70,0.55,'sine',0.2,38);blip(150,0.42,'triangle',0.12,55);[880,1175,1568].forEach((f,i)=>setTimeout(()=>blip(f,0.22,'triangle',0.12),i*55));}
+function sfxVortex(){if(state.muted)return;const a=ac();if(!a)return;const o=a.createOscillator(),g=a.createGain(),t=a.currentTime;o.type='sawtooth';o.frequency.setValueAtTime(110,t);o.frequency.exponentialRampToValueAtTime(720,t+0.9);g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.07,t+0.1);g.gain.exponentialRampToValueAtTime(0.0001,t+0.95);o.connect(g).connect(a.destination);o.start(t);o.stop(t+1);}
+function sfxSparkle(){[1320,1760,2093,2637].forEach((f,i)=>setTimeout(()=>blip(f,0.10,'triangle',0.09),i*45));}
 function storyExplode(stage){
   if(!stage||!window.gsap)return;
-  const R=gsap.utils.random;
   const ring=document.createElement('div');ring.className='shockring';stage.appendChild(ring);
   gsap.fromTo(ring,{scale:0,opacity:.85},{scale:7,opacity:0,duration:.75,ease:'power2.out',onComplete:()=>ring.remove()});
   const flash=document.createElement('div');flash.className='shockflash';stage.appendChild(flash);
   gsap.fromTo(flash,{scale:.2,opacity:.9},{scale:3.4,opacity:0,duration:.45,ease:'power2.out',onComplete:()=>flash.remove()});
-  for(let i=0;i<32;i++){
+  for(let i=0;i<34;i++){
     const p=document.createElement('div');p.className='burstp';p.style.background=PAL[i%PAL.length][1];stage.appendChild(p);
     const ang=Math.random()*Math.PI*2,d=130+Math.random()*240;
     gsap.fromTo(p,{x:0,y:0,opacity:1,scale:1},
       {x:Math.cos(ang)*d,y:Math.sin(ang)*d+d*0.2,opacity:0,scale:.2,duration:.8+Math.random()*.5,ease:'power3.out',onComplete:()=>p.remove()});
   }
-  ['📸','🪙','story','🎁','idea','✨','🦷','post','🎉','film','🌟','smile','❤️','today','🪥'].forEach((w,i,a)=>{
-    const t=document.createElement('div');t.className='explotext';t.textContent=w;stage.appendChild(t);
-    gsap.set(t,{xPercent:-50,yPercent:-50});
-    const ang=(Math.PI*2*i)/a.length+R(-0.25,0.25),d=150+Math.random()*210;
-    gsap.fromTo(t,{x:0,y:0,opacity:1,scale:.5,rotation:0},
-      {x:Math.cos(ang)*d,y:Math.sin(ang)*d,opacity:0,scale:1.5+Math.random()*.7,rotation:R(-180,180),duration:1.0+Math.random()*.5,ease:'power3.out',onComplete:()=>t.remove()});
-  });
+}
+/* a little shower of ⭐ sparkles at a point (x,y in viewport) — a surprise flourish */
+function sparkleAt(stage,x,y,n){
+  if(!stage||!window.gsap)return;n=n||10;
+  for(let i=0;i<n;i++){
+    const s=document.createElement('div');s.className='sparkstar';s.textContent='✦';stage.appendChild(s);
+    s.style.left=x+'px';s.style.top=y+'px';gsap.set(s,{xPercent:-50,yPercent:-50});
+    const ang=Math.random()*Math.PI*2,d=24+Math.random()*54;
+    gsap.fromTo(s,{x:0,y:0,opacity:1,scale:.3,rotation:0},
+      {x:Math.cos(ang)*d,y:Math.sin(ang)*d,opacity:0,scale:1+Math.random()*.7,rotation:gsap.utils.random(-120,120),duration:.6+Math.random()*.4,ease:'power2.out',onComplete:()=>s.remove()});
+  }
 }
 
 /* clones the real reel-idea cards that are on screen, so STEP 1 falls away the page you were just on */
@@ -1615,6 +1621,7 @@ function finalizeStories(){
       const h=document.querySelector('.sp-top h2'),intro=document.querySelector('.sp-intro');
       if(h)gsap.set(h,{clearProps:'all'});
       if(intro)gsap.set(intro,{clearProps:'all'});
+      ['.sp-top .x','.sp-top .savedbtn'].forEach(s=>{const e=document.querySelector(s);if(e)gsap.set(e,{clearProps:'all'});});  // the ✕ / ⭐ Saved must always end visible & clickable
     }catch(e){}
   }
   document.querySelectorAll('.story-stage').forEach(n=>n.remove());
@@ -1663,13 +1670,14 @@ function animateHomeIn(){
     const cards=[...document.querySelectorAll('.wrap .card[data-id]')].slice(0,6);
     const h1=document.querySelector('.hero h1'),chips=[...document.querySelectorAll('.hero .hchip')],sb=document.querySelector('.searchbox');
     window.scrollTo(0,0);
-    cards.forEach((c,i)=>{c.classList.add('in');
-      gsap.fromTo(c,{x:(i%2?1:-1)*Math.min(560,window.innerWidth*0.82),opacity:0},
-        {x:0,opacity:1,duration:.6,ease:'power3.out',delay:0.08+i*0.08,clearProps:'transform,opacity'});});
-    if(h1)gsap.fromTo(h1,{y:-52,opacity:0},{y:0,opacity:1,duration:.7,ease:'bounce.out',clearProps:'transform,opacity'});
-    if(sb)gsap.fromTo(sb,{scaleX:0.08,opacity:0,transformOrigin:'center'},{scaleX:1,opacity:1,duration:.5,ease:'power3.out',delay:0.3,clearProps:'transform,opacity'});
-    chips.forEach((ch,i)=>gsap.fromTo(ch,{scale:0,opacity:0},{scale:1,opacity:1,duration:.5,ease:'back.out(2.4)',delay:0.4+i*0.1,clearProps:'transform,opacity'}));
-    setTimeout(()=>{try{[...cards,h1,sb,...chips].filter(Boolean).forEach(el=>gsap.set(el,{clearProps:'transform,opacity'}));cards.forEach(c=>c.classList.add('in'));}catch(e){}},1700);
+    // slide in WITHOUT an opacity fade — force them visible instantly so they can never be left blank
+    cards.forEach((c,i)=>{c.classList.add('in');c.style.opacity='1';
+      gsap.fromTo(c,{x:(i%2?1:-1)*Math.min(560,window.innerWidth*0.82)},
+        {x:0,duration:.6,ease:'power3.out',delay:0.08+i*0.08,clearProps:'transform'});});
+    if(h1)gsap.fromTo(h1,{y:-52},{y:0,duration:.7,ease:'bounce.out',clearProps:'transform'});
+    if(sb)gsap.fromTo(sb,{scaleX:0.08,transformOrigin:'center'},{scaleX:1,duration:.5,ease:'power3.out',delay:0.3,clearProps:'transform'});
+    chips.forEach((ch,i)=>gsap.fromTo(ch,{scale:0},{scale:1,duration:.5,ease:'back.out(2.4)',delay:0.4+i*0.1,clearProps:'transform'}));
+    setTimeout(()=>{try{[...cards,h1,sb,...chips].filter(Boolean).forEach(el=>gsap.set(el,{clearProps:'transform'}));cards.forEach(c=>c.classList.add('in'));}catch(e){}},1700);
   }catch(e){}
 }
 function closeStoriesNow(){document.getElementById('storiesOv').classList.remove('open');closeSaved();}
@@ -1691,7 +1699,10 @@ function animateStories(){
     // start hidden — the timeline brings them in (failsafe restores them no matter what)
     gsap.set(cards,{opacity:0});
     if(intro)gsap.set(intro,{opacity:0});
-    if(title)gsap.set(title,{opacity:0});     // the Stories title appears only after the ball bursts
+    if(title)gsap.set(title,{opacity:0});     // the Stories title appears only after the explosion
+    const xBtn=document.querySelector('.sp-top .x'), savedBtn=document.querySelector('.sp-top .savedbtn');
+    if(xBtn)gsap.set(xBtn,{opacity:0});       // the ✕ and ⭐ Saved must animate in too — nothing pops in instantly
+    if(savedBtn)gsap.set(savedBtn,{opacity:0});
 
     // a fixed stage holding the falling reel cards + magnetised furniture + the blob + the ball
     const stage=document.createElement('div');stage.className='story-stage';page.appendChild(stage);
@@ -1714,57 +1725,65 @@ function animateStories(){
     tl.to(fcards,{y:()=>window.innerHeight+380,rotation:()=>R(-22,22),opacity:.9,duration:1.5,ease:'power2.in',stagger:.13},0);
     tl.add(()=>{fcards.forEach((c,i)=>setTimeout(sfxThud,i*95));},0.55);
 
-    /* STEP 2 — the blob pulls EVERY bit of on-screen text in like a black hole (nothing just disappears) */
-    tl.to(blob,{scale:1,duration:1.5,ease:'power1.out'},0.4);
-    tl.to(blob,{rotation:'+=240',duration:2.1,ease:'power1.inOut'},0.4);   // slow swirl, like a hole
+    /* STEP 2 — every letter condenses into ONE tiny spot, swirls, a few flick out & snap back, then all drop into the hole */
+    tl.to(blob,{scale:1,duration:1.4,ease:'power1.out'},0.45);
+    tl.to(blob,{rotation:'+=320',duration:1.9,ease:'power1.in'},0.5);        // the hole spins, faster as it pulls everything in
     magnets.forEach((it,i)=>{
       const r=it.el.getBoundingClientRect(),dx=cx-(r.left+r.width/2),dy=cy-(r.top+r.height/2);
-      if(it.kind==='cube'){                                   // search bar squishes into a magnifier cube, then flies in
-        tl.to(it.el,{scaleX:0.14,transformOrigin:'center',duration:.4,ease:'power2.in'},0.2);
-        tl.add(()=>{const t=it.el.querySelector('.mcube-t');if(t)t.style.opacity='0';},0.46);
-      }else if(it.kind==='chip'){                             // chip shrinks into a little circle (just the 5 / 📸)
-        const h=it.el.offsetHeight||30;
-        tl.to(it.el,{width:h,borderRadius:'50%',duration:.34,ease:'power2.in'},0.2);
-        tl.add(()=>{const f=it.el.querySelector('.mchip-full'),g=it.el.querySelector('.mchip-glyph');if(f)f.style.display='none';if(g)g.style.display='block';},0.5);
-      }
-      tl.to(it.el,{x:dx,y:dy,scale:0.04,opacity:0,rotation:R(-120,120),duration:.62,ease:'power3.in'},0.55+i*0.01);  // accelerate inward → swallowed
+      if(it.kind==='cube'){tl.to(it.el,{scaleX:0.14,transformOrigin:'center',duration:.4,ease:'power2.in'},0.2);tl.add(()=>{const t=it.el.querySelector('.mcube-t');if(t)t.style.opacity='0';},0.46);}
+      else if(it.kind==='chip'){const h=it.el.offsetHeight||30;tl.to(it.el,{width:h,borderRadius:'50%',duration:.34,ease:'power2.in'},0.2);tl.add(()=>{const f=it.el.querySelector('.mchip-full'),g=it.el.querySelector('.mchip-glyph');if(f)f.style.display='none';if(g)g.style.display='block';},0.5);}
+      tl.to(it.el,{x:dx,y:dy,scale:0.12,opacity:0.92,rotation:R(-70,70),duration:.5,ease:'power3.in'},0.55+i*0.008);   // condense into ~one character's space
     });
-    tl.to(blob,{scale:1.16,duration:.18,yoyo:true,repeat:1,ease:'sine.inOut'},2.45);            // gulp once everything is in
+    tl.add(()=>sfxVortex(),1.45);
+    // a few letters flick OUT a touch (≈1cm) then get yanked back in fast, swirling with the hole
+    magnets.filter((_,i)=>i%11===0).slice(0,8).forEach((it,k)=>{
+      const a=Math.random()*Math.PI*2,d=9+Math.random()*8,ox=(Math.cos(a)*d).toFixed(1),oy=(Math.sin(a)*d).toFixed(1);
+      tl.to(it.el,{x:'+='+ox,y:'+='+oy,rotation:'+=40',duration:.2,ease:'sine.out'},1.5+k*0.03);
+      tl.to(it.el,{x:'-='+ox,y:'-='+oy,rotation:'+=70',duration:.12,ease:'power3.in'},1.84+k*0.03);
+    });
+    tl.to(magnets.map(m=>m.el),{scale:0,opacity:0,duration:.32,ease:'power2.in'},2.3);          // all sucked into the hole
+    tl.to(blob,{scale:1.16,duration:.18,yoyo:true,repeat:1,ease:'sine.inOut'},2.5);             // gulp once everything is in
 
-    /* STEP 3 — the blob warps into the ball; it charges up, then EXPLODES (reel words fling out) and forms the title */
-    tl.to(blob,{scaleX:1.35,scaleY:0.7,duration:.12,ease:'power2.in'},2.85);
-    tl.to(blob,{scale:0,opacity:0,duration:.24,ease:'power3.in'},2.97);
-    tl.fromTo(ball,{scale:0,opacity:0},{scale:1,opacity:1,duration:.4,ease:'back.out(2.4)'},2.99);
-    tl.to(ball,{scale:1.18,duration:.26,ease:'sine.inOut',yoyo:true,repeat:1},3.4);    // charge-up throb
-    tl.to(ball,{scale:2.2,duration:.26,ease:'power2.in'},3.97);                          // wind up big & bright
-    tl.add(()=>{storyExplode(stage);sfxBoom();},4.19);                                   // 💥 BOOM — confetti + reel words burst out
-    tl.to(ball,{scale:0,opacity:0,duration:.34,ease:'power3.out'},4.2);
-    // the title bursts out PURPLE, then slowly fades to its normal colour over 8 seconds
+    /* STEP 3 — the hole warps into the ball, charges up, EXPLODES (no words), then a STAR unfurls into the title */
+    tl.to(blob,{scaleX:1.35,scaleY:0.7,duration:.12,ease:'power2.in'},2.9);
+    tl.to(blob,{scale:0,opacity:0,duration:.24,ease:'power3.in'},3.02);
+    tl.fromTo(ball,{scale:0,opacity:0},{scale:1,opacity:1,duration:.4,ease:'back.out(2.4)'},3.04);
+    tl.to(ball,{scale:1.18,duration:.26,ease:'sine.inOut',yoyo:true,repeat:1},3.44);    // charge-up throb
+    tl.to(ball,{scale:2.2,duration:.26,ease:'power2.in'},4.0);                           // wind up big & bright
+    tl.add(()=>{storyExplode(stage);sfxBoom();},4.28);                                   // 💥 BOOM — shockwave + flash + confetti (no random words)
+    tl.to(ball,{scale:0,opacity:0,duration:.34,ease:'power3.out'},4.29);
+    // ⭐ a star pops out and the title UNFURLS to the right, purple → fades to normal over 8s
     if(title){
-      tl.fromTo(title,{scale:0,opacity:0,filter:'blur(12px)',color:'#6C5CE7'},{scale:1,opacity:1,filter:'blur(0px)',duration:.72,ease:'back.out(1.7)'},4.47);
-      tl.to(title,{color:titleColor,duration:8,ease:'none'},4.62);
+      gsap.set(title,{transformOrigin:'left center'});
+      tl.add(()=>{sparkleAt(stage,62,52,12);sfxSparkle();},4.46);
+      tl.fromTo(title,{scaleX:0,scaleY:0.55,opacity:0,color:'#6C5CE7'},{scaleX:1,scaleY:1,opacity:1,duration:.62,ease:'back.out(1.5)'},4.48);
+      tl.to(title,{color:titleColor,duration:8,ease:'none'},4.66);
     }
+    // SURPRISE — the ✕ drops from the top & bounces; the ⭐ Saved pops in with a spin
+    if(xBtn)tl.fromTo(xBtn,{y:-90,opacity:0},{y:0,opacity:1,duration:.72,ease:'bounce.out'},4.55);
+    if(savedBtn)tl.fromTo(savedBtn,{scale:0,opacity:0,rotation:-30},{scale:1,opacity:1,rotation:0,duration:.55,ease:'back.out(2)'},4.85);
 
     /* STEP 4 — the boxes drop in (only the visible bottom few, parked at the bottom) */
-    tl.add(()=>{if(page)page.scrollTop=page.scrollHeight;},4.8);
-    tl.set(cards,{opacity:1,y:0,x:0,rotation:0},4.81);                                          // the rest sit ready (off-screen above)
+    tl.add(()=>{if(page)page.scrollTop=page.scrollHeight;},5.0);
+    tl.set(cards,{opacity:1,y:0,x:0,rotation:0},5.01);                                          // the rest sit ready (off-screen above)
     const rain=cards.slice(-5);
     tl.fromTo(rain,{opacity:0,y:()=>-(360+Math.random()*240),x:()=>R(-46,46),rotation:()=>R(-12,12)},
       {opacity:1,y:0,x:0,rotation:0,duration:.85,ease:'bounce.out',stagger:{each:.09,from:'end'},
-        onStart:()=>{for(let i=0;i<5;i++)setTimeout(sfxThud,120+i*160);}},4.85);
+        onStart:()=>{for(let i=0;i<5;i++)setTimeout(sfxThud,120+i*160);}},5.05);
 
     /* STEP 5 — once they land, a slightly slower motion-blur swipe up to the top */
     const sc={v:1};
-    tl.add(()=>{if(body)body.style.willChange='filter';},5.55);
-    tl.to(sc,{v:0,duration:.8,ease:'power2.inOut',onUpdate:()=>{if(page)page.scrollTop=page.scrollHeight*sc.v;}},5.6);
-    tl.fromTo(body||{},{filter:'blur(0px)'},{filter:'blur(8px)',duration:.26,ease:'power1.in'},5.6);
-    tl.to(body||{},{filter:'blur(0px)',duration:.34,ease:'power1.out'},6.06);
-    tl.add(()=>sfxClick(),6.2);
+    tl.add(()=>{if(body)body.style.willChange='filter';},5.75);
+    tl.to(sc,{v:0,duration:.8,ease:'power2.inOut',onUpdate:()=>{if(page)page.scrollTop=page.scrollHeight*sc.v;}},5.8);
+    tl.fromTo(body||{},{filter:'blur(0px)'},{filter:'blur(8px)',duration:.26,ease:'power1.in'},5.8);
+    tl.to(body||{},{filter:'blur(0px)',duration:.34,ease:'power1.out'},6.26);
+    tl.add(()=>sfxClick(),6.4);
 
-    /* STEP 6 — settle at the top, hand control back (the title keeps fading purple→normal to ~12.6s) */
-    tl.add(()=>{if(page){page.scrollTop=0;page.classList.remove('animating');}},6.35);
-    if(intro)tl.fromTo(intro,{opacity:0,y:-10},{opacity:1,y:0,duration:.45,ease:'power2.out'},6.4);
-    tl.add(()=>{stage.remove();},6.8);
+    /* STEP 6 — settle at the top; intro WIPES in; the top card does a 3D flip (more surprises) */
+    tl.add(()=>{if(page){page.scrollTop=0;page.classList.remove('animating');}},6.55);
+    if(intro)tl.fromTo(intro,{opacity:0,clipPath:'inset(0 100% 0 0)'},{opacity:1,clipPath:'inset(0 0% 0 0)',duration:.6,ease:'power2.out'},6.6);
+    if(cards[0])tl.fromTo(cards[0],{rotationX:-72,transformPerspective:620,transformOrigin:'top center'},{rotationX:0,duration:.62,ease:'back.out(1.4)'},6.66);
+    tl.add(()=>{stage.remove();},7.05);
 
     // hard failsafe: well past the 8s title fade, force everything visible no matter what
     setTimeout(()=>{if(_storyTL===myTL)finalizeStories();},13500);
@@ -1787,8 +1806,11 @@ function animateCloseStories(){
   try{
     const tl=gsap.timeline({onComplete:()=>{reveal();finalizeStories();}});
     _storyTL=tl;const myTL=tl;
-    /* 1 — the stories fall away */
+    /* 1 — the stories fall away; the ✕ tucks back up and the ⭐ Saved spins out */
     tl.to(storyCards,{y:()=>window.innerHeight+300,rotation:()=>R(-22,22),opacity:.85,duration:.6,ease:'power2.in',stagger:.03},0);
+    const cx2=document.querySelector('.sp-top .x'), sv2=document.querySelector('.sp-top .savedbtn');
+    if(cx2)tl.to(cx2,{y:-80,opacity:0,duration:.4,ease:'power2.in'},0);
+    if(sv2)tl.to(sv2,{scale:0,opacity:0,rotation:-20,duration:.36,ease:'power2.in'},0);
     tl.add(()=>{for(let i=0;i<5;i++)setTimeout(sfxThud,i*45);},0.1);
     /* 2 — the title letters clump into the ball */
     let chs=[];
