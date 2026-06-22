@@ -7,6 +7,16 @@ Purpose: track every idea featured so the daily brief never repeats itself.
 
 ---
 
+## 2026-06-22 (Edition 06 — Reset · manual run)
+
+**Day-specific refresh only** (Nolan asked to "run the schedule" mid-build). Updated `DAYINFO`, the date, theme (Reset), and history line for Monday June 22.
+- **Today's day:** Happy Monday — mild & cloudy in Toronto, slight chance of afternoon showers (~18–22°C); also National Onion Ring Day 🧅.
+- **Day-specific Stories (banner + ⭐ TODAY cards):** Monday reset (team opening up) · Onion Ring Day → playful brush-after reminder · Cloudy-day comfort (cozy waiting area).
+- **Main trend cards + sounds:** kept Edition 05's oEmbed-verified-live reels (did NOT regenerate new trend reels in this quick manual run — avoiding any unverified/fake links). Full new-trend research with fresh verified reels is the job of the real 7am routine (or a dedicated request).
+- Skip dental-inappropriate observances (Kissing Day, etc.); food days only as a light brush-reminder, never promoting sugary/greasy food.
+
+---
+
 ## 2026-06-21 (Edition 05 — Bloom)
 
 | # | Idea | Type | Score | Verified reel |
