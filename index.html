@@ -632,6 +632,89 @@
     .card{break-inside:avoid;box-shadow:none;border:1px solid #ccc;}
     .phone{box-shadow:none;}
   }
+
+  /* ===== ✨ Creator Studio ===== */
+  .studio-tabs{position:sticky;top:0;z-index:3;display:flex;gap:6px;overflow-x:auto;padding:12px 18px;background:var(--bg);border-bottom:1px solid var(--line2);-webkit-overflow-scrolling:touch;}
+  .studio-tabs::-webkit-scrollbar{display:none;}
+  .stab{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink2);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .16s var(--ease);}
+  .stab.on{background:var(--teal);color:#fff;border-color:var(--teal);box-shadow:0 6px 16px -8px var(--teal);}
+  #studioBody{padding:18px;overflow-x:hidden;}
+  .scard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:var(--sh-sm);}
+  .scard h4{font-size:15px;font-weight:800;letter-spacing:-.02em;margin-bottom:4px;display:flex;align-items:center;gap:8px;}
+  .scard .sub{font-size:12.5px;color:var(--muted);margin-bottom:12px;line-height:1.45;}
+  /* stat tiles */
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .stat-tile{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;}
+  .stat-tile .n{font-size:24px;font-weight:800;letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums;}
+  .stat-tile .l{font-size:11px;font-weight:600;color:var(--muted);margin-top:2px;}
+  .bar-row{display:flex;align-items:center;gap:10px;margin-top:9px;font-size:12.5px;}
+  .bar-row .bl{width:96px;flex:none;color:var(--ink2);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .bar-track{flex:1;height:10px;background:var(--line2);border-radius:999px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--teal),#2fd0a3);transition:width .6s var(--ease);}
+  .bar-row .bn{width:24px;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums;}
+  /* goal ring */
+  .goal-wrap{display:flex;align-items:center;gap:16px;}
+  .ring{position:relative;width:96px;height:96px;flex:none;}
+  .ring svg{transform:rotate(-90deg);}
+  .ring .rc{font-size:22px;font-weight:800;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;}
+  .ring .rc small{font-size:10px;color:var(--muted);font-weight:600;}
+  .goal-set{display:flex;align-items:center;gap:8px;margin-top:10px;}
+  .goal-set button{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-size:18px;font-weight:800;cursor:pointer;color:var(--ink);}
+  .goal-set b{font-size:16px;min-width:54px;text-align:center;}
+  /* badges */
+  .badge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .bdg{text-align:center;padding:10px 4px;border-radius:14px;border:1px solid var(--line);background:var(--bg);opacity:.45;filter:grayscale(.7);transition:all .2s var(--ease);}
+  .bdg.got{opacity:1;filter:none;background:var(--tint-teal);border-color:#bfe9da;}
+  .bdg .be{font-size:26px;display:block;}
+  .bdg .bn{font-size:10px;font-weight:700;color:var(--ink2);margin-top:3px;line-height:1.2;}
+  /* calendar */
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+  .cal-head button{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-weight:800;font-size:15px;color:var(--ink);}
+  .cal-head b{font-size:15px;font-weight:800;}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;}
+  .cal-dow{font-size:10px;font-weight:700;color:var(--faint);text-align:center;padding-bottom:2px;}
+  .cal-cell{aspect-ratio:1;border-radius:10px;border:1px solid var(--line2);background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--ink2);cursor:pointer;position:relative;transition:all .14s var(--ease);}
+  .cal-cell.muted{opacity:.32;}
+  .cal-cell.today{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal);color:var(--teal-d);font-weight:800;}
+  .cal-cell.has{background:var(--tint-teal);border-color:#bfe9da;}
+  .cal-cell .dots{display:flex;gap:2px;margin-top:2px;}
+  .cal-cell .dots i{width:5px;height:5px;border-radius:50%;}
+  .cal-day-list{margin-top:14px;}
+  .cal-li{display:flex;gap:8px;align-items:center;font-size:13px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;margin-bottom:7px;background:var(--bg);}
+  .cal-li .em{font-size:16px;}
+  /* caption lab */
+  .chip-pack{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;}
+  .tagchip{font-size:12px;font-weight:600;color:var(--teal-d);background:var(--tint-teal);border:1px solid #bfe9da;border-radius:999px;padding:5px 10px;cursor:pointer;}
+  .lab-out{font-family:'Courier New',ui-monospace,monospace;font-size:13px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px;min-height:64px;white-space:pre-wrap;color:var(--ink);line-height:1.5;}
+  .lab-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  .lab-row button{border:1px solid var(--line);background:var(--card);color:var(--ink2);border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:700;cursor:pointer;}
+  .lab-row button.go{background:var(--teal);color:#fff;border-color:var(--teal);}
+  .emoji-bar{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;}
+  .emoji-bar button{border:none;background:var(--bg);border-radius:9px;width:34px;height:34px;font-size:18px;cursor:pointer;}
+  .emoji-bar button:hover{background:var(--line2);}
+  .lab-count{font-size:11.5px;color:var(--muted);margin-top:6px;text-align:right;}
+  .lab-count.warn{color:var(--coral);font-weight:700;}
+  /* themes */
+  .theme-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .theme-opt{border:2px solid var(--line);border-radius:14px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:10px;background:var(--card);transition:all .16s var(--ease);}
+  .theme-opt.on{border-color:var(--teal);box-shadow:0 0 0 3px var(--tint-teal);}
+  .theme-dot{width:30px;height:30px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 2px rgba(0,0,0,.06);}
+  .theme-opt b{font-size:13.5px;font-weight:700;}
+  /* daily tip + spotlight */
+  .tip-card{background:linear-gradient(135deg,var(--tint-teal),#fff);border:1px solid #bfe9da;border-radius:16px;padding:14px 16px;font-size:13.5px;color:var(--ink2);line-height:1.5;display:flex;gap:10px;align-items:flex-start;}
+  [data-theme="dark"] .tip-card{background:linear-gradient(135deg,#1d2a26,#1a1822);}
+  .tip-card .ti{font-size:20px;flex:none;}
+  .news-list{text-align:left;max-height:46vh;overflow:auto;margin:6px 0 4px;}
+  .news-list .ni{display:flex;gap:9px;font-size:13px;color:var(--ink2);padding:6px 0;border-bottom:1px solid var(--line2);line-height:1.4;}
+  .news-list .ni span{flex:none;}
+  /* floating quick-add */
+  .quickfab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:60;width:54px;height:54px;border-radius:50%;border:none;background:linear-gradient(140deg,var(--teal),#1cc296);color:#fff;font-size:26px;font-weight:300;cursor:pointer;box-shadow:0 12px 28px -8px var(--teal);transition:transform .18s var(--spring);}
+  .quickfab:hover{transform:scale(1.08) rotate(90deg);}
+  .quickfab:active{transform:scale(.9);}
+  .badge-pop{position:fixed;left:50%;top:30%;transform:translateX(-50%);z-index:120;background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh-lg);padding:22px 26px;text-align:center;animation:pop .35s var(--ease) both;}
+  .badge-pop .be{font-size:54px;}
+  .badge-pop b{display:block;font-size:17px;font-weight:800;margin-top:6px;}
+  .badge-pop small{color:var(--muted);font-size:12.5px;}
 </style>
 </head>
 <body>
@@ -645,6 +728,7 @@
     <button class="tbtn ic" id="darkBtn" title="Dark mode" onclick="toggleDark()">🌙</button>
     <button class="tbtn ic" title="Surprise me" onclick="surpriseIdea()">🎲</button>
     <button class="tbtn ic" title="History" onclick="hist(true)">🕘</button>
+    <button class="tbtn" onclick="openStudio()">✨ Studio</button>
     <button class="tbtn" onclick="openStories()">📸 Stories</button>
     <button class="tbtn primary" onclick="openList()">📋 My List <span class="badge" id="listCount">0</span></button>
   </div>
@@ -862,6 +946,25 @@
   </div>
 </div>
 
+<!-- ✨ CREATOR STUDIO -->
+<div class="ov" id="studioOv" onclick="if(event.target===this)closeStudio()">
+  <div class="sheet">
+    <div class="sh-top"><h2>✨ Creator Studio</h2><button class="x" onclick="closeStudio()">✕</button></div>
+    <div class="studio-tabs" id="studioTabs"></div>
+    <div class="sh-body" id="studioBody"></div>
+  </div>
+</div>
+
+<!-- WHAT'S NEW -->
+<div class="modal" id="newsModal" onclick="if(event.target===this)this.classList.remove('open')"><div class="mbox">
+  <h3>✨ Big update — Creator Studio</h3>
+  <p class="h">30+ new tools to plan, track and grow @torontokidsdental — all in one tap.</p>
+  <div id="newsList" class="news-list"></div>
+  <div class="mbtns"><button class="btn-ghost" onclick="document.getElementById('newsModal').classList.remove('open')">Later</button><button class="save" onclick="openStudioFromNews()">Open Studio ✨</button></div>
+</div></div>
+
+<button class="quickfab" id="quickFab" title="Quick-capture an idea" onclick="quickCapture()">➕</button>
+
 <!-- HISTORY -->
 <div class="ov" id="histOv" onclick="if(event.target===this)hist(false)">
   <div class="sheet">
@@ -1013,7 +1116,7 @@ const SOUNDS=[
   {n:'Lucky',a:'Britney Spears · 44K IG posts · team appreciation',use:'Team spotlights, patient shoutouts, "lucky to have you" summer montages',url:'https://www.instagram.com/explore/tags/reels/',peak:'evenings · 6–10pm',ps:18,pe:22,ts:'0:22–0:32',reel:'https://www.tiktok.com/@astanaxx/video/7484185627253034247'}
 ];
 
-let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[],bugs:[],theme:'',sort:'manual',excluded:[],storyState:{},savedStories:[],storyHidden:[]};
+let state={list:[],notDoing:[],examples:{},muted:false,dark:false,filter:'all',scripts:{},dismissedRes:[],cadence:1,skips:{},me:'',people:[],requests:[],suggestions:[],bugs:[],theme:'',sort:'manual',excluded:[],storyState:{},savedStories:[],storyHidden:[],weeklyGoal:3,badges:[],studioTheme:'',accent:'',studioSeen:false,quickIdeas:[]};
 const VERSION='1.0';
 const KEY='TKD_state_v2';
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){} flagSaved();}
@@ -1786,7 +1889,7 @@ function animateStories(){
 
     /* STEP 6 — settle at the top; banner + intro appear; the top card does a 3D flip (more surprises) */
     tl.add(()=>{if(page){page.scrollTop=0;page.classList.remove('animating');}},6.55);
-    if(bannerOn)tl.fromTo(banner,{opacity:0,y:-10},{opacity:1,y:0,duration:.5,ease:'power2.out'},6.5);
+    if(bannerOn)tl.fromTo(banner,{opacity:0,scale:.8,y:-16},{opacity:1,scale:1,y:0,duration:.6,ease:'back.out(1.9)'},6.5);  // the day banner pops in (doesn't just appear)
     if(intro)tl.fromTo(intro,{opacity:0,clipPath:'inset(0 100% 0 0)'},{opacity:1,clipPath:'inset(0 0% 0 0)',duration:.6,ease:'power2.out'},6.6);
     if(cards[0])tl.fromTo(cards[0],{rotationX:-72,transformPerspective:620,transformOrigin:'top center'},{rotationX:0,duration:.62,ease:'back.out(1.4)'},6.66);
     tl.add(()=>{stage.remove();},7.05);
@@ -1906,13 +2009,80 @@ document.addEventListener('keydown',e=>{
 });
 
 /* ============ init ============ */
-load();loadFromHash();applyTheme();const _mb=document.getElementById('muteBtn');if(_mb)_mb.textContent=state.muted?'🔇':'🔊';updateMeChip();
+/* ============ ✨ CREATOR STUDIO (big update) ============ */
+const THEMES={
+  bloom:{n:'Bloom 🌷',teal:'#E84393',td:'#c81e7a',tint:'#FDE7F1',coral:'#FF7AB6',dot:'#E84393'},
+  ocean:{n:'Ocean 🌊',teal:'#2E86DE',td:'#1B6FCB',tint:'#E4F0FB',coral:'#54A0FF',dot:'#2E86DE'},
+  sunset:{n:'Sunset 🌅',teal:'#E8702A',td:'#cc5a18',tint:'#FCEDE2',coral:'#FFA45B',dot:'#E8702A'},
+  grape:{n:'Grape 🍇',teal:'#6C5CE7',td:'#5546c9',tint:'#ECE9FB',coral:'#A29BFE',dot:'#6C5CE7'},
+  forest:{n:'Forest 🌲',teal:'#17a673',td:'#0f7d56',tint:'#E3F4EC',coral:'#3ecf8e',dot:'#17a673'},
+  berry:{n:'Berry 🫐',teal:'#8E44AD',td:'#763a91',tint:'#F1E8F7',coral:'#c77dff',dot:'#8E44AD'}
+};
+function applyStudioTheme(){try{const r=document.documentElement.style;['--teal','--teal-d','--tint-teal','--coral'].forEach(v=>r.removeProperty(v));const t=THEMES[state.studioTheme];if(t){r.setProperty('--teal',t.teal);r.setProperty('--teal-d',t.td);r.setProperty('--tint-teal',t.tint);r.setProperty('--coral',t.coral);}if(state.accent){r.setProperty('--teal',state.accent);r.setProperty('--teal-d',state.accent);}}catch(e){}}
+function computeStats(){const l=state.list||[],s={total:l.length,posted:0,filming:0,editing:0,onlist:0,byType:{},week:0,month:0};const now=Date.now(),wk=now-6.048e8,mo=now-2.592e9;l.forEach(i=>{if(i.stage===3)s.posted++;else if(i.stage===2)s.editing++;else if(i.stage===1)s.filming++;else s.onlist++;const t=i.type||'Other';s.byType[t]=(s.byType[t]||0)+1;if(i.stage===3&&i.postedAt){if(i.postedAt>=wk)s.week++;if(i.postedAt>=mo)s.month++;}});return s;}
+function computeStreak(){const ps=(state.list||[]).filter(i=>i.stage===3&&i.postedAt).map(i=>i.postedAt);if(!ps.length)return 0;const wk=6.048e8,weeks=new Set(ps.map(p=>Math.floor(p/wk)));let cur=Math.floor(Date.now()/wk),st=0;if(!weeks.has(cur))cur--;while(weeks.has(cur)){st++;cur--;}return st;}
+const BADGES=[{id:'first',e:'🌱',n:'First post',test:s=>s.posted>=1},{id:'five',e:'🖐️',n:'5 posted',test:s=>s.posted>=5},{id:'ten',e:'🔟',n:'10 posted',test:s=>s.posted>=10},{id:'tf',e:'🏆',n:'25 posted',test:s=>s.posted>=25},{id:'s2',e:'🔥',n:'2-wk streak',test:s=>s.streak>=2},{id:'s4',e:'⚡',n:'4-wk streak',test:s=>s.streak>=4},{id:'plan',e:'📅',n:'5 planned',test:s=>(state.list||[]).filter(i=>i.planDate).length>=5},{id:'save',e:'⭐',n:'5 saved',test:s=>(state.savedStories||[]).length>=5},{id:'goal',e:'🎯',n:'Hit goal',test:s=>s.week>=(state.weeklyGoal||3)},{id:'var',e:'🎨',n:'4 types',test:s=>Object.keys(s.byType).length>=4},{id:'busy',e:'🐝',n:'10 ideas',test:s=>s.total>=10},{id:'owl',e:'🌙',n:'Night owl',test:s=>(state.list||[]).some(i=>i.postedAt&&new Date(i.postedAt).getHours()>=21)}];
+function checkBadges(silent){const s=computeStats();s.streak=computeStreak();state.badges=state.badges||[];const newly=[];BADGES.forEach(b=>{try{if(b.test(s)&&!state.badges.includes(b.id)){state.badges.push(b.id);newly.push(b);}}catch(e){}});if(newly.length){save();if(!silent)newly.forEach((b,i)=>setTimeout(()=>badgePop(b),i*950));}return s;}
+function badgePop(b){const d=document.createElement('div');d.className='badge-pop';d.innerHTML='<div class="be">'+b.e+'</div><b>Badge unlocked!</b><div>'+escapeHtml(b.n)+'</div><small>nice work 🎉</small>';document.body.appendChild(d);try{sfxDone();confetti();}catch(e){}setTimeout(()=>{d.style.transition='opacity .4s,transform .4s';d.style.opacity='0';d.style.transform='translateX(-50%) translateY(-12px)';},2200);setTimeout(()=>d.remove(),2700);}
+const TIPS=['Post when parents scroll: weekday evenings 7–9pm tend to do best.','Hook in the first 2 seconds — show the payoff, then explain.','15–30s Reels with a clear caption get the most saves.','Reply to every comment in the first hour to boost reach.','“Saves” and “shares” matter more than likes — ask for them.','Show real faces from the team — people follow people.','Re-use a winning format weekly; familiarity builds your brand.','Captions: the first 125 characters show before “more” — front-load them.','A strong cover frame doubles your reach — pick it on purpose.','Trending audio + your spin = the algorithm’s favourite combo.'];
+function todaysTip(){const d=new Date();return TIPS[(d.getFullYear()*372+d.getMonth()*31+d.getDate())%TIPS.length];}
+const HASHPACKS=[{n:'Kids Dental 🦷',tags:['#kidsdentist','#pediatricdentist','#childrensdentistry','#cavityfree','#healthysmiles','#toothfairy']},{n:'Toronto 🍁',tags:['#toronto','#torontomoms','#torontokids','#northyork','#yorkmills','#torontofamily']},{n:'Fun / Reels 🎬',tags:['#reels','#reelsinstagram','#trending','#dentaltiktok','#smile','#satisfying']},{n:'Office / Team 👋',tags:['#dentalteam','#meettheteam','#behindthescenes','#dentallife','#happypatients']}];
+const HOOKS=['POV: your kid actually wants to go to the dentist 🦷','3 things every Toronto parent gets wrong about baby teeth…','Wait til you see the prize wall 👀🎁','This is your sign to book that checkup ✨','We tried it so you don’t have to 😂','The #1 question parents ask us…','Brushing hack the dentist swears by 🪥','What really happens at a first visit (it’s easy!) →'];
+const CTAS=['Save this for your next visit 📌','Tag a parent who needs this 👇','Book through the link in bio 🔗','Comment your kid’s favourite prize 🎁','Follow for daily smile tips ✨','Which one are you? Tell us below 💬'];
+const LABEMOJI=['🦷','🪥','✨','😁','🎉','🪙','🎁','❤️','📸','🌟','😂','👀','🔥','☀️','🧒','🙌'];
+let _studioTab='stats',_calOff=0,_calSel=null,_lab={hook:'',body:'',cta:'',tags:''};
+const STUDIO_TABS=[['stats','📊 Stats'],['cal','📅 Calendar'],['goals','🎯 Goals'],['lab','✍️ Caption Lab'],['look','🎨 Look']];
+function openStudio(){sfxClick();renderStudioTabs();renderStudio();checkBadges(false);document.getElementById('studioOv').classList.add('open');}
+function closeStudio(){document.getElementById('studioOv').classList.remove('open');}
+function renderStudioTabs(){const e=document.getElementById('studioTabs');if(e)e.innerHTML=STUDIO_TABS.map(t=>`<button class="stab${_studioTab===t[0]?' on':''}" onclick="studioTab('${t[0]}')">${t[1]}</button>`).join('');}
+function studioTab(t){_studioTab=t;renderStudioTabs();renderStudio();sfxClick();}
+function renderStudio(){const b=document.getElementById('studioBody');if(!b)return;try{({stats:renderStudioStats,cal:renderStudioCalendar,goals:renderStudioGoals,lab:renderStudioLab,look:renderStudioLook}[_studioTab]||renderStudioStats)(b);}catch(e){b.innerHTML='<p class="sub">Something hiccuped — reopen Studio.</p>';}}
+function renderStudioStats(b){const s=computeStats();s.streak=computeStreak();const types=Object.entries(s.byType).sort((a,c)=>c[1]-a[1]),maxT=Math.max(1,...types.map(t=>t[1]));
+  b.innerHTML=`<div class="tip-card" style="margin-bottom:14px"><span class="ti">💡</span><div><b>Tip of the day</b><br>${escapeHtml(todaysTip())}</div></div>`+
+  `<div class="scard"><h4>📊 Your numbers</h4><div class="stat-grid"><div class="stat-tile"><div class="n">${s.total}</div><div class="l">ideas</div></div><div class="stat-tile"><div class="n">${s.posted}</div><div class="l">posted</div></div><div class="stat-tile"><div class="n">${s.filming+s.editing}</div><div class="l">in progress</div></div><div class="stat-tile"><div class="n">${s.week}</div><div class="l">this week</div></div><div class="stat-tile"><div class="n">${s.month}</div><div class="l">this month</div></div><div class="stat-tile"><div class="n">🔥${s.streak}</div><div class="l">week streak</div></div></div></div>`+
+  `<div class="scard"><h4>🎬 By type</h4>${types.length?types.map(([t,n])=>`<div class="bar-row"><span class="bl">${escapeHtml(t)}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.round(n/maxT*100)}%"></div></div><span class="bn">${n}</span></div>`).join(''):'<p class="sub">Add ideas to My List to see a breakdown.</p>'}</div>`;}
+function fmtDate(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function renderStudioCalendar(b){const base=new Date();base.setMonth(base.getMonth()+_calOff,1);const y=base.getFullYear(),m=base.getMonth(),first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate(),tIso=fmtDate(new Date());
+  const byDate={};(state.list||[]).forEach(i=>{if(i.planDate)(byDate[i.planDate]=byDate[i.planDate]||[]).push(i);});
+  let cells=['S','M','T','W','T','F','S'].map(d=>`<div class="cal-dow">${d}</div>`).join('');
+  for(let i=0;i<first;i++)cells+=`<div class="cal-cell muted"></div>`;
+  for(let d=1;d<=days;d++){const iso=fmtDate(new Date(y,m,d)),items=byDate[iso]||[],dots=items.slice(0,3).map(it=>`<i style="background:${STAGES[it.stage].color}"></i>`).join('');cells+=`<div class="cal-cell${iso===tIso?' today':''}${items.length?' has':''}" onclick="calPick('${iso}')">${d}${items.length?`<div class="dots">${dots}</div>`:''}</div>`;}
+  let dl='';if(_calSel){const items=byDate[_calSel]||[];dl=`<div class="cal-day-list"><b style="font-size:13px">${prettyDate(_calSel)}</b>${items.length?items.map(it=>`<div class="cal-li"><span class="em">${it.emoji||'💡'}</span><div style="flex:1"><b>${escapeHtml(it.title)}</b><div style="font-size:11px;color:var(--muted)">${STAGES[it.stage].label}</div></div></div>`).join(''):'<p class="sub" style="margin-top:8px">Nothing planned. Set a “Plan to post” date on an idea in My List.</p>'}</div>`;}
+  b.innerHTML=`<div class="scard"><div class="cal-head"><button onclick="calNav(-1)">‹</button><b>${base.toLocaleDateString(undefined,{month:'long',year:'numeric'})}</b><button onclick="calNav(1)">›</button></div><div class="cal-grid">${cells}</div>${dl}<p class="sub" style="margin-top:12px">Dots = ideas planned that day (colour = stage). Tap a day to see them.</p></div>`;}
+function calNav(d){_calOff+=d;_calSel=null;renderStudio();sfxClick();}
+function calPick(iso){_calSel=iso;renderStudio();sfxClick();}
+function renderStudioGoals(b){const s=computeStats();s.streak=computeStreak();const g=state.weeklyGoal||3,pct=Math.min(1,s.week/g),C=2*Math.PI*44,off=C*(1-pct),got=state.badges||[];
+  b.innerHTML=`<div class="scard"><h4>🎯 Weekly goal</h4><div class="sub">Posts this week vs your target.</div><div class="goal-wrap"><div class="ring"><svg width="96" height="96"><circle cx="48" cy="48" r="44" fill="none" stroke="var(--line2)" stroke-width="8"/><circle cx="48" cy="48" r="44" fill="none" stroke="var(--teal)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}"/></svg><div class="rc">${s.week}/${g}<small>this week</small></div></div><div><div style="font-weight:700;font-size:14px">${s.week>=g?'🎉 Goal smashed!':'Keep going — '+(g-s.week)+' to go'}</div><div class="goal-set"><button onclick="setGoal(-1)">–</button><b>${g}/week</b><button onclick="setGoal(1)">+</button></div></div></div></div>`+
+  `<div class="scard"><h4>🏅 Achievements <span style="font-size:12px;color:var(--muted);font-weight:600">${got.length}/${BADGES.length}</span></h4><div class="badge-grid">${BADGES.map(bd=>`<div class="bdg${got.includes(bd.id)?' got':''}"><span class="be">${bd.e}</span><div class="bn">${escapeHtml(bd.n)}</div></div>`).join('')}</div></div>`;}
+function setGoal(d){state.weeklyGoal=Math.max(1,Math.min(14,(state.weeklyGoal||3)+d));save();renderStudio();sfxClick();}
+function renderStudioLab(b){b.innerHTML=`<div class="scard"><h4>✍️ Build a caption</h4><div class="sub">Mix a hook, your words, a call-to-action and hashtags.</div><textarea id="labBody" class="searchbox" style="width:100%;min-height:62px;resize:vertical" placeholder="Write your caption…" oninput="labSync()">${escapeHtml(_lab.body)}</textarea><div class="emoji-bar">${LABEMOJI.map(e=>`<button onclick="labEmoji('${e}')">${e}</button>`).join('')}</div><div class="lab-count" id="labCount"></div><div class="lab-out" id="labOut"></div><div class="lab-row"><button onclick="labHook()">🎣 Add a hook</button><button onclick="labCta()">📣 Add a CTA</button><button class="go" onclick="labCopy()">📋 Copy caption</button></div></div>`+
+  `<div class="scard"><h4>#️⃣ Hashtag packs</h4><div class="sub">Tap “add” to append a pack to your caption.</div>${HASHPACKS.map((p,i)=>`<div style="margin-bottom:11px"><b style="font-size:12.5px">${escapeHtml(p.n)}</b> <button class="tagchip" onclick="labTags(${i})">+ add ${p.tags.length}</button><div class="chip-pack" style="margin-top:6px">${p.tags.map(t=>`<span class="tagchip" style="cursor:default;background:var(--line2);color:var(--muted);border-color:var(--line)">${t}</span>`).join('')}</div></div>`).join('')}</div>`;labRender();}
+function labSync(){const t=document.getElementById('labBody');if(t)_lab.body=t.value;labRender();}
+function labHook(){_lab.hook=HOOKS[Math.floor(Math.random()*HOOKS.length)];labRender();sfxClick();}
+function labCta(){_lab.cta=CTAS[Math.floor(Math.random()*CTAS.length)];labRender();sfxClick();}
+function labTags(i){const t=HASHPACKS[i].tags.join(' ');_lab.tags=(_lab.tags?_lab.tags+' ':'')+t;labRender();sfxClick();}
+function labEmoji(e){const ta=document.getElementById('labBody');if(ta){ta.value+=e;_lab.body=ta.value;labRender();}}
+function labText(){return [_lab.hook,_lab.body,_lab.cta,_lab.tags].filter(Boolean).join('\n\n');}
+function labRender(){const o=document.getElementById('labOut');if(o)o.textContent=labText()||'Your caption preview shows here…';const c=document.getElementById('labCount');if(c){const n=labText().length;c.textContent=n+' / 2200 chars'+(n>125?' · first 125 show before “more”':'');c.className='lab-count'+(n>2200?' warn':'');}}
+function labCopy(){const t=labText();if(!t){toast('Nothing to copy yet');return;}navigator.clipboard.writeText(t).then(()=>{sfxCopy();toast('Caption copied ✅');});}
+function renderStudioLook(b){b.innerHTML=`<div class="scard"><h4>🎨 Theme</h4><div class="sub">Recolour the whole app — saves automatically.</div><div class="theme-grid"><div class="theme-opt${!state.studioTheme&&!state.accent?' on':''}" onclick="setStudioTheme('')"><span class="theme-dot" style="background:#0FA47F"></span><b>Default 🌿</b></div>${Object.entries(THEMES).map(([k,t])=>`<div class="theme-opt${state.studioTheme===k&&!state.accent?' on':''}" onclick="setStudioTheme('${k}')"><span class="theme-dot" style="background:${t.dot}"></span><b>${t.n}</b></div>`).join('')}</div><div style="margin-top:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap"><b style="font-size:13px">Custom accent</b><input type="color" value="${state.accent||'#0FA47F'}" oninput="setAccent(this.value)" style="width:46px;height:34px;border:1px solid var(--line);border-radius:9px;background:none;cursor:pointer"><button class="tagchip" onclick="setAccent('')">reset</button></div></div>`+
+  `<div class="scard"><h4>🌗 Light / Dark</h4><div class="sub">Or follow your device automatically.</div><div class="lab-row"><button onclick="setTheme('light')">☀️ Light</button><button onclick="setTheme('dark')">🌙 Dark</button><button onclick="setTheme('auto')">🔄 Auto</button></div></div>`;}
+function setStudioTheme(k){state.studioTheme=k;state.accent='';save();applyStudioTheme();renderStudio();sfxAdd();}
+function setAccent(v){state.accent=v;save();applyStudioTheme();if(_studioTab==='look')renderStudio();}
+function quickCapture(){const t=window.prompt('💡 Quick idea — jot it down:');if(t&&t.trim()){state.list=state.list||[];state.list.unshift({id:'q'+Date.now(),title:t.trim(),type:'Idea',emoji:'💡',score:'',stage:0,notes:'',custom:true,author:state.me||'You',addedAt:Date.now(),stageNotes:{},planDate:nextSlot()});save();renderList();updateCount();sfxAdd();toast('Idea captured 💡 — it’s in My List');checkBadges(false);}}
+const NEWS=[['✨','Creator Studio — a new home for planning & growth'],['📊','Stats dashboard: posts by type, this week & month'],['🔥','Posting streak tracker'],['🎯','Set a weekly goal with a progress ring'],['🏅','12 achievement badges to unlock'],['📅','Monthly content calendar — see what’s planned'],['✍️','Caption Lab: build a caption from hooks + CTAs'],['#️⃣','4 ready-made hashtag packs'],['😀','Emoji quick-bar + live character counter'],['🎨','6 colour themes + a custom accent picker'],['💡','A fresh creator tip every day'],['➕','Floating quick-capture button for ideas on the go'],['⭐','Saved stories keep their full “what to film” notes'],['🌀','Smoother, skippable Stories intro']];
+function showNews(){const e=document.getElementById('newsList');if(e)e.innerHTML=NEWS.map(n=>`<div class="ni"><span>${n[0]}</span><div>${n[1]}</div></div>`).join('');document.getElementById('newsModal').classList.add('open');state.studioSeen=true;save();}
+function openStudioFromNews(){document.getElementById('newsModal').classList.remove('open');openStudio();}
+
+load();loadFromHash();applyTheme();applyStudioTheme();const _mb=document.getElementById('muteBtn');if(_mb)_mb.textContent=state.muted?'🔇':'🔊';updateMeChip();
 refreshCards();renderExamples();renderSounds();renderResources();enhanceScripts();renderList();updateCount();renderStories();
 updateViral();setInterval(updateViral,60000);
 document.querySelector('#addChips .chip').classList.add('sel');
 window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 if('serviceWorker' in navigator){try{navigator.serviceWorker.register('sw.js').catch(function(){});}catch(e){}}
 needName();
+try{checkBadges(true);}catch(e){}
+if(!state.studioSeen){setTimeout(function(){try{if(!document.getElementById('nameModal').classList.contains('open'))showNews();}catch(e){}},1100);}
 </script>
 </body>
 </html>
