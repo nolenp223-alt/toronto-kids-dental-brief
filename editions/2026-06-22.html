@@ -545,8 +545,13 @@
   .saved-item{display:flex;gap:10px;align-items:flex-start;padding:13px 16px;border-bottom:1px solid var(--line2);}
   .saved-item .sic{font-size:20px;}
   .saved-item .si-body{flex:1;min-width:0;}
-  .saved-item .si-body b{font-size:13.5px;display:block;}
-  .saved-item .si-body span{font-size:12.5px;color:var(--muted);line-height:1.4;}
+  .saved-item .si-body b{font-size:13.5px;display:block;margin-bottom:3px;}
+  .saved-item .si-shoot{display:block;font-size:11.5px;color:var(--ink2);line-height:1.4;margin-bottom:4px;}
+  .saved-item .si-cap{display:block;font-size:12.5px;color:var(--muted);line-height:1.4;font-family:'Courier New',ui-monospace,monospace;background:var(--bg);border:1px dashed var(--line);border-radius:8px;padding:6px 8px;}
+  .saved-item .si-meta{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:11px;color:var(--faint);}
+  .saved-item .si-copy{border:1px solid var(--line);background:var(--card);color:var(--ink2);border-radius:8px;padding:4px 8px;font-size:11px;font-weight:700;cursor:pointer;}
+  .saved-item .si-copy:hover{background:var(--tint-teal);color:var(--teal-d);}
+  .saved-item .si-actions{display:flex;flex-direction:column;gap:6px;align-items:flex-end;flex:none;}
   .saved-item .rm0{border:none;background:transparent;color:var(--faint);cursor:pointer;font-weight:800;font-size:15px;}
   .saved-item .rm0:hover{color:var(--coral);}
   .saved-item .si-done{flex:none;border:none;background:linear-gradient(140deg,var(--good),#4cd6a0);color:#fff;font-weight:800;font-size:12px;border-radius:10px;padding:8px 12px;cursor:pointer;box-shadow:0 8px 18px -8px rgba(22,176,122,.55);transition:transform .15s var(--spring);white-space:nowrap;}
@@ -1530,7 +1535,7 @@ function copyStoryCap(btn){const s=btn.closest('.story')._story;navigator.clipbo
 function storySave(btn){
   const card=btn.closest('.story'),s=card._story;state.savedStories=state.savedStories||[];
   const isNew=!state.savedStories.some(x=>x.cap===s.cap);
-  if(isNew)state.savedStories.push({ic:s.ic,type:s.type,cap:s.cap});
+  if(isNew)state.savedStories.push({ic:s.ic,type:s.type,cap:s.cap,shoot:s.shoot||'',savedAt:Date.now()});  // keep EVERYTHING so it works on any day, even after the daily ones expire
   hideStory(s.cap);save();updateSavedCount();sfxDone();
   const sp=document.querySelector('.storypage'),panelOpen=sp&&sp.classList.contains('saved-open');
   if(panelOpen&&isNew){renderSaved();const it=document.querySelector('#savedList .saved-item:last-child');if(it)animateSavedIn(it);toast('Slid into your list ⭐');}
@@ -1821,9 +1826,11 @@ function animateSavedIn(el){
 }
 function renderSaved(){
   const w=document.getElementById('savedList');if(!w)return;const list=state.savedStories||[];
-  if(!list.length){w.innerHTML='<div class="empty"><span class="big">⭐</span>Tap ✓ on a story to keep it here.</div>';return;}
-  w.innerHTML=list.map((s,i)=>`<div class="saved-item${s.done?' sdone':''}"><span class="sic">${s.ic}</span><div class="si-body"><b>${escapeHtml(s.type)}</b><span>${escapeHtml(s.cap)}</span></div><button class="si-done" onclick="storyDone(${i})" title="Mark posted">${s.done?'✓ Posted':'Done'}</button><button class="rm0" onclick="unsaveStory(${i})">✕</button></div>`).join('');
+  if(!list.length){w.innerHTML='<div class="empty"><span class="big">⭐</span>Tap ✓ on a story to keep it here.<br><span style="font-size:12px;color:var(--faint)">Saved ideas are yours to keep — reuse them any day.</span></div>';return;}
+  w.innerHTML=list.map((s,i)=>{const shoot=s.shoot||shootFor(s.cap);return `<div class="saved-item${s.done?' sdone':''}"><span class="sic">${s.ic}</span><div class="si-body"><b>${escapeHtml(s.type)}</b>${shoot?`<span class="si-shoot">📸 ${escapeHtml(shoot)}</span>`:``}<span class="si-cap">${escapeHtml(s.cap)}</span><div class="si-meta"><span>${s.savedAt?'kept '+relTime(s.savedAt):'kept'}</span><button class="si-copy" onclick="copySaved(${i})">📋 Copy caption</button></div></div><div class="si-actions"><button class="si-done" onclick="storyDone(${i})" title="Mark posted">${s.done?'✓ Posted':'Done'}</button><button class="rm0" onclick="unsaveStory(${i})">✕</button></div></div>`;}).join('');
 }
+function shootFor(cap){const all=STORIES.concat(DAYINFO&&DAYINFO.stories||[]);const m=all.find(s=>s.cap===cap);return m?m.shoot:'';}
+function copySaved(i){const s=(state.savedStories||[])[i];if(!s)return;navigator.clipboard.writeText(s.cap).then(()=>{sfxCopy();toast('Caption copied ✅');}).catch(()=>toast('Copy not supported here'));}
 function storyDone(i){const s=state.savedStories[i];if(!s)return;s.done=!s.done;if(s.done)hideStory(s.cap);save();renderSaved();if(s.done){sfxDone();confetti();toast('Posted! 🎉 — gone for good');}else{sfxClick();}}
 function unsaveStory(i){const s=state.savedStories[i];if(s)unhideStory(s.cap);state.savedStories.splice(i,1);save();renderSaved();updateSavedCount();sfxRemove();}
 function updateSavedCount(){const e=document.getElementById('savedCount');if(e)e.textContent=(state.savedStories||[]).length;}
