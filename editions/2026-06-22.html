@@ -526,7 +526,7 @@
   /* the black blob all the text clumps into, before it warps into the ball */
   .story-blob{position:absolute;left:50%;margin-left:-30px;top:34px;width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 38% 32%,#42424e,#0a0a0f 72%);box-shadow:0 18px 38px -10px rgba(0,0,0,.6),inset 0 0 16px rgba(0,0,0,.5);}
   /* clones of the home furniture that get magnetised in */
-  .story-stage .mclone{box-sizing:border-box;will-change:transform,opacity;}
+  .story-stage .mclone{box-sizing:border-box;will-change:transform,opacity;opacity:.5;}   /* ghostly, so the gather reads as text being pulled in (not a solid duplicate page) */
   .story-stage .mcube{display:flex;align-items:center;gap:8px;padding:0 14px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--sh-sm);color:var(--muted);font-size:14.5px;font-weight:500;overflow:hidden;white-space:nowrap;}
   .story-stage .mcube .mcube-q{flex:none;}
   .story-stage .mcube .mcube-t{transition:opacity .18s ease;}
@@ -1621,7 +1621,7 @@ function finalizeStories(){
       const h=document.querySelector('.sp-top h2'),intro=document.querySelector('.sp-intro');
       if(h)gsap.set(h,{clearProps:'all'});
       if(intro)gsap.set(intro,{clearProps:'all'});
-      ['.sp-top .x','.sp-top .savedbtn'].forEach(s=>{const e=document.querySelector(s);if(e)gsap.set(e,{clearProps:'all'});});  // the ✕ / ⭐ Saved must always end visible & clickable
+      ['.sp-top .x','.sp-top .savedbtn','#dayBanner'].forEach(s=>{const e=document.querySelector(s);if(e)gsap.set(e,{clearProps:'all'});});  // the ✕ / ⭐ Saved / banner must always end visible
     }catch(e){}
   }
   document.querySelectorAll('.story-stage').forEach(n=>n.remove());
@@ -1700,6 +1700,8 @@ function animateStories(){
     gsap.set(cards,{opacity:0});
     if(intro)gsap.set(intro,{opacity:0});
     if(title)gsap.set(title,{opacity:0});     // the Stories title appears only after the explosion
+    const banner=document.getElementById('dayBanner'), bannerOn=banner&&banner.style.display!=='none';
+    if(bannerOn)gsap.set(banner,{opacity:0});  // the day banner appears at the END, not overlapping the intro
     const xBtn=document.querySelector('.sp-top .x'), savedBtn=document.querySelector('.sp-top .savedbtn');
     if(xBtn)gsap.set(xBtn,{opacity:0});       // the ✕ and ⭐ Saved must animate in too — nothing pops in instantly
     if(savedBtn)gsap.set(savedBtn,{opacity:0});
@@ -1714,8 +1716,11 @@ function animateStories(){
 
     const titleColor=title?getComputedStyle(title).color:'#1B1726';   // its normal colour (also correct in dark mode)
 
-    const tl=gsap.timeline({onComplete:finalizeStories});
+    // tap anywhere to skip the intro — it can never feel too long
+    const skipIntro=()=>{if(page)page.removeEventListener('pointerdown',skipIntro);finalizeStories();if(page)page.scrollTop=0;};
+    const tl=gsap.timeline({onComplete:()=>{if(page)page.removeEventListener('pointerdown',skipIntro);finalizeStories();}});
     _storyTL=tl;const myTL=tl;
+    if(page)page.addEventListener('pointerdown',skipIntro);
 
     // BACKGROUND — warm off-white → cool white, a slow 6s cross-fade (light mode only)
     const dark=document.documentElement.getAttribute('data-theme')==='dark';
@@ -1732,7 +1737,7 @@ function animateStories(){
       const r=it.el.getBoundingClientRect(),dx=cx-(r.left+r.width/2),dy=cy-(r.top+r.height/2);
       if(it.kind==='cube'){tl.to(it.el,{scaleX:0.14,transformOrigin:'center',duration:.4,ease:'power2.in'},0.2);tl.add(()=>{const t=it.el.querySelector('.mcube-t');if(t)t.style.opacity='0';},0.46);}
       else if(it.kind==='chip'){const h=it.el.offsetHeight||30;tl.to(it.el,{width:h,borderRadius:'50%',duration:.34,ease:'power2.in'},0.2);tl.add(()=>{const f=it.el.querySelector('.mchip-full'),g=it.el.querySelector('.mchip-glyph');if(f)f.style.display='none';if(g)g.style.display='block';},0.5);}
-      tl.to(it.el,{x:dx,y:dy,scale:0.12,opacity:0.92,rotation:R(-70,70),duration:.5,ease:'power3.in'},0.55+i*0.008);   // condense into ~one character's space
+      tl.to(it.el,{x:dx,y:dy,scale:0.1,opacity:0.32,rotation:R(-70,70),duration:.46,ease:'power3.in'},0.28+i*0.006);   // condense fast into ~one spot, stays ghostly
     });
     tl.add(()=>sfxVortex(),1.45);
     // a few letters flick OUT a touch (≈1cm) then get yanked back in fast, swirling with the hole
@@ -1779,8 +1784,9 @@ function animateStories(){
     tl.to(body||{},{filter:'blur(0px)',duration:.34,ease:'power1.out'},6.26);
     tl.add(()=>sfxClick(),6.4);
 
-    /* STEP 6 — settle at the top; intro WIPES in; the top card does a 3D flip (more surprises) */
+    /* STEP 6 — settle at the top; banner + intro appear; the top card does a 3D flip (more surprises) */
     tl.add(()=>{if(page){page.scrollTop=0;page.classList.remove('animating');}},6.55);
+    if(bannerOn)tl.fromTo(banner,{opacity:0,y:-10},{opacity:1,y:0,duration:.5,ease:'power2.out'},6.5);
     if(intro)tl.fromTo(intro,{opacity:0,clipPath:'inset(0 100% 0 0)'},{opacity:1,clipPath:'inset(0 0% 0 0)',duration:.6,ease:'power2.out'},6.6);
     if(cards[0])tl.fromTo(cards[0],{rotationX:-72,transformPerspective:620,transformOrigin:'top center'},{rotationX:0,duration:.62,ease:'back.out(1.4)'},6.66);
     tl.add(()=>{stage.remove();},7.05);
