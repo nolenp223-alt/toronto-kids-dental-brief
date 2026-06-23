@@ -7,6 +7,21 @@ Purpose: track every idea featured so the daily brief never repeats itself.
 
 ---
 
+## 2026-06-23 (Edition 07 — Hydrate)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | "Tell Me Without Telling Me" TKD Edition 🤫 | Skit | 9 | @happytoothslc/video/7264629181592374571 ✓ |
+| 2 | "Oh Well, Whatever, Nevermind" Chill Dentist 😎 | Skit | 9 | @thebentist/video/7389715753320140075 ✓ |
+| 3 | "Can You Believe This?!" Dental React 😱 | React | 8 | @lumedental/video/7648951935181065494 ✓ |
+| 4 | National Hydration Day Water Is Magic 💧 | Office | 8 | @happytoothslc/video/7251615557148020011 ✓ |
+| 5 | "Motion Party" Prize Shelf Dance Challenge 🕺 | Skit | 9 | @mrflawdaaa/video/7470701715696831790 ✓ |
+
+**Sounds:** hate that i made u love me (Ariana Grande × Britney Spears, adamusic_ remix) · Smells Like Teen Spirit (Nirvana) · Everglades (AZIEDOESNTEXIST) · The One That Got Away (Katy Perry) · Motion Party (BossMan Dlow)
+**Theme:** Hydrate. All 5 idea reels + all 5 sound reels oEmbed-verified. Day banner: "National Hydration Day 💧 — sunny 23°C in Toronto today!" Day-specific stories: National Hydration Day 💧, Sunny summer Tuesday ☀️, Summer coin challenge 🪙. Weather: sunny, high 23°C. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-06-22 (Edition 06 — Launch)
 
 | # | Idea | Type | Score | Verified reel |
