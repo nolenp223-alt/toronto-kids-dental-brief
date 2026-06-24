@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-06-24 (Edition 08 — Glow)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | "honeybee" Carousel — Show Your Why 🍯 | Template | 9 | @verdeperfect0/video/7650347052307631380 ✓ |
+| 2 | "That's My Why" Pediatric Dentist Edition 🦷 | Office | 8 | @secret17549629/video/7623608492754046221 ✓ |
+| 3 | "STOP Doing THIS" Summer Edition ☀️ | React | 8 | @thebentist/video/7557085241316298014 ✓ |
+| 4 | Summer Break Checkup — Book Before Camp 🏕️ | Office | 8 | @happytoothslc/video/7270314014138207530 ✓ |
+| 5 | "Million Dollar Baby" Prize Shelf Reveal 🪙💛 | Skit | 9 | @tommyrichman/video/7388601628091272490 ✓ |
+
+**Sounds:** honeybee (Olivia Rodrigo) · Good Luck, Babe! (Chappell Roan) · Beautiful Things (Benson Boone) · APT. (ROSÉ & Bruno Mars) · Please Please Please (Sabrina Carpenter)
+**Theme:** Glow. All 5 idea reels + all 5 sound reels oEmbed-verified. Day banner: "Canada Day is one week away 🍁 — schools wrap up this week, Toronto!" Day-specific stories: camp season countdown 🏕️, Canada Day countdown 🍁, mild summer Wednesday ☀️. Weather: mild ~20°C, pleasant. Don't reuse any of the above ideas or sounds.
+
+---
+
 Reference Instagram: **@torontokidsdental** · Website: torontokidsdental.ca
 Real dentists (from site): **Dr. Aaron Miller, Dr. Gideon Turk, Dr. Noah Turk** (no "Dr. Dove" listed — confirm with Nolan).
 Location: 799 York Mills Rd, North York. Tone: brand-new, fully digital, warm, anxiety-reducing, "kids look forward to it."
