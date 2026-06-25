@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-06-25 (Edition 09 — Splash)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Your Dentist Always Knows 🕵️ | Skit | 9 | @thebentist/video/7636124642062634270 ✓ |
+| 2 | Red Flags at the Kids Dentist 🚩 | React | 9 | @thebentist/video/7580473589669973279 ✓ |
+| 3 | Rainy Day at TKD ☔ | Office | 8 | @happytoothslc/video/7280568796790705439 ✓ |
+| 4 | One Week to Canada Day 🍁 | Office | 8 | @happytoothslc/video/7253176122182044974 ✓ |
+| 5 | Cavities Happen — Zero Shame 🧡 | Template | 8 | @happytoothslc/video/7433866980970466602 ✓ |
+
+**Sounds:** Espresso (Sabrina Carpenter) · Birds of a Feather (Billie Eilish) · Cruel Summer (Taylor Swift) · End of Beginning (Djo) · Too Sweet (Hozier)
+**Theme:** Splash. All 5 idea reels + all 5 sound reels oEmbed-verified. Day banner: "Rainy Thursday in Toronto ☔ — one week to Canada Day 🍁" Day-specific stories: rainy day office vlog ☔, Canada Day countdown 🍁, dentist always knows 🕵️, no-shame cavities reminder 🧡. Weather: rainy, high 19°C, 80% precip. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-06-24 (Edition 08 — Glow)
 
 | # | Idea | Type | Score | Verified reel |
