@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-06-26 (Edition 10 — Spark)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | IYKYK — TKD Insider Edition 🤫 | Skit | 9 | @mainandpalmerdentistry/video/7642035931289095438 ✓ |
+| 2 | This Is the Sign — Summer Booking 📅 | Template | 8 | @leafdentaldumbo/video/7396341639410683166 ✓ |
+| 3 | Hot Take ☕ — Pediatric Dentist Edition | React | 9 | @tim.collins/video/7429274901799800071 ✓ |
+| 4 | POV: You Just Got Your First Coin 🪙 | Office | 9 | @thomassanders/video/7491803386069765419 ✓ |
+| 5 | Pride Friday — All Smiles Welcome 🌈 | Office | 8 | @aestheticfamilydental/video/7543762947848310029 ✓ |
+
+**Sounds:** Standards (Keke Palmer) · Pop Like This Pt. 2 Slowed (prodbycpkshawn) · Moment Of Reflection (Jhonatan Rodrigues) · Dai Dai (Shakira & Burna Boy) · Existing (Your Warm Arms)
+**Theme:** Spark. All 5 idea reels + all 5 sound reels oEmbed-verified. Day banner: "Toronto Pride Weekend 🌈 — Canada Day is 5 days away! 🍁" Day-specific stories: Pride Weekend welcome 🌈, 5-day Canada Day countdown 🍁, World Cup Dai Dai moment ⚽, Sunny Friday open ☀️. Weather: sunny 24°C, feels like 28°C, 40% chance of afternoon showers. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-06-25 (Edition 09 — Splash)
 
 | # | Idea | Type | Score | Verified reel |
