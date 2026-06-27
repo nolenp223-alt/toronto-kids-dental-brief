@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-06-27 (Edition 11 — Shine)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Name a Better Duo — Coins & Prizes 🤝 | Skit | 9 | @happytoothslc/video/7364825478437358894 ✓ |
+| 2 | Expected vs Reality — The Kids' Dentist 😱 | Skit | 9 | @happytoothslc/video/7132227064031186219 ✓ |
+| 3 | Things I Didn't Expect to Love About My Job 🦷 | React | 8 | @thebentist/video/7450571632604613918 ✓ |
+| 4 | TKD Is In Its Summer Era ☀️ | Template | 9 | @thebentist/video/7171894506940435758 ✓ |
+| 5 | Saturday Morning at TKD — Summer Is Here 🌅 | Office | 8 | @happytoothslc/video/7267273613349227822 ✓ |
+
+**Sounds:** Stupid Song (Olivia Rodrigo) · Die With A Smile (Lady Gaga & Bruno Mars) · luther (Kendrick Lamar & SZA) · Water (Tyla) · SPEND DAT SAX (Corey Staggers)
+**Theme:** Shine. All 5 idea reels + all 5 sound reels oEmbed-verified. Day banner: "First Saturday of Summer Break! ☀️ — Canada Day in 4 days 🍁" Day-specific stories: Summer Saturday open 🌞, Canada Day countdown 🍁, Saturday coin close-up 🪙. Weather: mild 23°C, clearing to sunny afternoon, light winds. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-06-26 (Edition 10 — Spark)
 
 | # | Idea | Type | Score | Verified reel |
