@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-06-28 (Edition 12 — Maple)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Aura Check — TKD Edition 🌟 | Skit | 9 | @auradentalclinic_uk/video/7529582742154071318 ✓ |
+| 2 | 3 Things Parents Get Wrong About Kids' Dental Visits 🦷 | React | 8 | @drteethboutique/video/7498974178192674094 ✓ |
+| 3 | Canada Day Is Wednesday — Book Before Then 🍁 | Office | 9 | @llliindseyy/video/7426112352354979103 ✓ |
+| 4 | Plot Twist: They Ask When They Can Come Back 🔄 | Skit | 9 | @iihearttevie/video/7424234565616569642 ✓ |
+| 5 | Dentist Role Play — But Make It Real 🧸 | Template | 8 | @earlyyearsactivities/video/7372993762571619617 ✓ |
+
+**Sounds:** saturn sped up (SZA) · Texas Hold 'Em (Beyoncé) · i had some help (Post Malone ft. Morgan Wallen) · break my stride (Matthew Wilder) · Pink Pony Club (Chappell Roan)
+**Theme:** Maple. All 5 idea reels + all 5 sound reels oEmbed-verified. Day banner: "Canada Day is this Wednesday 🍁 — sunny Sunday in Toronto ☀️" Day-specific stories: Canada Day countdown 🍁, Sunny Sunday morning 🌞, Sunday coin moment 🪙. Weather: sunny 26°C, clear skies, light winds. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-06-27 (Edition 11 — Shine)
 
 | # | Idea | Type | Score | Verified reel |
