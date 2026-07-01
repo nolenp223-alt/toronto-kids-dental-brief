@@ -1,5 +1,35 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-06-30 (Edition 14 — Ember)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | This Trend Is Ruining Summer Teeth 🤯 | React | 9 | @thebentist/video/7333320596002016543 ✓ |
+| 2 | Which One? — Canada Day Edition 🍁 | Skit | 9 | @centralcee/video/7621708501215104278 ✓ |
+| 3 | If You're Reading This, Come In Today 📅 | Office | 8 | @massimo_didomenico/video/7283133110064041262 ✓ |
+| 4 | Canada Day Eve Checklist ✅ | Template | 9 | @thebentist/video/7472878883377892639 ✓ |
+| 5 | Before vs. After a Long Weekend 😂 | Skit | 8 | @thebentist/video/7556378700116135198 ✓ |
+
+**Sounds:** Which One (Drake & Central Cee) · Femininomenon (Chappell Roan) · Lose Control (Teddy Swims) · Shake It Off (Taylor Swift) · Coincidence (Sabrina Carpenter)
+**Theme:** Ember. All 5 idea reels + all 5 sound reels oEmbed-verified. Day banner: "Canada Day Eve 🍁 — thunderstorms clearing to 33°C in Toronto 🌩️🔥" Day-specific stories: Canada Day eve invite 🍁, storm then sunshine 🌩️☀️, last prizes before Canada Day 🏆, happy Canada Day eve 🎆. Weather: morning thunderstorms, hot afternoon 33°C, muggy. Don't reuse any of the above ideas or sounds.
+
+---
+
+## 2026-06-29 (Edition 13 — Blaze)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Things I Notice But Never Say 🤫 | React | 9 | @thebentist/video/7519593347779022110 ✓ |
+| 2 | Two Types of Kids at TKD 🦷 | Skit | 9 | @happytoothslc/video/7319924268916051243 ✓ |
+| 3 | Canada Day In 2 Days Let Me Explain 🍁 | Office | 9 | @happytoothslc/video/7462834540881382699 ✓ |
+| 4 | Dentist Reacts: Heat Wave 🔥 | React | 8 | @thebentist/video/7472109942359526686 ✓ |
+| 5 | The Summer Switch-Up 🌞 | Template | 8 | @thebentist/video/7541852829074410782 ✓ |
+
+**Sounds:** Party in the USA (Miley Cyrus) · About Damn Time (Lizzo) · Heat Waves (Glass Animals) · abcdefu (GAYLE) · Levitating (Dua Lipa)
+**Theme:** Blaze. All 5 idea reels + all 5 sound reels oEmbed-verified. Day banner: "2 days to Canada Day 🍁 — heat wave Monday in Toronto 🔥 29°C" Day-specific stories: Canada Day countdown 🍁, heat wave Monday 🔥, summer drinks tip 💧. Weather: heat wave, 29°C. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-06-28 (Edition 12 — Maple)
 
 | # | Idea | Type | Score | Verified reel |
