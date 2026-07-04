@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-04 (Edition 16 — Haze)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Coin Aura — Aura Farming Edition | Office | 9 | @mr_lindsay_sped/video/7523734321044245773 ✓ |
+| 2 | You Never Took Me To Bangladesh — Prize Shelf Edition | Skit | 9 | @ccstaysreading/video/7650945841661889805 ✓ |
+| 3 | You Look Happier — Prize Shelf Edition | Template | 9 | @media.alacarte/video/7521843666026040590 ✓ |
+| 4 | Runway To The Prize Shelf | Skit | 8 | @bbrycenate/video/7523850265796169015 ✓ |
+| 5 | Saturday Morning At TKD — Heat Warning Edition | Office | 8 | @ideale_dental_family/video/7656095602551426311 ✓ |
+
+**Sounds:** Bangladesh (Ian McConnell) · You Belong With Me — You Look Happier edit (Taylor Swift) · Von Dutch (Charli XCX) · Self Aware (Temper City) · Big Boom In The Room / Kaboom (DJ Ilham)
+**Theme:** Haze. All 5 idea reels + all 5 sound reels oEmbed-verified (8 distinct URLs, 2 reused across an idea-reference and its matching sound). Day banner: "Muggy Saturday — Heat Warning Continues, Storms Possible ☀️🔥" Day-specific stories: weekend heat check-in 🥵, storm-chance heads up 🌦️, Saturday coin moment 🪙. Weather: muggy, heat warning continues (31–34°C, feels 37–38°C), 40–60% chance of storms. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-03 (Edition 15 — Thunder)
 
 | # | Idea | Type | Score | Verified reel |
