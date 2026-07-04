@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-03 (Edition 15 — Thunder)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Day 1 Back — TKD Summer Morning Vlog 🦷☀️ | Office | 8 | @thebentist/video/7567134717766618398 ✓ |
+| 2 | The Ick List — Long Weekend Dental Edition 😬🦷 | Skit | 9 | @thebentist/video/7519593347779022110 ✓ |
+| 3 | Villain Arc — Immediately Corrected 🦹🦷 | Skit | 9 | @happytoothslc/video/7462834540881382699 ✓ |
+| 4 | Storm Day Survival Kit — Toronto Edition ⛈️🦷 | React | 8 | @thebentist/video/7580473589669973279 ✓ |
+| 5 | Rate My Toronto Summer So Far ☀️🦷 | Template | 9 | @thebentist/video/7556378700116135198 ✓ |
+
+**Sounds:** That's So True (Gracie Abrams) · Houdini (Dua Lipa) · Run (Hozier) · Fortnight (Taylor Swift ft. Post Malone) · Golden Hour (JVKE)
+**Theme:** Thunder. All 5 idea reels + all 5 sound reels oEmbed-verified. Day banner: "Hot & Stormy Thursday — Heat Warning + Thunderstorm Watch ⛈️🔥 in Toronto today" Day-specific stories: storm day check-in ⛈️, heat wave water tip 🔥, post-long-weekend welcome back 🍁. Weather: heat warning 29°C feels like 38°C, severe thunderstorm watch (100km/h gusts, hail possible), 60% precipitation. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-06-30 (Edition 14 — Ember)
 
 | # | Idea | Type | Score | Verified reel |
