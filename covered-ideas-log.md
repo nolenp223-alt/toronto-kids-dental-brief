@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-05 (Edition 17 — Breeze)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | You Look Like The 4th Of July — Coin Day Edition | Skit | 9 | @primevideoaunz/video/7658401737019165973 ✓ |
+| 2 | Not Very Nonchalant — Prize Shelf Sprint | Skit | 9 | @userglkabz/video/7648818444942544158 ✓ |
+| 3 | I Treated You Bad — Before/After Coin Reveal | Template | 8 | @liamdanceforfun/video/7646175455250255117 ✓ |
+| 4 | Tears — Prize Shelf Transition Edition | React | 8 | @scott.frenzel/video/7560098658788674829 ✓ |
+| 5 | Sunday Morning At TKD — National Play Outside Day Edition | Office | 8 | @jaredbeairddentist/video/7114731615313464619 ✓ |
+
+**Sounds:** You Look Like The 4th Of July (Jennifer Coolidge / Legally Blonde 2) · original sound — Not Very Nonchalant (Trace Young †) · I Treated You Bad remix (Michael Jackson / Jackson 5, @neverbadagain) · Tears (Sabrina Carpenter) · The Time Of My Life (Benson Boone)
+**Theme:** Breeze. All 5 idea reels + the Benson Boone sound reel oEmbed-verified (6 distinct URLs). Day banner: "National Play Outside Day 🌳 — Heat Warning Breaks, Mild & Sunny Sunday ☀️" Day-specific stories: National Play Outside Day 🌳, heat wave finally breaks ☀️, Sunday coin moment 🪙. Weather: heat warning over, partly cloudy/mild, high ~28°C, low ~18°C, humidity ~84%. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-04 (Edition 16 — Haze)
 
 | # | Idea | Type | Score | Verified reel |
