@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-06 (Edition 18 — Glide)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait... They Earned THAT Many Coins?! — Dramatic Reaction Edition | React | 9 | @thebentist/video/7554477762224852254 ✓ |
+| 2 | They Picked WHAT From The Prize Shelf?! — Gasp Reveal Edition | Skit | 9 | @thebentist/video/7564903824415116575 ✓ |
+| 3 | First Visit vs. Now — Coin Count Nostalgia | Template | 9 | @matthew.meyer/video/7155727452948450565 ✓ |
+| 4 | Prize Shelf Tour — Monday Hype Edition | Office | 8 | @happytoothslc/video/7275017142657977643 ✓ |
+| 5 | We've Watched You Grow — Monday Team Moment | Office | 8 | @happytoothslc/video/7254592916675366186 ✓ |
+
+**Sounds:** Where'd All The Time Go (Dr. Dog, nostalgia then-vs-now) · Ultramoon (Camoufly, hype techno) · u + me = <3 (Olivia Rodrigo) · Wildflower (Billie Eilish, ad-lib challenge)
+**Theme:** Glide. All 5 idea reels + 3 additional sound reels oEmbed-verified (7 distinct URLs, idea #3 reel doubles as the Dr. Dog sound reel). Day banner: "Mellow Monday ☀️ — Toronto's Mild Streak Holds At 28°C" Day-specific stories: mild streak continues ☀️, Monday reset 🗓️, Monday coin moment 🪙. Weather: mild, sunny, high 28°C — second comfortable day in a row after the earlier heat warnings. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-05 (Edition 17 — Breeze)
 
 | # | Idea | Type | Score | Verified reel |
