@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-07 (Edition 19 — Simmer)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Yes, We Love Chocolate Too — World Chocolate Day Edition | Skit | 9 | @doctor.rocco/video/7487659448098360584 ✓ |
+| 2 | Prize Summon — Food Jutsu Reveal Edition | Template | 9 | @newyes1/video/7647908639092559125 ✓ |
+| 3 | Wait, Does THIS Destroy Your Teeth?! — Chocolate Day Myth-Bust | React | 8 | @thebentist/video/7541488538022464798 ✓ |
+| 4 | Wait Till Their REGULAR Dentist Sees This — Coin Milestone Reaction | Skit | 8 | @thebentist/video/7502878681195498782 ✓ |
+| 5 | Imagine The Dentist Was Actually Fun — Hot Tuesday Office Vlog | Office | 8 | @happytoothslc/video/7429834915660959022 ✓ |
+
+**Sounds:** Food Jutsu Summon Transition (viral anime hand-sign beat-drop cut) · I Follow Rivers (Lykke Li) · World Chocolate Day POV Sound (@hergutfeelings) · Sports Edit Hype Trap (@shelovesjake_) · Copines (Aya Nakamura)
+**Theme:** Simmer. All 5 idea reels + all 5 sound reels oEmbed-verified (9 distinct URLs, idea #2 reel doubles as the Food Jutsu sound reel). Day banner: "World Chocolate Day 🍫 — Hot, Humid Tuesday In Toronto (26°C, Feels Like 32°C)" Day-specific stories: World Chocolate Day 🍫, hot & humid heads-up 🥵, Tuesday coin moment 🪙. Weather: high 26°C, feels like 32°C, humidity 61%, 20% chance of precip. Bug fix: day banner now always shows a date/day label (falls back to day-of-week + date if DAYINFO doesn't match today) instead of silently hiding. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-06 (Edition 18 — Glide)
 
 | # | Idea | Type | Score | Verified reel |
