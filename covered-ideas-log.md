@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-08 (Edition 20 — Arcade)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, Why Do Some Teeth Look Like Fangs?! — Fang Tooth Explainer | React | 9 | @thebentist/video/7305844889667865886 ✓ |
+| 2 | You Found WHAT At This Checkup?! — Coin Count Reaction | React | 9 | @lumedental/video/7648951935181065494 ✓ |
+| 3 | Is THIS How Grown-Ups Act At The Dentist?! — Nervous Parent Reaction | Skit | 8 | @thebentist/video/7639098519697018143 ✓ |
+| 4 | When The Prize Shelf Bell Rings — Office Dance Moment | Office | 8 | @aestheticfamilydental/video/7548592396401937719 ✓ |
+| 5 | How Did We Get Here?! — Video Game Day Boss-Battle Prize Reveal | Template | 9 | @drteethboutique/video/7576004240657632526 ✓ |
+
+**Sounds:** Manchild (Sabrina Carpenter) · Ordinary (Alex Warren) · Cheerleader Felix Jaehn Remix (OMI) · Chiki Sha (Arthur Lima Brazilian dance trend) · "How Did We Get Here" relatable caption sound (@drteethboutique)
+**Theme:** Arcade. All 5 idea reels + all 4 additional sound reels oEmbed-verified (9 distinct URLs, idea #5 reel doubles as its matching sound reel). Day banner: "National Video Game Day 🎮 — Be A Kid Again Day, Sunny Wednesday In Toronto (27°C)" Day-specific stories: National Video Game Day 🎮, Be A Kid Again Day 🧸, Wednesday coin moment 🪙. Weather: clear/warm, high ~27°C, humidity ~76%, calm — a pleasant, unremarkable-weather Wednesday. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-07 (Edition 19 — Simmer)
 
 | # | Idea | Type | Score | Verified reel |
