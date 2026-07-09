@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-09 (Edition 21 — Squall)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, I Can't Even Look At That Storm! — Storm Day Contrast Reaction | React | 9 | @thebentist/video/7298449659490684206 ✓ |
+| 2 | Wait, Can Storms ACTUALLY Make Teeth Ache?! — Myth-Bust Explainer | React | 9 | @thebentist/video/7613909140791921951 ✓ |
+| 3 | The Prize Shelf Ophelia — Big Coin Milestone Dance | Template | 9 | @dancekae/video/7557793247045750071 ✓ |
+| 4 | Who Said A Storm Day Has To Be Gloomy? — Cozy Office Tour | Office | 8 | @happytoothslc/video/7250540427047128366 ✓ |
+| 5 | Wait, Is This REAL?! — Green-Screen Prize Reveal | Template | 9 | @wordsbykristin/video/7511817532509015342 ✓ |
+
+**Sounds:** The Fate of Ophelia (Taylor Swift) · A Million Colors (Vinih Pray, AI song) · Janice STFU (Drake) · Riptide remix (Vance Joy, @trinixmusic) · DtMF (Bad Bunny)
+**Theme:** Squall. All 5 idea reels + all 5 sound reels oEmbed-verified (8 distinct URLs, idea #3 doubles as the Fate of Ophelia sound reel and idea #5 doubles as the A Million Colors sound reel). Day banner: "National Sugar Cookie Day 🍪 — Hot, Stormy Thursday In Toronto (28°C, Feels Like 36°C, Storms Likely) ⛈️" Day-specific stories: National Sugar Cookie Day 🍪, storm heads-up ⛈️, Thursday coin moment 🪙. Weather: hot & humid, high 28°C feels like 36°C, 80% chance of thunderstorms. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-08 (Edition 20 — Arcade)
 
 | # | Idea | Type | Score | Verified reel |
