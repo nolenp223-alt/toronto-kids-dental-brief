@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-10 (Edition 22 — Golden)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Six, Seven — Coin Count Drops In | Template | 9 | @just.elias/video/7628827817777696032 ✓ |
+| 2 | Come Closer — Friday Office Hype Dance | Office | 8 | @treee2566/video/7358153288820329734 ✓ |
+| 3 | Wait, Her CAT Is Doing WHAT To Her Teeth?! — Kitten Day Reaction | React | 9 | @thebentist/video/7521880606737829151 ✓ |
+| 4 | The Coin Dot Reveal — Dot Cake Trend, TKD Style | Template | 9 | @ashleymarkletreats/video/7642516492377935135 ✓ |
+| 5 | Wait, You Can STILL Eat Fries With A Missing Tooth?! — French Fry Day Edition | Skit | 8 | @pinaysunshine/video/7329117370440600838 ✓ |
+
+**Sounds:** Six Seven (Laurinha Costa · DJ Cabello · DJ Tchouzen) · RedRed (CORTIS) · Come Closer (Wizkid ft. Drake) · Dot Cake ASMR Reveal (original sound) · Young and Beautiful (Lana Del Rey)
+**Theme:** Golden. All 5 idea reels + 3 additional sound reels oEmbed-verified (8 distinct URLs, idea #1 reel doubles as the Six Seven sound reel and idea #4 reel doubles as the Dot Cake ASMR sound reel). Day banner: "National French Fry Day 🍟 & National Kitten Day 🐱 — Warm, Golden Friday In Toronto (28°C, 40% Chance Of A Passing Storm)" Day-specific stories: National French Fry Day 🍟, National Kitten Day 🐱, Friday coin moment 🪙. Weather: warm and golden, high 28°C, 40% chance of a passing shower/storm — a mild break after several stormier days. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-09 (Edition 21 — Squall)
 
 | # | Idea | Type | Score | Verified reel |
