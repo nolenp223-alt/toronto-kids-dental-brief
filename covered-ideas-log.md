@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-11 (Edition 23 — Cabana)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Maps Dance Challenge — Prize Shelf Edition | Template | 9 | @just.elias/video/7434062921694465313 ✓ |
+| 2 | "Won't You Say That You... Love Me" — Coin Choir Moment | Skit | 9 | @jmsn/video/7512701016261840158 ✓ |
+| 3 | Doing THIS Could RUIN Your Teeth?! — Blueberry Muffin Day Myth-Bust | React | 8 | @thebentist/video/7607182538414509342 ✓ |
+| 4 | Our Dentists Are All Perfectionists — Prize Shelf Edition | Office | 8 | @lumedental/video/7594858701438061846 ✓ |
+| 5 | Tung Tung Sahur Battle — Coin Battle Dance Edition | Skit | 8 | @toaster.ok/video/7485467500306500886 ✓ |
+
+**Sounds:** Maps (Yeah Yeah Yeahs) · Love Me (JMSN) · Golden (HUNTR/X, KPop Demon Hunters) · Back to Friends x Sailor Song mashup (Sombr / Gigi Perez) · Deep Sea Diver (Jaymorrg & MvnnyMusik, Tung Tung Sahur battle beat)
+**Theme:** Cabana. All 5 idea reels + 2 additional sound reels oEmbed-verified (7 distinct URLs, idea #1/#2/#5 reels double as their matching sound reels). Day banner: "National Blueberry Muffin Day 🫐 & National Swimming Pool Day 🏊 — Sunny Saturday In Toronto (28°C)" Day-specific stories: National Blueberry Muffin Day 🫐, National Swimming Pool Day 🏊, Saturday coin moment 🪙. Weather: mainly sunny, high 28°C feels 32°C, 20% chance of precip — a pleasant, unremarkable-weather Saturday. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-10 (Edition 22 — Golden)
 
 | # | Idea | Type | Score | Verified reel |
