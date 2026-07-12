@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-12 (Edition 24 — Doodle)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | POV You Wanted A Straight Smile — Reveal Edition | React | 9 | @thebentist/video/7508845323800907039 ✓ |
+| 2 | A Year Without Brushing Does THIS?! — Myth-Bust Edition | React | 9 | @thebentist/video/7525191742786735390 ✓ |
+| 3 | Only 1% Can Do This On Command — Mouth Trick Challenge | React | 8 | @thebentist/video/7563019282062298399 ✓ |
+| 4 | Cheerleader Hand-Move Set — Prize Shelf Edition | Template | 9 | @mercifulraps/video/7443178989801344302 ✓ |
+| 5 | I Just Get So Nervy — Not Anymore Edition | Skit | 9 | @the.lyrich/video/7638524884783582485 ✓ |
+
+**Sounds:** Cheerleader Felix Jaehn Remix (OMI) · I Just Get So Nervy (HYFY) · Material Lover (Sienna Spiro, Devil Wears Prada 2 soundtrack) · How You Like Me Now (The Heavy) · Brain Stew (Green Day cover wave)
+**Theme:** Doodle. All 5 idea reels + 3 additional sound reels oEmbed-verified (8 distinct URLs, idea #4 reel doubles as the Cheerleader sound reel and idea #5 reel doubles as the Nervy sound reel). Day banner: "National Etch A Sketch Day 🖍️ — Sunny Summer Sunday In Toronto (27°C)" Day-specific stories: National Etch A Sketch Day 🖍️, sunny Sunday check-in ☀️, Sunday coin moment 🪙. Weather: sunny, high 27°C, humidex 30, UV 8 — a pleasant, unremarkable-weather Sunday. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-11 (Edition 23 — Cabana)
 
 | # | Idea | Type | Score | Verified reel |
