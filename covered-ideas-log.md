@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-13 (Edition 25 — Pixel)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, Let Me Tell You What Happened — Storytime Checkup Edition | React | 8 | @thebentist/video/7450571632604613918 ✓ |
+| 2 | Double Trouble — Synchronized Prize Shelf Walk | Template | 9 | @junjun64660/video/7646670774991899918 ✓ |
+| 3 | We Couldn't Help Ourselves — Prize Shelf Edition | Skit | 8 | @aestheticfamilydental/video/7618230829646400798 ✓ |
+| 4 | One Of Those Hot Monday Days — Office Life Edition | Office | 8 | @aestheticfamilydental/video/7522241720382278943 ✓ |
+| 5 | The Core Memory Coin Drop — Big Prize Reveal | Template | 9 | @sierrakai.1/video/7293566512894332202 ✓ |
+
+**Sounds:** Petal In The Pavement (Ariana Grande) · Original Sound — Twin-Walk Trend (JunJun) · Storytelling (Adriel) · Sports Car (Tate McRae) · Original Sound — Hot-Day POV (Isaac Corbitt)
+**Theme:** Pixel. All 5 idea reels + 2 additional sound reels oEmbed-verified (7 distinct URLs, idea #2 reel doubles as the Twin-Walk sound reel and idea #1 reel doubles as the Storytelling sound reel). Day banner: "Embrace Your Geekness Day 🤓 — Hot, Sunny Monday In Toronto (32°C)" Day-specific stories: Embrace Your Geekness Day 🤓, hot Monday heat check-in 🥵, Monday coin moment 🪙. Weather: mix of sun and cloud, high 32°C, low 21°C, clear overnight. Bug fix: the hero h1/subhead on the 07-12 edition had been left stale (still showing 07-10's "French Fry Day / Kitten Day" copy instead of that day's actual theme) — rewrote the hero copy fresh for this edition and will double-check it matches DAYINFO on every future run. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-12 (Edition 24 — Doodle)
 
 | # | Idea | Type | Score | Verified reel |
