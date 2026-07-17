@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-16 (Edition 26 — Amber)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | The Saxophones Are Getting Louder — Flossing Confession Edition | Skit | 9 | @johnnytuivasa/video/7654762258136124680 ✓ |
+| 2 | If I Back It Up — Prize Shelf Dance Challenge | Template | 9 | @aestheticfamilydental/video/7501757177946819886 ✓ |
+| 3 | We Tried The Lemur Brain Trick — Prize Shelf Fail Edition | Office | 8 | @aestheticfamilydental/video/7498907092728810795 ✓ |
+| 4 | Wait, Is Your Toothpaste Actually Doing Anything?! — Myth-Bust Edition | React | 9 | @thebentist/video/7529235049493941534 ✓ |
+| 5 | Who's The...? — Coin Edition Office Game | Skit | 8 | @leafdentaldumbo/video/7400758585078107423 ✓ |
+
+**Sounds:** Saxophones Are Getting Louder (Boyz n the Hood cue) · Vibe (If I Back It Up) (Cookiee Kawaii) · Original Sound "Not Even Close" (Lemur Brain trend) · Summer Days (Emmit Fenn) · How You Like Me Now (The Heavy)
+**Theme:** Amber. All 5 idea reels + 2 additional sound reels oEmbed-verified (7 distinct URLs, idea #1/#2/#3 reels double as their matching sound reels). Day banner: "National Cherry Day 🍒 & Air Quality Alert — Smoky, Hazy Thursday In Toronto (27°C)" Day-specific stories: air quality alert check-in 🌫️, National Cherry Day 🍒, Thursday coin moment 🪙. Weather: real wildfire-smoke air quality alert (orange), Toronto ranked among worst air quality in the world that day, mix of sun and smoke, high 27°C, health officials advised limiting outdoor time. Note: no new edition ran 2026-07-14 or 2026-07-15 (gap in the routine) — history list continues from 07-13. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-13 (Edition 25 — Pixel)
 
 | # | Idea | Type | Score | Verified reel |
