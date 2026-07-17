@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-17 (Edition 27 — Emoji)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, Which Smile Emoji Are You Leaving With?! — World Emoji Day Edition | React | 9 | @thebentist/video/7413840274704682282 ✓ |
+| 2 | Apple — Prize Shelf Dance Challenge | Template | 9 | @itsgroovetime/video/7388255314996497710 ✓ |
+| 3 | Waiting Room You vs. Chair You — Split-Screen Edition | Skit | 8 | @lumedental/video/7649682241991216406 ✓ |
+| 4 | Wait, Does The Viral Peach Ice Cream Wreck Your Teeth?! — Myth-Bust Edition | React | 9 | @eatsbyrachel/video/7307699399260425503 ✓ |
+| 5 | We Decided To Just Be Ourselves — Friday Office Singalong | Office | 8 | @aestheticfamilydental/video/7597948124224687374 ✓ |
+
+**Sounds:** Janice STFU (Drake) · Apple (Charli XCX) · Kiss It Better (Rihanna) · Ordinary (Alex Warren) · Original Sound (@thebentist)
+**Theme:** Emoji. All 5 idea reels + 3 additional sound reels oEmbed-verified (8 distinct URLs, idea #1/#2 reels double as their matching sound reels). Day banner: "World Emoji Day 😊 & National Peach Ice Cream Day 🍑 — Haze Easing, Sunny Friday In Toronto (27°C)" Day-specific stories: World Emoji Day 😊, National Peach Ice Cream Day 🍑, Friday coin moment 🪙. Weather: wildfire-smoke haze from 07-16 finally easing, mix of sun and cloud, high 27°C. Bug fix: hero h1/subhead was still showing 07-16's "National Cherry Day / air quality alert" copy carried into this edition's base file — rewrote it fresh to match today's DAYINFO (same bug class flagged on 07-12/07-13; double-checking hero copy against DAYINFO on every future run). Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-16 (Edition 26 — Amber)
 
 | # | Idea | Type | Score | Verified reel |
