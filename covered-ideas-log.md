@@ -1,5 +1,19 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-18 (Edition 28 — Tart)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, Does Sour Candy Actually Wreck Your Teeth?! — National Sour Candy Day Myth-Bust | React | 9 | @dentaldigest/video/7324406377546403118 ✓ |
+| 2 | Raindance — Storm Day Coin Drop | Template | 9 | @temsszn/video/7565591821934415125 ✓ |
+| 3 | Storm Saturday Vlog — A Day In The Life At TKD | Office | 8 | @happytoothslc/video/7283998903991635242 ✓ |
+| 4 | Espresso — Prize Shelf Dance Challenge | Template | 9 | @itsgroovetime/video/7361559578896780590 ✓ |
+
+**Sounds:** Raindance (Dave & Tems) · Espresso (Sabrina Carpenter) · Original Sound (@dentaldigest) · Original Sound (@happytoothslc) · Midnight Sun / Girls Trip (Zara Larsson & PinkPantheress)
+**Theme:** Tart. Only 4 ideas this edition (not 5) — a 5th candidate ("Thunder Go Boom Boom" storm-reaction trend) had no individually verifiable reel URL, so it was dropped rather than fabricate a link; hero chip count and #ideaCount text updated to "4" to match, and the old IDEA 5 card + its STARTER_EX entry were removed cleanly (grepped for stray "i5" references after editing — none left). All 4 idea reels + the Midnight Sun sound reel oEmbed-verified (5 distinct URLs, all 4 idea reels double as their matching sound reels). Day banner: "National Sour Candy Day 🍬 — Storm Watch, Muggy Saturday In Toronto (27°C)" Day-specific stories: National Sour Candy Day 🍬, storm watch heads-up ⛈️, Nelson Mandela International Day / 67-minutes-of-kindness moment 🌍, Saturday coin moment 🪙. Weather: storm watch, muggy, high 27°C, 60% chance of showers with a risk of severe thunderstorms (damaging winds, large hail possible). Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-17 (Edition 27 — Emoji)
 
 | # | Idea | Type | Score | Verified reel |
