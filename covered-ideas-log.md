@@ -1,5 +1,19 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-19 (Edition 29 — Scoop)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, Does Ice Cream Actually Hurt Your Teeth?! — National Ice Cream Day Myth-Bust | React | 9 | @thelondondentist/video/7416021538459143456 ✓ |
+| 2 | Bedazzle Your Retainer Case — International Retainer Day Edition | Office | 9 | @thebentist/video/7623884151766125854 ✓ |
+| 3 | The Silent Dance Trend — Prize Shelf Edition | Template | 9 | @aestheticfamilydental/video/7574477538299268383 ✓ |
+| 4 | Not Your Average Office — Sunday Edition | Office | 8 | @happytoothslc/video/7364825478437358894 ✓ |
+
+**Sounds:** Original Sound (@thelondondentist) · Original Sound (@thebentist) · Original Sound (@aestheticfamilydental) · Original Sound (@happytoothslc)
+**Theme:** Scoop. Only 4 ideas this edition (not 5) — candidate 5th sounds ("Chévere" by Aria Vega & Ryan Castro, "I Just Might") had no individually verifiable dance-tutorial reel tied to a repeatable trend format, so dropped rather than fabricate a link; hero chip counts updated to "4 skits & templates" / "4 trending sounds" to match. All 4 idea reels oEmbed-verified (each idea reel doubles as its matching sound reel — no separate bonus track added this edition). Day banner: "National Ice Cream Day 🍦 & International Retainer Day 🦷 — Sunny Sunday In Toronto (25°C)" Day-specific stories: National Ice Cream Day 🍦, International Retainer Day 🦷, Sunday coin moment 🪙. Weather: sunny, high 25°C, low 15°C, light north wind — a pleasant, unremarkable-weather Sunday. Don't reuse any of the above ideas or sounds. Note: no new edition ran 2026-07-14 or 2026-07-15 (gap in the routine, logged previously on the 07-16 entry).
+
+---
+
 ## 2026-07-18 (Edition 28 — Tart)
 
 | # | Idea | Type | Score | Verified reel |
