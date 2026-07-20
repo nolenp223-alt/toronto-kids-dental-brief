@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-20 (Edition 30 — Orbit)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Real or Fake?! — Tooth Reveal Challenge | React | 9 | @thebentist/video/7433549717201554719 ✓ |
+| 2 | Wait, Does Candy Actually Wreck Your Teeth?! — National Lollipop Day Myth-Bust | React | 9 | @thebentist/video/7170801453592874283 ✓ |
+| 3 | FREAKED OUT — Prize Shelf Dance Challenge | Template | 9 | @nathanlust/video/7494775662889291026 ✓ |
+| 4 | Impression Roulette — Guess Who Edition | Skit | 8 | @thebentist/video/7548180965235985695 ✓ |
+| 5 | Peek Behind The Curtain — Meet Our (Very Well-Trained) Team | Office | 8 | @aestheticfamilydental/video/7561485108973292814 ✓ |
+
+**Sounds:** Original Sound (@thebentist, real-or-fake reveal) · Original Sound (@thebentist, candy reaction) · FREAKED OUT (Fat Papi & prodshushy, via @nathanlust) · Original Sound (@thebentist, impression reveal) · Original Sound (@aestheticfamilydental, HR peek)
+**Theme:** Orbit. All 5 idea reels oEmbed-verified twice (initial pass + re-verify pass), each idea reel doubling as its matching sound reel (5 distinct URLs — 3 different @thebentist videos, 1 @nathanlust, 1 @aestheticfamilydental). No open bug issues found in Step 0 (`gh issue list` returned empty). Day banner: "National Moon Day 🌕 & National Lollipop Day 🍭 — Sunny Monday In Toronto (26°C)" Day-specific stories: National Moon Day 🌕, National Lollipop Day 🍭, Monday coin moment 🪙. Weather: sunny, high 26°C, humidex 29, UV 8 — a pleasant, unremarkable-weather Monday. Considered an International Chess Day tie-in but dropped it — no individually verifiable reel tied to a repeatable office/chess format existed, so it was left out rather than fabricate a link. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-19 (Edition 29 — Scoop)
 
 | # | Idea | Type | Score | Verified reel |
