@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-21 (Edition 31 — Sizzle)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, That Wasn't Me?! — Coin Count Denial Reveal | React | 9 | @thebentist/video/7319236681566014750 ✓ |
+| 2 | Come Have The Ride Of Your Life! — Prize Shelf Hype Invite | Office | 9 | @happytoothslc/video/7117361981971254574 ✓ |
+| 3 | Let's Do It — Team Hype Huddle | Office | 8 | @aestheticfamilydental/video/7293627977470840110 ✓ |
+| 4 | When You Signed Up To Be A Dentist, Not A TikTokker | Skit | 8 | @aestheticfamilydental/video/7413466725821271338 ✓ |
+| 5 | Mashup Minute — Prize Shelf Dance Cuts | Template | 9 | @just.elias/video/7489432400821275926 ✓ |
+
+**Sounds:** Original Sound (@thebentist, wasn't-me reveal) · Original Sound (@happytoothslc, ride-of-your-life hype) · Original Sound (@aestheticfamilydental, let's-do-it huddle) · Original Sound (@aestheticfamilydental, TikTokker skit) · TikTok Mashup Cuts (@just.elias)
+**Theme:** Sizzle. All 5 idea reels oEmbed-verified twice (initial pass + re-verify pass), each idea reel doubling as its matching sound reel (5 distinct URLs — 2 different @aestheticfamilydental videos, 1 @thebentist, 1 @happytoothslc, 1 @just.elias). No open bug issues found in Step 0 (`gh issue list` returned empty). Day banner: "National Junk Food Day 🍟 & National Hot Dog Day 🌭 — Stormy, Muggy Tuesday In Toronto (27°C, Feels Like 35°C)" Day-specific stories: National Junk Food Day 🍟, National Hot Dog Day 🌭, storm heads-up ⛈️, Tuesday coin moment 🪙. Weather: wildfire smoke cleared but thunderstorms + gusty winds moved in, muggy high 27°C feels like 35°C, showers overnight tapering to a 40% chance through midday. Considered a Chévere (Aria Vega & Ryan Castro) dance tie-in but couldn't find an individually verifiable reel tied to a repeatable dental/office format, so it was dropped rather than fabricate a link. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-20 (Edition 30 — Orbit)
 
 | # | Idea | Type | Score | Verified reel |
