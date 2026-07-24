@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-24 (Edition 33 — Zest)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Nothing But Net — Coin Drop Trick Shot | Skit | 9 | @happytoothslc/video/7171530762569682219 ✓ |
+| 2 | Wait, We Have An Announcement — Big News Hype Reveal | Office | 8 | @happytoothslc/video/7233804456888913195 ✓ |
+| 3 | Turn Up The Tunes — Morning Playlist | Office | 8 | @happytoothslc/video/7283167334330567967 ✓ |
+| 4 | Glam At Work — Team OOTD | Template | 8 | @lumedental/video/7534284103563119894 ✓ |
+| 5 | Wait, Does THIS Snack Actually Wreck Your Teeth?! — Self Care Day Myth-Bust | React | 9 | @dentaldigest_ur/video/7292081405167734058 ✓ |
+
+**Sounds:** Original Sound (@happytoothslc, trick-shot reveal) · Original Sound (@happytoothslc, announcement hype) · Original Sound (@happytoothslc, morning playlist) · Original Sound (@lumedental, glam-at-work OOTD) · Original Sound (@dentaldigest_ur, snack-rating reveal)
+**Theme:** Zest. All 5 idea reels oEmbed-verified twice (initial pass + re-verify pass), each idea reel doubling as its matching sound reel (5 distinct URLs — 3 different @happytoothslc videos not previously used in this log, 1 @lumedental, 1 @dentaldigest_ur, both new accounts/videos to this log). No open bug issues found in Step 0 (`gh issue list` returned empty). Sourced these via WebSearch (not live TikTok browsing — TikTok's own site blocks the automated browser with a bot-check "Please wait..." loop) and cross-checked every candidate against this log before picking, since the account roster (@thebentist, @happytoothslc, @aestheticfamilydental, @lumedental) has been reused heavily across 30+ prior editions — several candidates from those searches turned out to already be in the log and were dropped. Day banner: "International Self Care Day 🪥 & National Cousins Day 👯 — Bright, Sunny Friday In Toronto (23°C)" Day-specific stories: International Self Care Day 🪥, National Cousins Day 👯, bright sunny Friday ☀️, Friday coin moment 🪙. Weather: bright and dry, cool 16°C start warming into the low-20s, clear through the evening near 23°C, light winds ~10km/h (note: air quality flagged unhealthy for sensitive groups, not mentioned in the banner as it wasn't a notable-enough story hook). Considered a Trace Young "nonchalant" viral dance-speech trend but it's the same format family as the "Not Very Nonchalant" idea already used 07-05, so dropped rather than repeat. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-23 (Edition 32 — Swirl)
 
 | # | Idea | Type | Score | Verified reel |
