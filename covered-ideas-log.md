@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-23 (Edition 32 — Swirl)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, WHERE Did The Big Prize Go?! — Prize Shelf Reveal | React | 9 | @thebentist/video/7328136135501270303 ✓ |
+| 2 | Another Interview — Everyone Wants To Work Here | Office | 8 | @aestheticfamilydental/video/7426487259718782254 ✓ |
+| 3 | Six Months Of Coins — Prize Shelf Glow-Up | Office | 8 | @happytoothslc/video/7251729199252131115 ✓ |
+| 4 | "I Just Might" — Prize Shelf Dance | Template | 9 | @joguroot/video/7594194089520745758 ✓ |
+| 5 | Bosslife — Kids' Dentist Edition | Skit | 8 | @lumedental/video/7522778411522149654 ✓ |
+
+**Sounds:** Original Sound (@thebentist, "where did it go?!" reveal) · Original Sound (@aestheticfamilydental, mock-interview brag) · Original Sound (@happytoothslc, 6-month milestone) · I Just Might (Bruno Mars) · Original Sound (@lumedental, bosslife)
+**Theme:** Swirl. All 5 idea reels oEmbed-verified twice (initial pass + re-verify pass), each idea reel doubling as its matching sound reel (5 distinct URLs — 2 different @thebentist/@aestheticfamilydental/@happytoothslc/@lumedental accounts each contributing one, plus 1 @joguroot). No open bug issues found in Step 0 (`gh issue list` returned empty). No new edition ran 2026-07-22 (gap in the routine, continuing from 07-21). Day banner: "National Vanilla Ice Cream Day 🍦 — Heat Returns, Sunny Thursday In Toronto (26°C, Feels Like 30°C)" Day-specific stories: National Vanilla Ice Cream Day 🍦, heat's back ☀️, National Gorgeous Grandma Day 👵 (staff-only shoutout, no patients), Thursday coin moment 🪙. Weather: heat returns after Wednesday's cooler break, sunny, high 26°C feeling closer to 30°C with humidity. Considered the "hot dog summer" / Legally Blonde 2 audio trend but it's the same Jennifer Coolidge "4th of July" clip already used on 07-05, so dropped rather than repeat. Also considered the "say it in 4 tones" trend but couldn't find an individually verifiable dental-office reel doing it, so left out rather than fabricate a link. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-21 (Edition 31 — Sizzle)
 
 | # | Idea | Type | Score | Verified reel |
