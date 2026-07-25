@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-25 (Edition 34 — Drizzle)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, Is Blue Candy ACTUALLY Turning Teeth Blue?! — Sundae Day Myth-Bust | React | 9 | @thebentist/video/7456147097746754846 ✓ |
+| 2 | Plot Twist — Movie-Audio Office Reaction | Skit | 8 | @lumedental/video/7501711053709921558 ✓ |
+| 3 | Light Switch — Prize Shelf Flip | Template | 9 | @aestheticfamilydental/video/7297354704839888170 ✓ |
+| 4 | Let's Talk 'Bout Business — Saturday Morning Huddle | Office | 8 | @happytoothslc/video/7101396933008264490 ✓ |
+| 5 | The Dentist's Secret Code — Coin Edition | React | 8 | @thelondondentist/video/7552439958368259350 ✓ |
+
+**Sounds:** Original Sound (@thebentist, real-or-fake reveal) · Original Sound (@lumedental, movie-audio reaction) · Original Sound (@aestheticfamilydental, light-switch flip) · Original Sound (@happytoothslc, business hype-dance) · Original Sound (@thelondondentist, secret code reveal)
+**Theme:** Drizzle. All 5 idea reels oEmbed-verified twice (initial pass + re-verify pass), each idea reel doubling as its matching sound reel (5 distinct URLs — first appearance in this log for @thebentist's Blue Dye video, @lumedental's White Chicks-audio skit and dental-assistant/composite-bonding videos, @aestheticfamilydental's light/dark trend video, @happytoothslc's "Let's talk 'bout business" video, and @thelondondentist as a brand-new account to this log). No open bug issues found in Step 0 (`gh issue list` returned empty). Sourced via WebSearch (TikTok's own site still blocks the automated browser with a bot-check loop, consistent with prior editions' notes). Day banner: "National Hot Fudge Sundae Day 🍨 & National Carousel Day 🎠 — Warm, Muggy Saturday In Toronto (26°C, Chance Of Afternoon Showers)" Day-specific stories: National Hot Fudge Sundae Day 🍨, National Carousel Day 🎠, afternoon showers heads-up 🌧️, Saturday coin moment 🪙. Weather: warm and muggy, clear/mild morning ~20°C, afternoon high 26°C feeling closer to 32°C with rising humidity, 40% chance of showers, winds up to 35km/h gusts. Note: National Drowning Prevention Day also falls today but was intentionally left out of the dental-office banner/stories — it's a serious public-safety observance, not a natural fit for the office's light, coins/prizes-focused voice. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-24 (Edition 33 — Zest)
 
 | # | Idea | Type | Score | Verified reel |
