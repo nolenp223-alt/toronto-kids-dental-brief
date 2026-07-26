@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-26 (Edition 35 — Mist)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, Is THIS Oral Care Routine Actually Doing Anything?! — Parents' Day Reality Check | React | 9 | @thebentist/video/7483237372415544607 ✓ |
+| 2 | Wait, You Told Your Dentist WHAT?! — Confession Reveal | Skit | 8 | @thebentist/video/7504766674063592734 ✓ |
+| 3 | The Minnesota Two-Step — Prize Shelf Partner Dance | Template | 9 | @silentrich13/video/7648372436907396382 ✓ |
+| 4 | Wait, Everyone Knows This Song?! — Sunday Playlist Moment | Office | 8 | @happytoothslc/video/7271309333848247595 ✓ |
+| 5 | We're Not Great On The Phone — But We ARE Great At Smiles | Office | 8 | @aestheticfamilydental/video/7550694616727604494 ✓ |
+
+**Sounds:** Original Sound (@thebentist, oral-care reality check) · Original Sound (@thebentist, never-lie confession reveal) · Minnesota Two-Step (@silentrich13, viral partner-dance trend) · Original Sound (@happytoothslc, office playlist hits) · Original Sound (@aestheticfamilydental, not-good-on-the-phone bit)
+**Theme:** Mist. All 5 idea reels oEmbed-verified twice (initial pass + re-verify pass), each idea reel doubling as its matching sound reel (5 distinct URLs — 2 different @thebentist videos not previously used in this log, @silentrich13 a brand-new account to this log with the viral "Minnesota" two-person dance trend, 1 new @happytoothslc video, 1 new @aestheticfamilydental video). No open bug issues found in Step 0 (`gh issue list` returned empty). Sourced via WebSearch (TikTok's own site still blocks the automated browser with a bot-check loop, consistent with prior editions' notes) — cross-checked every candidate against this log before picking since several accounts (@thebentist, @happytoothslc, @aestheticfamilydental, @lumedental) have been reused heavily across 34+ prior editions; multiple @lumedental and @aestheticfamilydental candidates from this search turned out to already be in the log and were dropped (e.g. @lumedental's tartar-reaction and eating-vs-cooking clips, @aestheticfamilydental's "one of those days" and "let's do it" clips). Day banner: "National Parents' Day 💛 & National Aunt & Uncle Day 👨‍👩‍👧 — Muggy, Thundery Sunday In Toronto (28°C, Feels Like 34°C)" Day-specific stories: National Parents' Day 💛, National Aunt & Uncle Day 👨‍👩‍👧, thunderstorm heads-up ⛈️, Sunday coin moment 🪙. Weather: partly cloudy start ~18.5°C, increasing cloudiness with a 40% chance of showers/thunderstorm this afternoon, high 28°C with a humidex of 34, UV index 8. Considered National Tree Day and National Coffee Milkshake Day as banner options but Parents'/Aunt & Uncle Day fit the family-oriented pediatric-office voice better on a Sunday. Bug check: confirmed the DAYINFO date/holiday banner logic (`isToday()`/`fallbackDayLabel()`) was already correctly wired from a prior edition's fix — no date-display bug found this run. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-25 (Edition 34 — Drizzle)
 
 | # | Idea | Type | Score | Verified reel |
