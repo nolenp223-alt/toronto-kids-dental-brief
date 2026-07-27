@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-27 (Edition 36 — Drift)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, WHAT Happened To This Toothbrush?! — Time-For-A-New-One Reveal | React | 9 | @thebentist/video/7459107536101313822 ✓ |
+| 2 | Is THIS The Toothbrush Of The FUTURE?! — Gadget Reveal | Office | 8 | @thebentist/video/7552243589758176543 ✓ |
+| 3 | Does Your Dentist Dance?! — Prize Shelf Edition | Template | 9 | @olima_omega/video/7497138224914074902 ✓ |
+| 4 | This Took WAY Too Long — But We Had Fun! — Costume Challenge | Skit | 8 | @aestheticfamilydental/video/7483710867444370730 ✓ |
+| 5 | Fun TikTok Monday At TKD — Team Edition | Office | 8 | @superkidsdental/video/7289500520509771054 ✓ |
+
+**Sounds:** Original Sound (@thebentist, worn-out toothbrush reveal) · Original Sound (@thebentist, toothbrush-of-the-future gadget reveal) · Original Sound (@olima_omega, does your dentist dance?) · Original Sound (@aestheticfamilydental, took-too-long blooper) · Original Sound (@superkidsdental, fun TikTok day montage)
+**Theme:** Drift. All 5 idea reels oEmbed-verified twice (initial pass + re-verify pass), each idea reel doubling as its matching sound reel (5 distinct URLs — 2 different @thebentist toothbrush videos not previously used in this log, @olima_omega and @superkidsdental both brand-new accounts to this log, 1 new @aestheticfamilydental video). No open bug issues found in Step 0 (`gh issue list` returned empty). Dropped a @thelondondentist candidate (video/7423852703593418017) whose oEmbed title was hashtags-only including #abscess with no descriptive caption confirming safe kid-appropriate content, so it was left out rather than guess what it showed. Also dropped a @lumedental candidate (video/7423380040613727521) with a blank oEmbed title for the same reason. Considered the "Baby Laugh" Brazilian AI-filter dance trend but couldn't find an individually verifiable dental-office reel doing it, so left out rather than fabricate a link — used @olima_omega's brand-new "Does Your Dentist Dance?" reveal-dance format instead. Day banner: "National Chicken Finger Day 🍗 — Sunny Start, Stormy Monday Afternoon In Toronto (29°C, Showers Likely)" Day-specific stories: National Chicken Finger Day 🍗, afternoon storm heads-up ⛈️, Monday coin moment 🪙. Weather: mostly cloudy start ~18°C, mainly sunny morning warming toward a 29°C afternoon high, increasing cloudiness with a 40% chance of showers this afternoon, near-certain rain overnight. Bug check: confirmed `isToday()`/`fallbackDayLabel()` date-banner logic is intact and DAYINFO.date was set to today (2026-07-27) — no date-display bug found this run. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-26 (Edition 35 — Mist)
 
 | # | Idea | Type | Score | Verified reel |
