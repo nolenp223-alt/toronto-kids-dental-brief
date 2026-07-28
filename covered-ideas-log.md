@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-28 (Edition 37 — Kickoff)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait... Did We Just SUMMON A Prize?! — Hand-Sign Reveal | Template | 9 | @superkidsdental/video/7655772522868133150 ✓ |
+| 2 | You Won't BELIEVE How Full This Coin Jar Got — Extreme Reveal | React | 8 | @thebentist/video/7626115069062991134 ✓ |
+| 3 | This Prize Shelf Glow-Up Will SHOCK You! — Before/After Reveal | Template | 9 | @thebentist/video/7566734153232698655 ✓ |
+| 4 | The Music Starts Building... Then THIS Happens — Uh-Oh Twist | Skit | 8 | @andy.the.boss/video/7618811909210475807 ✓ |
+| 5 | Come Dance With The TKD Team! — Kickoff Tuesday Edition | Office | 8 | @superkidsdental/video/7406396402210753822 ✓ |
+
+**Sounds:** Original Sound (@superkidsdental, hand-sign summon reveal) · Original Sound (@thebentist, extreme reveal gasp) · Original Sound (@thebentist, shock-transformation wipe) · Boyz n the Hood saxophone theme (@andy.the.boss ominous build) · Original Sound (@superkidsdental, come-join-the-dance invite)
+**Theme:** Kickoff. All 5 idea reels oEmbed-verified twice (initial pass + re-verify pass before publish), each idea reel doubling as its matching sound reel (5 distinct URLs — 2 new @thebentist videos, 2 new @superkidsdental videos, and @andy.the.boss brand-new to this log). Rode the real viral "food jutsu"/anime hand-sign summon trend (36M+ posts, Epidemic Sound's #1 trend for June 2026) via a dental office already doing it, plus the real "saxophones getting louder" ominous-build trend via @andy.the.boss, both reframed around coins/prizes only. No open bug issues found in Step 0 (`gh issue list` returned empty). Day banner: "National Soccer Day ⚽ — Muggy Morning, Storms Roll Into Toronto This Afternoon (25°C)". Day-specific stories: National Soccer Day kickabout ⚽, afternoon storm heads-up ⛈️, Tuesday coin moment 🪙. Weather: mist ~20.5°C early morning with 96% humidity, cloudy with a 70% chance of showers/thunderstorm, temperatures rising from 21°C to a 25°C afternoon peak then cooling to 24°C by evening. Bug check: confirmed `isToday()`/`fallbackDayLabel()` date-banner logic intact and DAYINFO.date set to today (2026-07-28) — no date-display bug found this run. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-27 (Edition 36 — Drift)
 
 | # | Idea | Type | Score | Verified reel |
