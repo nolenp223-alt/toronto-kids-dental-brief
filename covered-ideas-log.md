@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-29 (Edition 38 — Roar)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Come Meet The TKD Team! — Elvis Hype Invite | Template | 9 | @superkidsdental/video/7372620017139092782 ✓ |
+| 2 | Wait, Is This REALLY Our Office?! — Behind-The-Scenes Reveal | Office | 8 | @superkidsdental/video/7237555165715303726 ✓ |
+| 3 | Watch This Nervous Energy Flip — First-Day Confidence Reveal | React | 8 | @thebaby_dds/video/7353340407381560607 ✓ |
+| 4 | It's SHOW TIME — Front Desk Hype Countdown | Skit | 8 | @thebaby_dds/video/7226894107560463659 ✓ |
+| 5 | Moving Like The Coin Robot — Prize Shelf Dance | Template | 8 | @olima_omega/video/7573765490640702742 ✓ |
+
+**Sounds:** Original Sound (@superkidsdental, Elvis hype-invite beat) · Original Sound (@superkidsdental, BTS build reveal) · Original Sound (@thebaby_dds, confidence-flip reveal) · Original Sound (@thebaby_dds, SHOW TIME hype line) · Original Sound (@olima_omega, robot dance beat)
+**Theme:** Roar. All 5 idea reels oEmbed-verified twice (initial pass + re-verify pass before publish), each idea reel doubling as its matching sound reel (5 distinct URLs — @superkidsdental contributing 2 new videos not previously used in this log, @thebaby_dds a brand-new account to this log with 2 videos, @olima_omega a brand-new account to this log). No open bug issues found in Step 0 (`gh issue list` returned empty). For idea #3 and #4, the source reels (@thebaby_dds) show clinical/patient content (a hesitant-kid warm-up, and a numbing-injection explainer) — only the "beat"/format was borrowed (nervous-to-confident flip; SHOW TIME hype countdown), reframed as staff-only skits with no patients and no clinical content, consistent with how prior editions borrowed formats from clinical source reels (e.g. 07-28's tonsil-stone-removal and braces-transformation reveals). Day banner: "International Tiger Day 🐯 & National Lasagna Day 🍝 — Windy, Sunny Wednesday In Toronto (26°C, Gusts To 50km/h)". Day-specific stories: International Tiger Day roar 🐯, National Lasagna Day lunch 🍝, windy Wednesday heads-up 🌬️, Wednesday coin moment 🪙. Weather: mix of sun and cloud becoming sunny in the morning, wind north 30km/h gusting to 50, high 26°C, humidex 29, UV 7, overnight low 16°C clear. Bug check: `isToday()`/`fallbackDayLabel()` date-banner logic (index.html lines ~1639-1651) already correctly wired from prior fixes and DAYINFO.date set to today (2026-07-29) — no date-display bug found this run. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-28 (Edition 37 — Kickoff)
 
 | # | Idea | Type | Score | Verified reel |
