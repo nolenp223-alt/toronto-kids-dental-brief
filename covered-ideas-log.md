@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-30 (Edition 39 — Cream)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, We Can ALWAYS Tell Who's Been Saving Their Coins | React | 9 | @thebentist/video/7378961040597372202 ✓ |
+| 2 | Do Yourself A Favour — Never Skip THIS | React | 8 | @thebentist/video/7557085241316298014 ✓ |
+| 3 | Some Offices Are Just Built Differently | Office | 8 | @aestheticfamilydental/video/7636798124735925517 ✓ |
+| 4 | When You Finally Hear Those Magical Words | Skit | 8 | @aestheticfamilydental/video/7553717013563198775 ✓ |
+| 5 | Everyday — Prize Shelf Dance Challenge | Template | 9 | @just.elias/video/7492005770351906070 ✓ |
+
+**Sounds:** Original Sound (@thebentist, knowing-look reveal) · Original Sound (@thebentist, do-yourself-a-favour PSA) · Original Sound (@aestheticfamilydental, built-different flex) · Original Sound (@aestheticfamilydental, magical-words reveal) · Everyday Dance Challenge (@just.elias)
+**Theme:** Cream. All 5 idea reels oEmbed-verified twice (initial pass + re-verify pass before publish), each idea reel doubling as its matching sound reel (5 distinct URLs — 2 new @thebentist videos not previously used in this log, 2 new @aestheticfamilydental videos not previously used in this log, and a new @just.elias "Everyday" dance-challenge video not previously used in this log). No open bug issues found in Step 0 (`gh issue list` returned empty). Considered the "Dai Dai" Shakira x Burna Boy dance trend but it's explicitly tied to FIFA World Cup 2026 branding/sponsorship, which is off-limits per the no-FIFA/brand-sponsorship-claims rule, so it was dropped rather than risk an implied sponsorship tie-in. Also considered OMI's "Cheerleader" (Felix Jaehn Remix) dance trend but it was already used on 07-08 and 07-12, so dropped as a repeat. For idea #1 and #2, the source reels (@thebentist) are clinical explainer/reaction clips — only the "beat"/format was borrowed (the knowing-look tell; the direct-to-camera PSA callout), reframed as staff-only skits about coins/prizes with no patients and no clinical content, consistent with how prior editions borrowed formats from clinical source reels. Day banner: "National Cheesecake Day 🍰 & International Day Of Friendship 🤝 — Sunny, Warm Thursday In Toronto (27°C)". Day-specific stories: National Cheesecake Day treat 🍰, International Day of Friendship shoutout 🤝, Thursday coin moment 🪙. Weather: clear morning ~18°C with light 16km/h winds, climbing to a sunny 27°C afternoon, easing to ~25°C by evening with light winds — a pleasant, unremarkable-weather Thursday. Also considered National Father-in-Law Day and National Intern Day as banner options but Cheesecake Day + Friendship Day fit the light, family-oriented pediatric-office voice better. Bug check: `isToday()`/`fallbackDayLabel()` date-banner logic (index.html lines ~1639-1651) confirmed intact and DAYINFO.date set to today (2026-07-30) — no date-display bug found this run; also double-checked the hero eyebrow/h1/subhead were rewritten fresh to match today's DAYINFO (past editions have had stale-hero-copy bugs) — confirmed correct this run. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-29 (Edition 38 — Roar)
 
 | # | Idea | Type | Score | Verified reel |
