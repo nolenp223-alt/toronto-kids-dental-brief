@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-07-31 (Edition 40 — Ripe)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Wait, THIS Is What "Open Wide" Really Means?! — Prize Reveal | React | 9 | @thebentist/video/7403824718878477611 ✓ |
+| 2 | Happy Birthday To Me, I Guess — Coin Jar Edition | Skit | 8 | @thebentist/video/7178966891489152299 ✓ |
+| 3 | If This Ever Happens To You... — Lost Coin Edition | Office | 8 | @thebentist/video/7347030045724003627 ✓ |
+| 4 | We Tried The "Better Off Alone" Challenge — Prize Shelf Edition | Template | 9 | @aestheticfamilydental/video/7105492942982253870 ✓ |
+| 5 | Why We Really Became Kids' Dentists | Office | 8 | @aestheticfamilydental/video/7200907526429314350 ✓ |
+
+**Sounds:** Original Sound (@thebentist, open-wide reveal) · Original Sound (@thebentist, birthday deadpan reaction) · Original Sound (@thebentist, "if this ever happens to you" alert) · Better Off Alone (Alice Deejay, via @aestheticfamilydental) · Original Sound (@aestheticfamilydental, why-we-do-this reflection)
+**Theme:** Ripe. All 5 idea reels oEmbed-verified twice (initial pass + re-verify pass before publish), each idea reel doubling as its matching sound reel (5 distinct URLs — 3 new @thebentist videos not previously used in this log — the "open wide" jaw reveal, the "happy birthday to me, I guess" corn/birthday reaction, and the "if this ever happens to you" braces-alert clip — plus 2 new @aestheticfamilydental videos not previously used in this log — the "Better Off Alone" challenge-fail clip and the "why we really become Dentists" heartfelt clip). No open bug issues found in Step 0 (`gh issue list` returned empty). For idea #2 and #3, the source reels (@thebentist) show clinical/reaction content (a corn-related teeth reaction; a braces-alert explainer) — only the "beat"/format was borrowed (the deadpan birthday-reaction twist; the relatable-alert-then-reassurance structure), reframed as staff-only skits about coins/prizes with no patients and no clinical content, consistent with how prior editions borrowed formats from clinical source reels. For idea #4, the source reel is a real "Better Off Alone" (Alice Deejay) beat-drop challenge-fail clip — only the dance-challenge format was borrowed, reframed as a staff blooper-then-recovery bit ending on a coin toss. Considered several @happytoothslc and @aestheticfamilydental candidates surfaced via WebSearch, but every one of them was already in this log (30+ prior editions have used most of the recurring account roster heavily) — dropped rather than repeat. Day banner: "National Avocado Day 🥑 & National Mutt Day 🐶 — Sunny Friday In Toronto (29°C)". Day-specific stories: National Avocado Day treat 🥑, National Mutt Day pet shoutout (staff's own dogs, no patients) 🐶, Friday coin moment 🪙. Weather: mainly clear/sunny, morning ~16°C with mainly clear skies and light west winds, high 29°C with a humidex of 32 — a pleasant, warm summer Friday. Also considered System Administrator Appreciation Day as a banner option (real observance today) but it's too inside-baseball for a family pediatric-office audience, so Avocado Day + Mutt Day were used instead as the more natural, kid/parent-friendly fit. Bug check: `isToday()`/`fallbackDayLabel()` date-banner logic (index.html lines ~1639-1651) confirmed intact and DAYINFO.date set to today (2026-07-31) — no date-display bug found this run; hero eyebrow/h1/subhead rewritten fresh to match today's DAYINFO. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-30 (Edition 39 — Cream)
 
 | # | Idea | Type | Score | Verified reel |
