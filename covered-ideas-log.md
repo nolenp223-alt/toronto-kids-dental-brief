@@ -1,5 +1,20 @@
 # Toronto Kids Dental — Idea Log
 
+## 2026-08-02 (Edition 41 — Puddle)
+
+| # | Idea | Type | Score | Verified reel |
+|---|------|------|-------|---------------|
+| 1 | Boogie On Down To Your Next Coin Drop | Template | 9 | @superkidsdental/video/7468785526951251230 ✓ |
+| 2 | Somedays You Just CBA... Until THIS Happens | Office | 8 | @lumedental/video/7513157050285739286 ✓ |
+| 3 | Obviously We NEVER Do This At The Front Desk | Skit | 8 | @thebaby_dds/video/7481719250764303658 ✓ |
+| 4 | Chaos At The Front Desk... To Chopin | React | 9 | @juliestory/video/7332304031584406815 ✓ |
+| 5 | Things We're SO Happy And Excited For This Weekend | Office | 8 | @superkidsdental/video/7242752241503833386 ✓ |
+
+**Sounds:** Original Sound (@superkidsdental, boogie hype-invite) · Original Sound (@lumedental, "somedays cba" sigh) · Original Sound (@thebaby_dds, TGIF ironic denial) · Chopin — Nocturne Op. 9 No. 2 (via @juliestory) · Original Sound (@superkidsdental, gratitude list-beat)
+**Theme:** Puddle. Bug found and fixed at Step 0: the 2026-08-01 edition file existed on disk but was an exact, unedited duplicate of 2026-07-31.html (identical diff) — it was never given fresh copy/DAYINFO/hero edits, never committed, and never pushed, so the live site had been stuck showing July 31 content through all of August 1st. Removed the broken untracked file and rebuilt fresh from the last good edition (2026-07-31.html) instead of carrying its content forward. All 5 idea reels oEmbed-verified twice (initial pass + re-verify pass before publish), each idea reel doubling as its matching sound reel (5 distinct URLs — 2 new @superkidsdental videos not previously used in this log, plus one each from @lumedental, @thebaby_dds, and @juliestory, all new accounts/videos to this log). No open bug issues found via `gh issue list` (returned empty) beyond the stale-date bug caught manually. Considered and dropped as already-used-in-this-log: several @thebentist, @aestheticfamilydental, @wilton.dental, @leafdentaldumbo, and @happytoothslc candidates surfaced via WebSearch (40+ prior editions have used most of the recurring dental-account roster heavily), plus an @oasisdentalstudio candidate whose oEmbed call returned empty (video unavailable) so it was dropped rather than guess. For idea #2 and #3, the source reels (@lumedental, @thebaby_dds) are general workplace-humor clips with no clinical/patient content shown — the "beat" (low-energy sigh; ironic denial caption) was borrowed and reframed as a staff-only bit about coins/prizes, no patients. For idea #4, the source reel (@juliestory) is a non-dental general GPS-fail video using the real, currently-trending Chopin Nocturne Op. 9 No. 2 fail-compilation audio format — only the graceful-music-over-chaos contrast format was borrowed, consistent with how prior editions borrowed formats from non-dental accounts (e.g. 07-28's @andy.the.boss sax trend, 06-26's @just.elias dance). Day banner: "One Sleep Till Simcoe Day 🎉 — Rainy Sunday In Toronto Before The Long Weekend (21°C, ☔)". Day-specific stories: rainy Sunday cozy office moment ☔, Simcoe Day long weekend countdown 🎉, Sunday coin jar tidy-up 🪙. Weather: steady rain, daytime high 21°C with 88% humidity and 13km/h east winds gusting to 20km/h, near-100% chance of precipitation (25–30mm), overnight low 18°C with northerly winds 24km/h gusting to 36km/h and another ~10mm of rain — a wet, breezy Sunday. Civic Holiday (Simcoe Day) itself falls tomorrow, Monday August 3, 2026 — not today — so the banner frames today as the countdown/lead-in day rather than claiming the holiday is today. Bug check: `isToday()`/`fallbackDayLabel()` date-banner logic (index.html lines ~1639-1651) confirmed intact; DAYINFO.date set to today (2026-08-02); hero eyebrow/h1/subhead/title all rewritten fresh to match. Don't reuse any of the above ideas or sounds.
+
+---
+
 ## 2026-07-31 (Edition 40 — Ripe)
 
 | # | Idea | Type | Score | Verified reel |
